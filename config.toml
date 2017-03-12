@@ -1,21 +1,21 @@
-baseurl = "https://example.org/"
-title = "Creative portfolio"
+baseurl = "https://yanfei-wu.github.io"
+title = "Yanfei Wu"
 theme = "hugo-creative-portfolio-theme"
 languageCode = "en-us"
 # Enable comments by entering your Disqus shortname
-disqusShortname = ""
+disqusShortname = "yanfeiwu"
 # Enable Google Analytics by entering your tracking code
 googleAnalytics = ""
 
 [params]
-  # Style options: default (pink), blue, green, pink, red, sea, violet
+  # Style options: default (sea), blue, green, pink, red, sea, violet
   # Use custom.css for your custom styling
   style = "default"
   description = "Describe your website"
-  copyright = "&copy;2016 Your name or company"
+  copyright = "&copy;2016 Yanfei Wu"
   sidebarAbout = [
-    "I am a creative illustrator and graphic designer with more than 10 years of experience.",
-    "Originally from Toronto, currently based in London."
+    "I am a Materials Science & Engineering PhD transitioning into Data Science.",
+    "I am passionate about generating insights from data."
   ]
   # Contact page
      # Since this template is static, the contact form uses www.formspree.io as a
@@ -29,12 +29,16 @@ googleAnalytics = ""
      # - send a dummy email yourself to confirm your account
      # - click the confirm link in the email from www.formspree.io
      # - you're done. Happy mailing!
-  email = "you@yoursite.com"
+  email = "wuxxx728@umn.edu"
 
   # Nav links in the side bar
   [[params.navlinks]]
   name = "Home"
   url = ""
+
+  [[params.navlinks]]
+  name = "Blogs"
+  url = "blogs/"
 
   [[params.navlinks]]
   name = "About"
@@ -47,9 +51,9 @@ googleAnalytics = ""
   [params.social]
   facebook      = "full page or profile url in facebook"
   googleplus    = "full profile url in googleplus"
-  email         = "email@example.com"
+  email         = "wuxxx728@umn.edu"
   twitter       = "full profile url in twitter"
   linkedin      = "full profile url in linkedin"
   stackoverflow = "full profile url in stackoverflow"
   instagram     = "full profile url in instagram"
-  github        = "full profile url in github"
+  github        = "https://github.com/yanfei-wu"
