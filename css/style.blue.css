@@ -137,7 +137,7 @@ header {
 }
 section {
   position: relative;
-  padding-top: 90px;
+  padding-top: 40px;
   padding-bottom: 90px;
 }
 section.background-gray-lighter {
@@ -246,7 +246,7 @@ button i.fa {
 }
 .text-uppercase {
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.01em;
 }
 .list-style-none {
   list-style: none;
@@ -445,9 +445,9 @@ SIDEBAR + RIGHT COLUMN
   }
 }
 .sidebar-heading {
-  font-size: 18px;
+  font-size: 24px;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
 }
 .sidebar-heading a {
   color: #000;
@@ -472,6 +472,7 @@ SIDEBAR + RIGHT COLUMN
 }
 .sidebar-menu li {
   margin-bottom: 5px;
+  font-size: 18px;
 }
 .sidebar-menu li a {
   color: #555555;
@@ -975,7 +976,7 @@ a:active {
   line-height: 1.5;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
 }
 .box-masonry h4 a {
   color: #000;
@@ -991,7 +992,7 @@ a:active {
 }
 .box-masonry .box-masonry-text p {
   color: #999999;
-  font-size: 14px;
+  font-size: 15px;
 }
 .box-masonry .box-masonry-hover-text-header {
   position: absolute;
