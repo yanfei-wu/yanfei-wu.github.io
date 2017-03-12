@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{ partial "sidebar.html"}}
+{{ partial "sidebar.html" . }}
 <div class="col-xs-12 col-sm-8 col-md-9 content-column white-background col-main-fixedpos">
   {{ partial "mobileNavToggle.html" . }}
     <div class="row">
@@ -15,7 +15,7 @@
             {{ .Params.author }}
           </p>
           <p class="date-comments">
-            <i class="fa fa-calendar-o"></i> {{ .Date.Format "January 2, 2006" }}
+            <i class="fa fa-calendar"></i> {{ .Date.Format "January 2, 2006" }}
           </p>
             {{if eq .Section "portfolio"}}
             <p class="author-category"><b>{{ .Summary }}</b></p>
@@ -35,8 +35,9 @@
     </div>
 
     <a href="#" class="back-to-top">
-      <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
     </a>
+
     
     {{ template "_internal/disqus.html" . }}
 </div>
