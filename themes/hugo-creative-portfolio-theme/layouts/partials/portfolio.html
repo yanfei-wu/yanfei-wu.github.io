@@ -22,15 +22,14 @@
                       {{ end }}
                           <h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
                           <div class="box-masonry-desription">
-
                           {{if eq .Section "blog"}}
                           <p><i class="fa fa-calendar" aria-hidden="true"></i> {{ .Date.Format "January 2, 2006" }}</p>
                           {{end}}
-                          <<p> {{ if .Description }}
-                                    {{ .Description }}
-                                        {{ else }}
+                          <p>{{ if .Description }}
+                                  {{ .Description }}
+                              {{ else }}
                                   {{ .Summary | plainify | safeHTML }}
-                                        {{ end }}</p>
+                              {{ end }}</p>
                           </div>
                       </div>
                   </div>

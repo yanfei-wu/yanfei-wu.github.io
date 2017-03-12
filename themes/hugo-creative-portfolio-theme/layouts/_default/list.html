@@ -1,15 +1,13 @@
 {{ define "main" }}
 {{ partial "sidebar.html" . }}
+
 <div class="col-xs-12 col-sm-8 col-md-9 content-column white-background col-main-fixedpos">
   {{ partial "mobileNavToggle.html" . }}
   <div class="row">
     <div class="col-lg-8">
       <div class="content-column-content" id="blog-listing-medium">
-         <h1>{{ .Title }}</h1>
-
-         {{if eq .Title "Blogs"}}
-         <p class="author-category"> </p>
-         {{end}}
+        <h2 class="text-uppercase">{{ .Title }}</h2>
+          <p class="author-category"> Most blogs are about data science projects I did. You can find the codes in my Github.</p>
 
 
           {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}

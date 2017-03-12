@@ -40,9 +40,6 @@ googleAnalytics = ""
   name = "Blogs"
   url = "blog/"
 
-  [[params.navlinks]]
-  name = "About"
-  url = "about/"
 
   [params.social]
   email         = "wuxxx728@umn.edu"
