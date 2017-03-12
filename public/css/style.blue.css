@@ -18,7 +18,7 @@ ELEPHANT IMPORT
   text-transform: uppercase;
   margin: 0 0 10px;
   font-size: 28px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
 }
 #blog-listing-medium .post h2 a {
   color: #555555;
@@ -32,7 +32,7 @@ ELEPHANT IMPORT
   text-transform: uppercase;
   font-weight: 300;
   font-size: 14px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
 }
 #blog-listing-medium .post .author-category a {
   font-weight: 500;
