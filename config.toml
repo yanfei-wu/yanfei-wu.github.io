@@ -8,14 +8,13 @@ disqusShortname = "yanfeiwu"
 googleAnalytics = ""
 
 [params]
-  # Style options: default (sea), blue, green, pink, red, sea, violet
+  # Style options: default (pink), blue, green, pink, red, sea, violet
   # Use custom.css for your custom styling
-  style = "default"
+  style = "blue"
   description = "Describe your website"
   copyright = "&copy;2016 Yanfei Wu"
   sidebarAbout = [
-    "I am a Materials Science & Engineering PhD transitioning into Data Science.",
-    "I am passionate about generating insights from data."
+    "I am a Materials Science PhD transitioning into Data Science. I am passionate about mining interesting datasets, creating insightful visualizations and developing models. This site is about my amazing journy with data."
   ]
   # Contact page
      # Since this template is static, the contact form uses www.formspree.io as a
@@ -38,22 +37,18 @@ googleAnalytics = ""
 
   [[params.navlinks]]
   name = "Blogs"
-  url = "blogs/"
+  url = "post/"
 
   [[params.navlinks]]
   name = "About"
   url = "about/"
 
-  [[params.navlinks]]
-  name = "Get in touch"
-  url = "contact/"
-
   [params.social]
-  facebook      = "full page or profile url in facebook"
-  googleplus    = "full profile url in googleplus"
   email         = "wuxxx728@umn.edu"
-  twitter       = "full profile url in twitter"
-  linkedin      = "full profile url in linkedin"
-  stackoverflow = "full profile url in stackoverflow"
-  instagram     = "full profile url in instagram"
+  linkedin      = "https://www.linkedin.com/in/yanfei-wu-76696383/"
   github        = "https://github.com/yanfei-wu"
+
+  [params.widgets]
+   categories = false
+   tags = true
+   search = false
