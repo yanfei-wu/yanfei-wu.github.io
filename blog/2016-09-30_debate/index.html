@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Sentiment Analysis: First Presidential Debate 2016</title>
+<meta name="description" content="Describe your website">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/owl.carousel.css">
+<link rel="stylesheet" href="/css/owl.theme.css">
+
+
+  <link href="/css/style.blue.css" rel="stylesheet" id="theme-stylesheet">
+
+
+<link href="/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              
+<div id="sidebar" class="col-sb-fixedpos col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="/">Yanfei Wu</a></h1>
+    <ul class="sidebar-menu">
+      
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/blog/">Blogs</a></li>
+      
+
+      
+
+
+
+ 
+      
+
+ 
+      
+
+    </ul>
+      <p class="social">
+  
+  
+  
+  
+  
+  <a href="mailto:wuxxx728@umn.edu" data-animate-hover="pulse" class="email">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://www.linkedin.com/in/yanfei-wu-76696383/" data-animate-hover="pulse">
+    <i class="fa fa-linkedin"></i>
+  </a>
+  
+  
+  
+  <a href="https://github.com/yanfei-wu" data-animate-hover="pulse">
+    <i class="fa fa-github"></i>
+  </a>
+  
+</p>
+
+
+    <div class="copyright">
+      <p class="credit">
+        
+          &copy;2016 Yanfei Wu
+        
+        | Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+
+&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background col-main-fixedpos">
+  <div class="small-navbar visible-xs">
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+  <h1 class="small-navbar-heading"><a href="/">Yanfei Wu</a></h1>
+</div>
+
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="image">
+          <img src="/blog/debate_file/whitehouse.jpg" class="img-responsive" alt="">
+        </div>
+      </div>
+
+      <div class="col-md-8">
+        <h2>Sentiment Analysis: First Presidential Debate 2016</h2>
+          <p class="author-category">
+            Yanfei Wu
+          </p>
+          <p class="date-comments">
+            <i class="fa fa-calendar"></i> September 30, 2016
+          </p>
+            
+                  
+      </div>
+    </div>
+</br>
+
+    <div class="row">
+      <div class="content-column-content">
+        <div class="col-lg-8">
+          
+          
+
+<p>The US presidential election of 2016 is in less than 2 months. After series of presidential primary elections and caucuses, businessman Donald Trump became the Republican Party&rsquo;s presidential nominee and former Secretary of State Hillary Clinton became the Democratic Party&rsquo;s presidential nominee. Before November, there are three presidential debates between Clinton and Trump. The first debate just took place several days ago on September 26th.</p>
+
+<p>In this post, I show some results of the sentiment analysis I did using tweets collected after the first debate. All codes for this post can be found in <a href="https://github.com/yanfei-wu/presidential_debate/tree/master/first_debate">my Github Repository</a>.</p>
+
+<h3 id="getting-data-from-twitter">Getting Data From Twitter</h3>
+
+<p>20,000 tweets were quried using the two candidates&rsquo; names (10,000 tweets for each candidate) from Twitter. An additional filtering step was carried out to remove tweets containing both names just to simplify the assignment of the sentiment scores to each candidate. (7179 tweets were left only mentioning Clinton&rsquo;s name and 8854 tweets only mentioning Trump&rsquo;s name.)</p>
+
+<h3 id="sentiment-analysis">Sentiment Analysis</h3>
+
+<p>The sentiment scores were calculated using a <a href="https://www.cs.uic.edu/~liub/publications/kdd04-revSummary.pdf">lexicon-based method</a> as proposed by Hu and Liu. A list of English positive and negative opinion words or sentiment words compiled by them were used (you can find it <a href="https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html#lexicon">here</a>). The different between the number of positive words and the number of negative words in each tweet was used to determine the option orientation or the sentiment score of each tweet.</p>
+
+<p><em>Note</em>: Before calculating the sentiment scores, the tweets were cleaned by removing punctuations, special characters (@ and #), and URLs.</p>
+
+<p>Now, let&rsquo;s look at the distribution of sentiment scores for each candidate.</p>
+
+<p><img src="../debate_file/histogram-1.png" class="img-responsive" style="display: block; margin: auto;" /></p>
+
+<p><img src="../debate_file/boxplot-1.png" class="img-responsive" style="display: block; margin: auto;" /></p>
+
+<p>Both candidates have similar variance in terms of their sentiment score distributions with a similar median roughly around 0. And both have outliers or extreme scores (positive and negative). Overall, it is interesting that based on these tweets <strong>people seem to be less happy with Clinton than with Trump</strong>.</p>
+
+<p>The raw sentiment scores were then used to divide the sentiment into 3 categoris below:</p>
+
+<ul>
+<li>Positive(1): <code>sentiment score &gt;= 2</code><br /></li>
+<li>Neutral(0): <code>-2 &lt; sentiment score &lt; 2</code><br /></li>
+<li>Negative(-1): <code>sentiment score &lt;= -2</code><br /></li>
+</ul>
+
+<p>The distributions of positive, neutral, and negative sentiments for each candidate are shown below:</p>
+
+<p><img src="../debate_file/barplot.png" class="img-responsive" style="display: block; margin: auto;" /></p>
+
+<p>Again, the majority (about 80%) of tweets are neutual towards both candidates but there are indeed bias! <strong>More tweets are negative about Clinton than those that are positive</strong>.</p>
+
+<h3 id="word-frequency-analysis">Word Frequency Analysis</h3>
+
+<p>Another interesting thing we can do with tweets is to a word frequency analysis. The first step is to construct corpus by compling the tweets. Then, the texts in the corpus are broken into tokens, i.e., single word. After tokenization, document-term matrix is created to describe the frequency of each word that occurs in the corpus. Note that some words are removed from this analysis such as the candidates&rsquo; names and English stopwords.</p>
+
+<p>The frequency plots are shown below:</p>
+
+<p><img src="../debate_file/word.frequency.plot-1.png" class="img-responsive" style="display: block; margin: auto;" /></p>
+
+<p><img src="../debate_file/word.cloud.clinton-1.png" class="img-responsive" style="display: block; margin: auto;" /></p>
+
+<p><img src="../debate_file/word.cloud.trump-1.png" class="img-responsive" style="display: block; margin: auto;" />
+Not surprisingly, words like &ldquo;Bill&rdquo;, &ldquo;Emails&rdquo;, &ldquo;FBI&rdquo; appear in tweets about Clinton quite frequently. It also looks like a lot of tweets about Clinton also mention Gary Johnson. In tweets about Trump, some frequent words are &ldquo;race&rdquo;, &ldquo;Obama&rdquo;, and also words like &ldquo;unfit&rdquo;!</p>
+
+<h3 id="final-comments">Final Comments</h3>
+
+<p>The analysis shown here is just a sneak peek of the sentiment towards the two candidates. A more thorough analysis could be done with more data (more tweets or incorporating data from other sources), or more complex sentiment metrics. It would also be interesting to dig into those biased data (positive or negative sentiment).</p>
+        </div>
+      </div>
+    </div>
+
+    <a href="#" class="back-to-top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+
+    
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'yanfeiwu';
+    var disqus_identifier = '\/blog\/2016-09-30_debate\/';
+    var disqus_title = 'Sentiment Analysis: First Presidential Debate 2016';
+    var disqus_url = '\/blog\/2016-09-30_debate\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+   
+
+          </div>
+      </div>
+  </div>
+  <script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.cookie.js"> </script>
+<script src="/js/ekko-lightbox.js"></script>
+<script src="/js/jquery.scrollTo.min.js"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script src="/js/imagesloaded.pkgd.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/front.js"></script>
+<script src="/js/backtotop.js"></script> 
+
+</body>
+</html>
