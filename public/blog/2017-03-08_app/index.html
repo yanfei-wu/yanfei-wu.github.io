@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>An Anatomy of the App Store</title>
+<meta name="description" content="Describe your website">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/owl.carousel.css">
+<link rel="stylesheet" href="/css/owl.theme.css">
+
+
+  <link href="/css/style.blue.css" rel="stylesheet" id="theme-stylesheet">
+
+
+<link href="/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              
+<div id="sidebar" class="col-sb-fixedpos col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="/">Yanfei Wu</a></h1>
+    <ul class="sidebar-menu">
+      
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/blog/">Blogs</a></li>
+      
+
+      
+
+
+
+ 
+      
+
+ 
+      
+
+    </ul>
+      <p class="social">
+  
+  
+  
+  
+  
+  <a href="mailto:wuxxx728@umn.edu" data-animate-hover="pulse" class="email">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://www.linkedin.com/in/yanfei-wu-76696383/" data-animate-hover="pulse">
+    <i class="fa fa-linkedin"></i>
+  </a>
+  
+  
+  
+  <a href="https://github.com/yanfei-wu" data-animate-hover="pulse">
+    <i class="fa fa-github"></i>
+  </a>
+  
+</p>
+
+
+    <div class="copyright">
+      <p class="credit">
+        
+          &copy;2016 Yanfei Wu
+        
+        | Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+
+&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background col-main-fixedpos">
+  <div class="small-navbar visible-xs">
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+  <h1 class="small-navbar-heading"><a href="/">Yanfei Wu</a></h1>
+</div>
+
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="image">
+          <img src="/blog/app_file/apps.jpg" class="img-responsive" alt="">
+        </div>
+      </div>
+
+      <div class="col-md-8">
+        <h2>An Anatomy of the App Store</h2>
+          <p class="author-category">
+            Yanfei Wu
+          </p>
+          <p class="date-comments">
+            <i class="fa fa-calendar"></i> March 8, 2017
+          </p>
+            
+                  
+      </div>
+    </div>
+</br>
+
+    <div class="row">
+      <div class="content-column-content">
+        <div class="col-lg-10">
+          
+          
+
+<p> Life might be easier if you are less picky with apps. But you might end up having a cluttered phone screen with a bunch of apps you are never going to use again.</p>
+
+<p>I am not sure if I will have a good solution to this problem&hellip;but don&rsquo;t stop reading. What I can do is to show you the anatomy of today&rsquo;s iTune app store. What types of apps are there? How are they priced? How are they rated? Can we spot a &ldquo;bad&rdquo; app simply by reading the description? What about the reviews? Is it true that good apps are all alike and every bad app is bad in its own way?</p>
+
+<h3 id="get-data">Get Data</h3>
+
+<p>ITunes provides a nice API to download the app data as well as the reviews of the apps from App Store. Here is the <a href="https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/">documentation</a>.</p>
+
+<p>The json file of each app looks something like this (with contents removed):</p>
+
+<pre><code>{
+  &quot;primaryGenreId&quot;: [],
+  &quot;releaseDate&quot;: [], 
+  &quot;version&quot;: [], 
+  &quot;artistId&quot;: [], 
+  &quot;screenshotUrls&quot;: [], 
+  &quot;releaseNotes&quot;: [], 
+  &quot;artistName&quot;: [], 
+  &quot;artworkUrl512&quot;: [], 
+  &quot;trackViewUrl&quot;: [], 
+  &quot;minimumOsVersion&quot;: [], 
+  &quot;genres&quot;: [], 
+  &quot;features&quot;: [], 
+  &quot;kind&quot;: [], 
+  &quot;languageCodesISO2A&quot;: [], 
+  &quot;description&quot;: [], 
+  &quot;averageUserRatingForCurrentVersion&quot;: [], 
+  &quot;averageUserRating&quot;: [], &quot;primaryGenreName&quot;: [], 
+  &quot;fileSizeBytes&quot;: [], &quot;appletvScreenshotUrls&quot;: [], 
+  &quot;trackCensoredName&quot;: [], &quot;trackName&quot;: [], 
+  &quot;ipadScreenshotUrls&quot;: [], 
+  &quot;contentAdvisoryRating&quot;: [], 
+  &quot;isVppDeviceBasedLicensingEnabled&quot;: [], 
+  &quot;genreIds&quot;: [], 
+  &quot;advisories&quot;: [], 
+  &quot;artworkUrl100&quot;: [], 
+  &quot;trackContentRating&quot;: [], 
+  &quot;isGameCenterEnabled&quot;: [], 
+  &quot;artworkUrl60&quot;: [], 
+  &quot;userRatingCount&quot;: [], 
+  &quot;sellerName&quot;: [], 
+  &quot;wrapperType&quot;: [], 
+  &quot;price&quot;: [], 
+  &quot;formattedPrice&quot;: [], 
+  &quot;bundleId&quot;: [], 
+  &quot;currency&quot;: [], 
+  &quot;artistViewUrl&quot;: [], 
+  &quot;currentVersionReleaseDate&quot;: [], 
+  &quot;supportedDevices&quot;: [], 
+  &quot;userRatingCountForCurrentVersion&quot;: [], 
+  &quot;trackId&quot;: []
+ }  
+</code></pre>
+
+<h3 id="quick-look-at-the-data">Quick Look at the Data</h3>
+
+        </div>
+      </div>
+    </div>
+
+    <a href="#" class="back-to-top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+
+    
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'yanfeiwu';
+    var disqus_identifier = '\/blog\/2017-03-08_app\/';
+    var disqus_title = 'An Anatomy of the App Store';
+    var disqus_url = '\/blog\/2017-03-08_app\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+   
+
+          </div>
+      </div>
+  </div>
+  <script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.cookie.js"> </script>
+<script src="/js/ekko-lightbox.js"></script>
+<script src="/js/jquery.scrollTo.min.js"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script src="/js/imagesloaded.pkgd.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/front.js"></script>
+<script src="/js/backtotop.js"></script> 
+
+</body>
+</html>
