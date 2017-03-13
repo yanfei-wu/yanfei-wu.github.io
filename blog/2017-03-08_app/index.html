@@ -2,7 +2,7 @@
 <html lang="en-us">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Name of the work 8</title>
+<title>An Anatomy of the App Store</title>
 <meta name="description" content="Describe your website">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="all,follow">
@@ -96,21 +96,18 @@
     <div class="row">
       <div class="col-sm-4">
         <div class="image">
-          <img src="/img/portfolio/ipad-air-2.jpg" class="img-responsive" alt="">
+          <img src="/blog/app_file/apps.jpg" class="img-responsive" alt="">
         </div>
       </div>
 
       <div class="col-md-8">
-        <h2>Name of the work 8</h2>
+        <h2>An Anatomy of the App Store</h2>
           <p class="author-category">
-            
+            Yanfei Wu
           </p>
           <p class="date-comments">
-            <i class="fa fa-calendar"></i> November 5, 2016
+            <i class="fa fa-calendar"></i> March 8, 2017
           </p>
-            
-            <p class="author-category"><b><p>Fifth abundantly made Give sixth hath. Cattle creature i be don&rsquo;t them.
-</p></b></p>
             
                   
       </div>
@@ -123,31 +120,62 @@
           
           
 
-<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+<p> Life might be easier if you are less picky with apps. But you might end up having a cluttered phone screen with a bunch of apps you are never going to use again.</p>
 
-<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+<p>I am not sure if I will have a good solution to this problem&hellip;but don&rsquo;t stop reading. What I can do is to show you the anatomy of today&rsquo;s iTune app store. What types of apps are there? How are they priced? How are they rated? Can we spot a &ldquo;bad&rdquo; app simply by reading the description? What about the reviews? Is it true that good apps are all alike and every bad app is bad in its own way?</p>
 
-<ol>
-<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-<li>Aliquam tincidunt mauris eu risus.</li>
-</ol>
+<h3 id="get-data">Get Data</h3>
 
-<blockquote>
-<p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn&rsquo;t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
-</blockquote>
+<p>ITunes provides a nice API to download the app data as well as the reviews of the apps from App Store. Here is the <a href="https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/">documentation</a>.</p>
 
-<h2 id="header-level-2">Header Level 2</h2>
+<p>The json file of each app looks something like this (with contents removed):</p>
 
-<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+<pre><code>{
+  &quot;primaryGenreId&quot;: [],
+  &quot;releaseDate&quot;: [], 
+  &quot;version&quot;: [], 
+  &quot;artistId&quot;: [], 
+  &quot;screenshotUrls&quot;: [], 
+  &quot;releaseNotes&quot;: [], 
+  &quot;artistName&quot;: [], 
+  &quot;artworkUrl512&quot;: [], 
+  &quot;trackViewUrl&quot;: [], 
+  &quot;minimumOsVersion&quot;: [], 
+  &quot;genres&quot;: [], 
+  &quot;features&quot;: [], 
+  &quot;kind&quot;: [], 
+  &quot;languageCodesISO2A&quot;: [], 
+  &quot;description&quot;: [], 
+  &quot;averageUserRatingForCurrentVersion&quot;: [], 
+  &quot;averageUserRating&quot;: [], &quot;primaryGenreName&quot;: [], 
+  &quot;fileSizeBytes&quot;: [], &quot;appletvScreenshotUrls&quot;: [], 
+  &quot;trackCensoredName&quot;: [], &quot;trackName&quot;: [], 
+  &quot;ipadScreenshotUrls&quot;: [], 
+  &quot;contentAdvisoryRating&quot;: [], 
+  &quot;isVppDeviceBasedLicensingEnabled&quot;: [], 
+  &quot;genreIds&quot;: [], 
+  &quot;advisories&quot;: [], 
+  &quot;artworkUrl100&quot;: [], 
+  &quot;trackContentRating&quot;: [], 
+  &quot;isGameCenterEnabled&quot;: [], 
+  &quot;artworkUrl60&quot;: [], 
+  &quot;userRatingCount&quot;: [], 
+  &quot;sellerName&quot;: [], 
+  &quot;wrapperType&quot;: [], 
+  &quot;price&quot;: [], 
+  &quot;formattedPrice&quot;: [], 
+  &quot;bundleId&quot;: [], 
+  &quot;currency&quot;: [], 
+  &quot;artistViewUrl&quot;: [], 
+  &quot;currentVersionReleaseDate&quot;: [], 
+  &quot;supportedDevices&quot;: [], 
+  &quot;userRatingCountForCurrentVersion&quot;: [], 
+  &quot;trackId&quot;: []
+ }  
+</code></pre>
 
-<p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn&rsquo;t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
+<h3 id="quick-look-at-the-data">Quick Look at the Data</h3>
 
-<ul>
-<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-<li>Aliquam tincidunt mauris eu risus.</li>
-</ul>
-
-<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then</p>
         </div>
       </div>
     </div>
@@ -160,9 +188,9 @@
     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'yanfeiwu';
-    var disqus_identifier = '\/portfolio\/work8\/';
-    var disqus_title = 'Name of the work 8';
-    var disqus_url = '\/portfolio\/work8\/';
+    var disqus_identifier = '\/blog\/2017-03-08_app\/';
+    var disqus_title = 'An Anatomy of the App Store';
+    var disqus_url = '\/blog\/2017-03-08_app\/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

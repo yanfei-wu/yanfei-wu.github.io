@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Natural Language Processing on Yanfei Wu</title>
-    <link>https://yanfei-wu.github.io/tags/natural-language-processing/index.xml</link>
+    <link>/tags/natural-language-processing/index.xml</link>
     <description>Recent content in Natural Language Processing on Yanfei Wu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2016 Yanfei Wu</copyright>
-    <atom:link href="https://yanfei-wu.github.io/tags/natural-language-processing/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/natural-language-processing/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Sentiment Analysis: First Presidential Debate 2016</title>
-      <link>https://yanfei-wu.github.io/blog/2016-09-30_debate/</link>
+      <link>/blog/2016-09-30_debate/</link>
       <pubDate>Fri, 30 Sep 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://yanfei-wu.github.io/blog/2016-09-30_debate/</guid>
-      <description>&lt;p&gt;&lt;/p&gt;
+      <guid>/blog/2016-09-30_debate/</guid>
+      <description>
 
 &lt;p&gt;The US presidential election of 2016 is in less than 2 months. After series of presidential primary elections and caucuses, businessman Donald Trump became the Republican Party&amp;rsquo;s presidential nominee and former Secretary of State Hillary Clinton became the Democratic Party&amp;rsquo;s presidential nominee. Before November, there are three presidential debates between Clinton and Trump. The first debate just took place several days ago on September 26th.&lt;/p&gt;
 
@@ -23,7 +23,7 @@
 
 &lt;h3 id=&#34;getting-data-from-twitter&#34;&gt;Getting Data From Twitter&lt;/h3&gt;
 
-&lt;p&gt;20,000 tweets were quried using the two candidates&amp;rsquo; names (10,000 tweets for each candidate) from Twitter. An additional filtering step was carried out to remove tweets containing both names just to simplify the assignment of the sentiment scores to each candidate. (7179 tweets were left only mentioning Clinton&amp;rsquo;s name and 8854 tweets only mentioning Trump&amp;rsquo;s name.)&lt;/p&gt;
+&lt;p&gt;20,000 tweets were queried using the two candidates&amp;rsquo; names (10,000 tweets for each candidate) from Twitter. The &lt;code&gt;twitteR&lt;/code&gt; package was used and a brief user guide can be find &lt;a href=&#34;https://cran.r-project.org/web/packages/twitteR/README.html&#34;&gt;here&lt;/a&gt;. An additional filtering step was carried out to remove tweets containing both names just to simplify the assignment of the sentiment scores to each candidate. (7179 tweets were left only mentioning Clinton&amp;rsquo;s name and 8854 tweets only mentioning Trump&amp;rsquo;s name.)&lt;/p&gt;
 
 &lt;h3 id=&#34;sentiment-analysis&#34;&gt;Sentiment Analysis&lt;/h3&gt;
 
@@ -39,7 +39,7 @@
 
 &lt;p&gt;Both candidates have similar variance in terms of their sentiment score distributions with a similar median roughly around 0. And both have outliers or extreme scores (positive and negative). Overall, it is interesting that based on these tweets &lt;strong&gt;people seem to be less happy with Clinton than with Trump&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;The raw sentiment scores were then used to divide the sentiment into 3 categoris below:&lt;/p&gt;
+&lt;p&gt;The raw sentiment scores were then used to divide the sentiment into 3 categories below:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Positive(1): &lt;code&gt;sentiment score &amp;gt;= 2&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
@@ -51,11 +51,11 @@
 
 &lt;p&gt;&lt;img src=&#34;../debate_file/barplot.png&#34; class=&#34;img-responsive&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Again, the majority (about 80%) of tweets are neutual towards both candidates but there are indeed bias! &lt;strong&gt;More tweets are negative about Clinton than those that are positive&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Again, the majority (about 80%) of tweets are neutral towards both candidates but there are indeed bias! &lt;strong&gt;More tweets are negative about Clinton than those that are positive&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;h3 id=&#34;word-frequency-analysis&#34;&gt;Word Frequency Analysis&lt;/h3&gt;
 
-&lt;p&gt;Another interesting thing we can do with tweets is to a word frequency analysis. The first step is to construct corpus by compling the tweets. Then, the texts in the corpus are broken into tokens, i.e., single word. After tokenization, document-term matrix is created to describe the frequency of each word that occurs in the corpus. Note that some words are removed from this analysis such as the candidates&amp;rsquo; names and English stopwords.&lt;/p&gt;
+&lt;p&gt;Another interesting thing we can do with tweets is to a word frequency analysis. The first step is to construct corpus by compiling the tweets. Then, the texts in the corpus are broken into tokens, i.e., single word. After tokenization, document-term matrix is created to describe the frequency of each word that occurs in the corpus. Note that some words are removed from this analysis such as the candidates&amp;rsquo; names and English stopwords.&lt;/p&gt;
 
 &lt;p&gt;The frequency plots are shown below:&lt;/p&gt;
 
@@ -66,9 +66,10 @@
 &lt;p&gt;&lt;img src=&#34;../debate_file/word.cloud.trump-1.png&#34; class=&#34;img-responsive&#34; style=&#34;display: block; margin: auto;&#34; /&gt;
 Not surprisingly, words like &amp;ldquo;Bill&amp;rdquo;, &amp;ldquo;Emails&amp;rdquo;, &amp;ldquo;FBI&amp;rdquo; appear in tweets about Clinton quite frequently. It also looks like a lot of tweets about Clinton also mention Gary Johnson. In tweets about Trump, some frequent words are &amp;ldquo;race&amp;rdquo;, &amp;ldquo;Obama&amp;rdquo;, and also words like &amp;ldquo;unfit&amp;rdquo;!&lt;/p&gt;
 
-&lt;h3 id=&#34;final-comments&#34;&gt;Final Comments&lt;/h3&gt;
+&lt;h3 id=&#34;a-final-note&#34;&gt;A Final Note&lt;/h3&gt;
 
-&lt;p&gt;The analysis shown here is just a sneak peek of the sentiment towards the two candidates. A more thorough analysis could be done with more data (more tweets or incorporating data from other sources), or more complex sentiment metrics. It would also be interesting to dig into those biased data (positive or negative sentiment).&lt;/p&gt;</description>
+&lt;p&gt;The analysis shown here is just a sneak peek of the sentiment towards the two candidates. A more thorough analysis could be done with more data (more tweets or incorporating data from other sources), or more complex sentiment metrics. It would also be interesting to dig into those biased data (positive or negative sentiment).&lt;/p&gt;
+</description>
     </item>
     
   </channel>

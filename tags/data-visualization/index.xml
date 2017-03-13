@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Visualization on Yanfei Wu</title>
+    <link>/tags/data-visualization/index.xml</link>
+    <description>Recent content in Data Visualization on Yanfei Wu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy;2016 Yanfei Wu</copyright>
+    <atom:link href="/tags/data-visualization/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>An Anatomy of the App Store</title>
+      <link>/blog/2017-03-08_app/</link>
+      <pubDate>Wed, 08 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2017-03-08_app/</guid>
+      <description>
+
+&lt;p&gt;The price I paid for having an cheaper iPhone with only 16 Gb of memory (Yeah, I am not upgraded to the newest generation yet&amp;hellip;) is that I have to be really selective about what apps I install and what apps stay installed. This makes my app store visit quite difficult. You know the selection process is already complicated simply by the number of apps out there. So for picky users like me, to spot an app that not only does the job well but is also cheap (ideally free), stable, with a proper size, good-looking (the list goes on here) is no easy task. Life might be easier if you are less picky with apps. But you might end up having a cluttered phone screen with a bunch of apps you are never going to use again.&lt;/p&gt;
+
+&lt;p&gt;I am not sure if I will have a good solution to this problem&amp;hellip;but don&amp;rsquo;t stop reading. What I can do is to show you the anatomy of today&amp;rsquo;s iTune app store. What types of apps are there? How are they priced? How are they rated? Can we spot a &amp;ldquo;bad&amp;rdquo; app simply by reading the description? What about the reviews? Is it true that good apps are all alike and every bad app is bad in its own way?&lt;/p&gt;
+
+&lt;h3 id=&#34;get-data&#34;&gt;Get Data&lt;/h3&gt;
+
+&lt;p&gt;ITunes provides a nice API to download the app data as well as the reviews of the apps from App Store. Here is the &lt;a href=&#34;https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/&#34;&gt;documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The json file of each app looks something like this (with contents removed):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+  &amp;quot;primaryGenreId&amp;quot;: [],
+  &amp;quot;releaseDate&amp;quot;: [], 
+  &amp;quot;version&amp;quot;: [], 
+  &amp;quot;artistId&amp;quot;: [], 
+  &amp;quot;screenshotUrls&amp;quot;: [], 
+  &amp;quot;releaseNotes&amp;quot;: [], 
+  &amp;quot;artistName&amp;quot;: [], 
+  &amp;quot;artworkUrl512&amp;quot;: [], 
+  &amp;quot;trackViewUrl&amp;quot;: [], 
+  &amp;quot;minimumOsVersion&amp;quot;: [], 
+  &amp;quot;genres&amp;quot;: [], 
+  &amp;quot;features&amp;quot;: [], 
+  &amp;quot;kind&amp;quot;: [], 
+  &amp;quot;languageCodesISO2A&amp;quot;: [], 
+  &amp;quot;description&amp;quot;: [], 
+  &amp;quot;averageUserRatingForCurrentVersion&amp;quot;: [], 
+  &amp;quot;averageUserRating&amp;quot;: [], &amp;quot;primaryGenreName&amp;quot;: [], 
+  &amp;quot;fileSizeBytes&amp;quot;: [], &amp;quot;appletvScreenshotUrls&amp;quot;: [], 
+  &amp;quot;trackCensoredName&amp;quot;: [], &amp;quot;trackName&amp;quot;: [], 
+  &amp;quot;ipadScreenshotUrls&amp;quot;: [], 
+  &amp;quot;contentAdvisoryRating&amp;quot;: [], 
+  &amp;quot;isVppDeviceBasedLicensingEnabled&amp;quot;: [], 
+  &amp;quot;genreIds&amp;quot;: [], 
+  &amp;quot;advisories&amp;quot;: [], 
+  &amp;quot;artworkUrl100&amp;quot;: [], 
+  &amp;quot;trackContentRating&amp;quot;: [], 
+  &amp;quot;isGameCenterEnabled&amp;quot;: [], 
+  &amp;quot;artworkUrl60&amp;quot;: [], 
+  &amp;quot;userRatingCount&amp;quot;: [], 
+  &amp;quot;sellerName&amp;quot;: [], 
+  &amp;quot;wrapperType&amp;quot;: [], 
+  &amp;quot;price&amp;quot;: [], 
+  &amp;quot;formattedPrice&amp;quot;: [], 
+  &amp;quot;bundleId&amp;quot;: [], 
+  &amp;quot;currency&amp;quot;: [], 
+  &amp;quot;artistViewUrl&amp;quot;: [], 
+  &amp;quot;currentVersionReleaseDate&amp;quot;: [], 
+  &amp;quot;supportedDevices&amp;quot;: [], 
+  &amp;quot;userRatingCountForCurrentVersion&amp;quot;: [], 
+  &amp;quot;trackId&amp;quot;: []
+ }  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;quick-look-at-the-data&#34;&gt;Quick Look at the Data&lt;/h3&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
