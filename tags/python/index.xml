@@ -10,68 +10,106 @@
     <atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>An Anatomy of the App Store</title>
-      <link>/blog/2017-03-08_app/</link>
-      <pubDate>Wed, 08 Mar 2017 00:00:00 +0000</pubDate>
+      <title>&#34;Toxic Beauty&#34;: Chemicals in Cosmetics</title>
+      <link>/blog/2017-03-15_chemicals/</link>
+      <pubDate>Wed, 15 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017-03-08_app/</guid>
+      <guid>/blog/2017-03-15_chemicals/</guid>
       <description>
 
-&lt;p&gt;The price I paid for having an cheaper iPhone with only 16 Gb of memory (Yeah, I am not upgraded to the newest generation yet&amp;hellip;) is that I have to be really selective about what apps I install and what apps stay installed. This makes my app store visit quite difficult. You know the selection process is already complicated simply by the number of apps out there. So for picky users like me, to spot an app that not only does the job well but is also cheap (ideally free), stable, with a proper size, good-looking (the list goes on here) is no easy task. Life might be easier if you are less picky with apps. But you might end up having a cluttered phone screen with a bunch of apps you are never going to use again.&lt;/p&gt;
+&lt;p&gt;How many different beauty products do you apply onto your face and body everyday? How many chemical ingredients do they contain? And how many of those chemicals have potential health risks?&lt;/p&gt;
 
-&lt;p&gt;I am not sure if I will have a good solution to this problem&amp;hellip;but don&amp;rsquo;t stop reading. What I can do is to show you the anatomy of today&amp;rsquo;s iTune app store. What types of apps are there? How are they priced? How are they rated? Can we spot a &amp;ldquo;bad&amp;rdquo; app simply by reading the description? What about the reviews? Is it true that good apps are all alike and every bad app is bad in its own way?&lt;/p&gt;
+&lt;p&gt;I admit that I have been a little careless when it comes to the safety of my cosmetic products. Then one day I came across this &lt;a href=&#34;https://www.healthdata.gov/dataset/chemicals-cosmetics&#34;&gt;dataset&lt;/a&gt; from California Safe Cosmetics Program in California Department of Public Health. It appears that companies (manufacturer, packer, and/or distributor named on the product label) must submit a list of all products that contain any ingredients &lt;strong&gt;known or suspected to cause cancer, birth defects, or other developmental or reproductive harm&lt;/strong&gt; if the company has annual aggregate sales of cosmetic products of one million dollars or more, and has sold cosmetic products in California on or after January 1, 2007. So I started to dig into this dataset because I was very curious about what exactly were reported. Let me walk you through what I did. All codes are available in &lt;a href=&#34;https://github.com/yanfei-wu/&#34;&gt;my Github Repository&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;get-data&#34;&gt;Get Data&lt;/h3&gt;
+&lt;h3 id=&#34;data-cleaning&#34;&gt;Data Cleaning&lt;/h3&gt;
 
-&lt;p&gt;ITunes provides a nice API to download the app data as well as the reviews of the apps from App Store. Here is the &lt;a href=&#34;https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/&#34;&gt;documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;missing-data&#34;&gt;Missing Data&lt;/h4&gt;
 
-&lt;p&gt;The json file of each app looks something like this (with contents removed):&lt;/p&gt;
+&lt;p&gt;The dataset has 80,004 rows and 22 columns. We can visualize columns containing missing data using a heatmap.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;{
-  &amp;quot;primaryGenreId&amp;quot;: [],
-  &amp;quot;releaseDate&amp;quot;: [], 
-  &amp;quot;version&amp;quot;: [], 
-  &amp;quot;artistId&amp;quot;: [], 
-  &amp;quot;screenshotUrls&amp;quot;: [], 
-  &amp;quot;releaseNotes&amp;quot;: [], 
-  &amp;quot;artistName&amp;quot;: [], 
-  &amp;quot;artworkUrl512&amp;quot;: [], 
-  &amp;quot;trackViewUrl&amp;quot;: [], 
-  &amp;quot;minimumOsVersion&amp;quot;: [], 
-  &amp;quot;genres&amp;quot;: [], 
-  &amp;quot;features&amp;quot;: [], 
-  &amp;quot;kind&amp;quot;: [], 
-  &amp;quot;languageCodesISO2A&amp;quot;: [], 
-  &amp;quot;description&amp;quot;: [], 
-  &amp;quot;averageUserRatingForCurrentVersion&amp;quot;: [], 
-  &amp;quot;averageUserRating&amp;quot;: [], &amp;quot;primaryGenreName&amp;quot;: [], 
-  &amp;quot;fileSizeBytes&amp;quot;: [], &amp;quot;appletvScreenshotUrls&amp;quot;: [], 
-  &amp;quot;trackCensoredName&amp;quot;: [], &amp;quot;trackName&amp;quot;: [], 
-  &amp;quot;ipadScreenshotUrls&amp;quot;: [], 
-  &amp;quot;contentAdvisoryRating&amp;quot;: [], 
-  &amp;quot;isVppDeviceBasedLicensingEnabled&amp;quot;: [], 
-  &amp;quot;genreIds&amp;quot;: [], 
-  &amp;quot;advisories&amp;quot;: [], 
-  &amp;quot;artworkUrl100&amp;quot;: [], 
-  &amp;quot;trackContentRating&amp;quot;: [], 
-  &amp;quot;isGameCenterEnabled&amp;quot;: [], 
-  &amp;quot;artworkUrl60&amp;quot;: [], 
-  &amp;quot;userRatingCount&amp;quot;: [], 
-  &amp;quot;sellerName&amp;quot;: [], 
-  &amp;quot;wrapperType&amp;quot;: [], 
-  &amp;quot;price&amp;quot;: [], 
-  &amp;quot;formattedPrice&amp;quot;: [], 
-  &amp;quot;bundleId&amp;quot;: [], 
-  &amp;quot;currency&amp;quot;: [], 
-  &amp;quot;artistViewUrl&amp;quot;: [], 
-  &amp;quot;currentVersionReleaseDate&amp;quot;: [], 
-  &amp;quot;supportedDevices&amp;quot;: [], 
-  &amp;quot;userRatingCountForCurrentVersion&amp;quot;: [], 
-  &amp;quot;trackId&amp;quot;: []
- }  
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../chemicals_file/missingdata.png&#34; class=&#34;img-responsive&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;quick-look-at-the-data&#34;&gt;Quick Look at the Data&lt;/h3&gt;
+&lt;p&gt;We can see that the majority of the rows in the &lt;code&gt;&#39;DiscontinuedDate&#39;&lt;/code&gt; and &lt;code&gt;&#39;ChemicalDateRemoved&#39;&lt;/code&gt; columns are missing. &lt;code&gt;&#39;CSFId&#39;&lt;/code&gt; and &lt;code&gt;&#39;CSF&#39;&lt;/code&gt; also contains a lot of missing data, followed by &lt;code&gt;&#39;CASNumber&#39;&lt;/code&gt; and &lt;code&gt;&#39;BrandName&#39;&lt;/code&gt;. We know that typical ways of dealing with missing data include a. deleting rows/columns with missing values and b. filling the missing values with some value. The first approach is the easist but caution needs to be taken because we can potentially lose some important information. In our case, the &lt;code&gt;&#39;DiscontinuedDate&#39;&lt;/code&gt; and &lt;code&gt;&#39;ChemicalDateRemoved&#39;&lt;/code&gt; columns give information about product discontinuation or reformulation. So here they are probably just not applicable (products still on sale and no reformulation has been done). We can leave them as they are. For the missing &lt;code&gt;&#39;CSFId&#39;&lt;/code&gt;, &lt;code&gt;&#39;CSF&#39;&lt;/code&gt; and &lt;code&gt;&#39;CasId&#39;&lt;/code&gt;, I do not have enough knowledge to fill in these values but I do not want to lose records by deleting corresponding rows. So again, let&amp;rsquo;s leave them as they are. &lt;code&gt;&#39;BrandName&#39;&lt;/code&gt; is actually something interesting. We can try to fill in the missing values using information given in the dataset, e.g., &lt;code&gt;&#39;CompanyName&#39;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../chemicals_file/missingdata_company.png&#34; class=&#34;img-responsive&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;These products with a missing &lt;code&gt;&#39;BrandName&#39;&lt;/code&gt; actually come from 6 companies and two of them are cosmetic companies. Based on a quick googling, they each carries one brand only (brand name is the same as the company name). So we can simply fill in the brand names for products from these two companies. In the remaining companies, two of them (Fisk Industries Inc. and Atlas Development Limited) only have a small number of records. So it is reasonable to look at them individually and fill in the missing brand names based on the brands they carry. For the remaining records, they can actually be filled with &amp;ldquo;Unknown&amp;rdquo; for simplicity.&lt;/p&gt;
+
+&lt;h4 id=&#34;duplicates-and-unique-values&#34;&gt;Duplicates and Unique Values&lt;/h4&gt;
+
+&lt;p&gt;The other problem a public dataset might have is duplicates. Note that before checking duplicates, the inconsistent format of string values (upper and lower cases are mixed) is corrected. 251 duplicated rows are found. Further inspection of these rows does not show any connection or anything in common. So they are simply dropped.&lt;/p&gt;
+
+&lt;p&gt;The unique number of values for several columns are listed below:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Unique number of &lt;code&gt;&#39;CDPHId&#39;&lt;/code&gt;: 26,036&lt;/li&gt;
+&lt;li&gt;Unique number of &lt;code&gt;&#39;CompanyName&#39;&lt;/code&gt;: 508&lt;/li&gt;
+&lt;li&gt;Unique number of &lt;code&gt;&#39;BrandName&#39;&lt;/code&gt;: 1,820&lt;/li&gt;
+&lt;li&gt;Unique number of &lt;code&gt;&#39;ProductName&#39;&lt;/code&gt;: 23,992&lt;/li&gt;
+&lt;li&gt;Unique number of &lt;code&gt;&#39;PrimaryCategory&#39;&lt;/code&gt;: 13&lt;/li&gt;
+&lt;li&gt;Unique number of &lt;code&gt;&#39;SubCategory&#39;&lt;/code&gt;&amp;lsquo;: 89&lt;/li&gt;
+&lt;li&gt;Unique number of &lt;code&gt;&#39;ChemicalName&#39;&lt;/code&gt;: 110&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Further inspection of the dataset shows that &lt;code&gt;&#39;CDPHId&#39;&lt;/code&gt; represents unique product. So the difference between number of &lt;code&gt;&#39;ProductName&#39;&lt;/code&gt; and &lt;code&gt;&#39;CDPHId&#39;&lt;/code&gt; indicates that there are products with the same name. We can actually generate a seperate dataframe storing the basic information (&lt;code&gt;&#39;CDPHId&#39;&lt;/code&gt;, &lt;code&gt;&#39;CompanyName&#39;&lt;/code&gt;, &lt;code&gt;&#39;BrandName&#39;&lt;/code&gt;, &lt;code&gt;&#39;ProductName&#39;&lt;/code&gt;) of unique products.&lt;/p&gt;
+
+&lt;h3 id=&#34;data-visualization&#34;&gt;Data Visualization&lt;/h3&gt;
+
+&lt;p&gt;There are several questions I am interested in. For example:&lt;br /&gt;
+1. What are the most common reportable chemicals?&lt;br /&gt;
+2. Which products have the largest number of reportable chemicals?&lt;br /&gt;
+3. Which categories of products are reported most frequently?&lt;br /&gt;
+4. Which companies/brands have the largest number of products reported?&lt;/p&gt;
+
+&lt;h4 id=&#34;most-common-reportable-chemicals&#34;&gt;Most common reportable chemicals&lt;/h4&gt;
+
+&lt;p&gt;The dataset is grouped by &lt;code&gt;&#39;ChemicalName&#39;&lt;/code&gt; and the number of unique &lt;code&gt;&#39;CDPHId&#39;&lt;/code&gt; is counted.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../chemicals_file/most_common_chemical.png&#34; class=&#34;img-responsive&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Looks like titanium dioxide is contained in the majority of the products reported. The exact harm of titanium dioxide is not well understood. It is generally considered to be a relatively inert, safe material, but when it is in the form of nanoparticles, some believe that it can penetrate the skin and cause potential health risk. Currently, only airborne, unbound titanium dioxide particle of respirable size is officially listed in &lt;a href=&#34;https://oehha.ca.gov/proposition-65/about-proposition-65&#34;&gt;California Proposition 65&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;All other chemicals are contained in much smaller number of products. The health risks for some of them are also controversial. FDA actually only takes legal action against cosmetic companies if there is enough evidence of a safety problem for consumers.&lt;/p&gt;
+
+&lt;h4 id=&#34;products-with-the-largest-number-of-reportable-chemicals&#34;&gt;Products with the largest number of reportable chemicals&lt;/h4&gt;
+
+&lt;p&gt;First, let&amp;rsquo;s look at some statistics about the number of reportable chemicals in the products:&lt;br /&gt;
+- Minimum number of reportable chemicals in any product: 1&lt;br /&gt;
+- Maximum number of reportable chemicals in any product: 10&lt;br /&gt;
+- Median number of reportable chemicals in all product: 1.0&lt;br /&gt;
+- Mean number of reportable chemicals in all product: 1.0970579198033492&lt;br /&gt;
+- Standard deviation of the number of reportable chemicals in all product: 0.3771734727730194&lt;/p&gt;
+
+&lt;p&gt;Looks like the majority of products in the dataset only contains one reportable chemical (highly likely to be titanium dioxide), but there are also products contain more than one reportable chemicals. What are they?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../chemicals_file/top_product.png&#34; class=&#34;img-responsive&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A lot of them are hair and skin care products!&lt;/p&gt;
+
+&lt;h4 id=&#34;categories-of-products-reported-most-frequently&#34;&gt;Categories of products reported most frequently&lt;/h4&gt;
+
+&lt;p&gt;Similarly, we can group the dataset by &lt;code&gt;&#39;PrimaryCategory&#39;&lt;/code&gt; and count the number of unique products.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../chemicals_file/category.png&#34; class=&#34;img-responsive&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Makeup products is No. 1. This is not surprising because most of them contain chemicals like titanium dioxide, mica, talc, etc.&lt;/p&gt;
+
+&lt;h4 id=&#34;companies-brands-with-the-largest-number-of-products-reported&#34;&gt;Companies/Brands with the largest number of products reported&lt;/h4&gt;
+
+&lt;p&gt;Another thing to look at is which companies/brands have the largest number of products reported. Again, simply group the data by &lt;code&gt;&#39;CompanyName&#39;&lt;/code&gt; or &lt;code&gt;&#39;BrandName&#39;&lt;/code&gt; and count the number of unique products.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../chemicals_file/company.png&#34; class=&#34;img-responsive&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;br /&gt;
+&lt;img src=&#34;../chemicals_file/brand.png&#34; class=&#34;img-responsive&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The potential risks of a lot of the chemicals are actually controversial and FDA does not take legal action against cosmetic companies unless there is enough evidence. So it is really up to us to decide whether we want to avoid some ingredients or not.&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Compared to products with only one chemical reported like titanium dioxide (commonly used in sunscreens and makeups; probably hard to avoid), we should probably be more cautious about products containing several different kinds of potentially dangerous chemicals.&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;According to the dataset, makeup is the No.1 category with the most products reported to have potentially dangerous chemicals and baby products seem to be the &amp;ldquo;safest&amp;rdquo;. The former is not surprising to most of us and the latter is reassuring!&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Note&lt;/em&gt;: the dataset maynot include all products containing carcinogens or developmental or reproductive toxicants due to companies failing to report.&lt;/p&gt;
 </description>
     </item>
     

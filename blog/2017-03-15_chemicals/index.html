@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>&#34;Toxic Beauty&#34;: Chemicals in Cosmetics</title>
+<meta name="description" content="Describe your website">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/owl.carousel.css">
+<link rel="stylesheet" href="/css/owl.theme.css">
+
+
+  <link href="/css/style.blue.css" rel="stylesheet" id="theme-stylesheet">
+
+
+<link href="/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              
+<div id="sidebar" class="col-sb-fixedpos col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="/">Yanfei Wu</a></h1>
+    <ul class="sidebar-menu">
+      
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/blog/">Blogs</a></li>
+      
+
+      
+
+
+
+ 
+      
+
+ 
+      
+
+    </ul>
+      <p class="social">
+  
+  
+  
+  
+  
+  <a href="mailto:wuxxx728@umn.edu" data-animate-hover="pulse" class="email">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://www.linkedin.com/in/yanfei-wu-76696383/" data-animate-hover="pulse">
+    <i class="fa fa-linkedin"></i>
+  </a>
+  
+  
+  
+  <a href="https://github.com/yanfei-wu" data-animate-hover="pulse">
+    <i class="fa fa-github"></i>
+  </a>
+  
+</p>
+
+
+    <div class="copyright">
+      <p class="credit">
+        
+          &copy;2016 Yanfei Wu
+        
+        | Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+
+&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background col-main-fixedpos">
+  <div class="small-navbar visible-xs">
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+  <h1 class="small-navbar-heading"><a href="/">Yanfei Wu</a></h1>
+</div>
+
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="image">
+          <img src="/blog/chemicals_file/beauty.jpg" class="img-responsive" alt="">
+        </div>
+      </div>
+
+      <div class="col-md-8">
+        <h2>&#34;Toxic Beauty&#34;: Chemicals in Cosmetics</h2>
+          <p class="author-category">
+            Yanfei Wu
+          </p>
+          <p class="date-comments">
+            <i class="fa fa-calendar"></i> March 15, 2017
+          </p>
+            
+                  
+      </div>
+    </div>
+</br>
+
+    <div class="row">
+      <div class="content-column-content">
+        <div class="col-lg-10">
+          
+          
+
+<p>How many different beauty products do you apply onto your face and body everyday? How many chemical ingredients do they contain? And how many of those chemicals have potential health risks?</p>
+
+<p>I admit that I have been a little careless when it comes to the safety of my cosmetic products. Then one day I came across this <a href="https://www.healthdata.gov/dataset/chemicals-cosmetics">dataset</a> from California Safe Cosmetics Program in California Department of Public Health. It appears that companies (manufacturer, packer, and/or distributor named on the product label) must submit a list of all products that contain any ingredients <strong>known or suspected to cause cancer, birth defects, or other developmental or reproductive harm</strong> if the company has annual aggregate sales of cosmetic products of one million dollars or more, and has sold cosmetic products in California on or after January 1, 2007. So I started to dig into this dataset because I was very curious about what exactly were reported. Let me walk you through what I did. All codes are available in <a href="https://github.com/yanfei-wu/">my Github Repository</a>.</p>
+
+<h3 id="data-cleaning">Data Cleaning</h3>
+
+<h4 id="missing-data">Missing Data</h4>
+
+<p>The dataset has 80,004 rows and 22 columns. We can visualize columns containing missing data using a heatmap.</p>
+
+<p><img src="../chemicals_file/missingdata.png" class="img-responsive" style="display: block; margin: auto;" /></p>
+
+<p>We can see that the majority of the rows in the <code>'DiscontinuedDate'</code> and <code>'ChemicalDateRemoved'</code> columns are missing. <code>'CSFId'</code> and <code>'CSF'</code> also contains a lot of missing data, followed by <code>'CASNumber'</code> and <code>'BrandName'</code>. We know that typical ways of dealing with missing data include a. deleting rows/columns with missing values and b. filling the missing values with some value. The first approach is the easist but caution needs to be taken because we can potentially lose some important information. In our case, the <code>'DiscontinuedDate'</code> and <code>'ChemicalDateRemoved'</code> columns give information about product discontinuation or reformulation. So here they are probably just not applicable (products still on sale and no reformulation has been done). We can leave them as they are. For the missing <code>'CSFId'</code>, <code>'CSF'</code> and <code>'CasId'</code>, I do not have enough knowledge to fill in these values but I do not want to lose records by deleting corresponding rows. So again, let&rsquo;s leave them as they are. <code>'BrandName'</code> is actually something interesting. We can try to fill in the missing values using information given in the dataset, e.g., <code>'CompanyName'</code>.</p>
+
+<p><img src="../chemicals_file/missingdata_company.png" class="img-responsive" style="display: block; margin: auto;" /></p>
+
+<p>These products with a missing <code>'BrandName'</code> actually come from 6 companies and two of them are cosmetic companies. Based on a quick googling, they each carries one brand only (brand name is the same as the company name). So we can simply fill in the brand names for products from these two companies. In the remaining companies, two of them (Fisk Industries Inc. and Atlas Development Limited) only have a small number of records. So it is reasonable to look at them individually and fill in the missing brand names based on the brands they carry. For the remaining records, they can actually be filled with &ldquo;Unknown&rdquo; for simplicity.</p>
+
+<h4 id="duplicates-and-unique-values">Duplicates and Unique Values</h4>
+
+<p>The other problem a public dataset might have is duplicates. Note that before checking duplicates, the inconsistent format of string values (upper and lower cases are mixed) is corrected. 251 duplicated rows are found. Further inspection of these rows does not show any connection or anything in common. So they are simply dropped.</p>
+
+<p>The unique number of values for several columns are listed below:</p>
+
+<ul>
+<li>Unique number of <code>'CDPHId'</code>: 26,036</li>
+<li>Unique number of <code>'CompanyName'</code>: 508</li>
+<li>Unique number of <code>'BrandName'</code>: 1,820</li>
+<li>Unique number of <code>'ProductName'</code>: 23,992</li>
+<li>Unique number of <code>'PrimaryCategory'</code>: 13</li>
+<li>Unique number of <code>'SubCategory'</code>&lsquo;: 89</li>
+<li>Unique number of <code>'ChemicalName'</code>: 110</li>
+</ul>
+
+<p>Further inspection of the dataset shows that <code>'CDPHId'</code> represents unique product. So the difference between number of <code>'ProductName'</code> and <code>'CDPHId'</code> indicates that there are products with the same name. We can actually generate a seperate dataframe storing the basic information (<code>'CDPHId'</code>, <code>'CompanyName'</code>, <code>'BrandName'</code>, <code>'ProductName'</code>) of unique products.</p>
+
+<h3 id="data-visualization">Data Visualization</h3>
+
+<p>There are several questions I am interested in. For example:<br />
+1. What are the most common reportable chemicals?<br />
+2. Which products have the largest number of reportable chemicals?<br />
+3. Which categories of products are reported most frequently?<br />
+4. Which companies/brands have the largest number of products reported?</p>
+
+<h4 id="most-common-reportable-chemicals">Most common reportable chemicals</h4>
+
+<p>The dataset is grouped by <code>'ChemicalName'</code> and the number of unique <code>'CDPHId'</code> is counted.</p>
+
+<p><img src="../chemicals_file/most_common_chemical.png" class="img-responsive" style="display: block; margin: auto;" /></p>
+
+<p>Looks like titanium dioxide is contained in the majority of the products reported. The exact harm of titanium dioxide is not well understood. It is generally considered to be a relatively inert, safe material, but when it is in the form of nanoparticles, some believe that it can penetrate the skin and cause potential health risk. Currently, only airborne, unbound titanium dioxide particle of respirable size is officially listed in <a href="https://oehha.ca.gov/proposition-65/about-proposition-65">California Proposition 65</a>.</p>
+
+<p>All other chemicals are contained in much smaller number of products. The health risks for some of them are also controversial. FDA actually only takes legal action against cosmetic companies if there is enough evidence of a safety problem for consumers.</p>
+
+<h4 id="products-with-the-largest-number-of-reportable-chemicals">Products with the largest number of reportable chemicals</h4>
+
+<p>First, let&rsquo;s look at some statistics about the number of reportable chemicals in the products:<br />
+- Minimum number of reportable chemicals in any product: 1<br />
+- Maximum number of reportable chemicals in any product: 10<br />
+- Median number of reportable chemicals in all product: 1.0<br />
+- Mean number of reportable chemicals in all product: 1.0970579198033492<br />
+- Standard deviation of the number of reportable chemicals in all product: 0.3771734727730194</p>
+
+<p>Looks like the majority of products in the dataset only contains one reportable chemical (highly likely to be titanium dioxide), but there are also products contain more than one reportable chemicals. What are they?</p>
+
+<p><img src="../chemicals_file/top_product.png" class="img-responsive" style="display: block; margin: auto;" /></p>
+
+<p>A lot of them are hair and skin care products!</p>
+
+<h4 id="categories-of-products-reported-most-frequently">Categories of products reported most frequently</h4>
+
+<p>Similarly, we can group the dataset by <code>'PrimaryCategory'</code> and count the number of unique products.</p>
+
+<p><img src="../chemicals_file/category.png" class="img-responsive" style="display: block; margin: auto;" /></p>
+
+<p>Makeup products is No. 1. This is not surprising because most of them contain chemicals like titanium dioxide, mica, talc, etc.</p>
+
+<h4 id="companies-brands-with-the-largest-number-of-products-reported">Companies/Brands with the largest number of products reported</h4>
+
+<p>Another thing to look at is which companies/brands have the largest number of products reported. Again, simply group the data by <code>'CompanyName'</code> or <code>'BrandName'</code> and count the number of unique products.</p>
+
+<p><img src="../chemicals_file/company.png" class="img-responsive" style="display: block; margin: auto;" /><br />
+<img src="../chemicals_file/brand.png" class="img-responsive" style="display: block; margin: auto;" /></p>
+
+<h3 id="summary">Summary</h3>
+
+<ul>
+<li>The potential risks of a lot of the chemicals are actually controversial and FDA does not take legal action against cosmetic companies unless there is enough evidence. So it is really up to us to decide whether we want to avoid some ingredients or not.<br /></li>
+<li>Compared to products with only one chemical reported like titanium dioxide (commonly used in sunscreens and makeups; probably hard to avoid), we should probably be more cautious about products containing several different kinds of potentially dangerous chemicals.<br /></li>
+<li>According to the dataset, makeup is the No.1 category with the most products reported to have potentially dangerous chemicals and baby products seem to be the &ldquo;safest&rdquo;. The former is not surprising to most of us and the latter is reassuring!<br /></li>
+</ul>
+
+<p><em>Note</em>: the dataset maynot include all products containing carcinogens or developmental or reproductive toxicants due to companies failing to report.</p>
+
+        </div>
+      </div>
+    </div>
+
+    <a href="#" class="back-to-top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+
+    
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'yanfeiwu';
+    var disqus_identifier = '\/blog\/2017-03-15_chemicals\/';
+    var disqus_title = '\x22Toxic Beauty\x22: Chemicals in Cosmetics';
+    var disqus_url = '\/blog\/2017-03-15_chemicals\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+   
+
+          </div>
+      </div>
+  </div>
+  <script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.cookie.js"> </script>
+<script src="/js/ekko-lightbox.js"></script>
+<script src="/js/jquery.scrollTo.min.js"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script src="/js/imagesloaded.pkgd.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/front.js"></script>
+<script src="/js/backtotop.js"></script> 
+
+</body>
+</html>
