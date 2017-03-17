@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R on Yanfei Wu</title>
-    <link>/tags/r/index.xml</link>
+    <link>https://yanfei-wu.github.io/tags/r/index.xml</link>
     <description>Recent content in R on Yanfei Wu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2016 Yanfei Wu</copyright>
-    <atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://yanfei-wu.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Sentiment Analysis: First Presidential Debate 2016</title>
-      <link>/blog/2016-09-30_debate/</link>
+      <link>https://yanfei-wu.github.io/blog/2016-09-30_debate/</link>
       <pubDate>Fri, 30 Sep 2016 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2016-09-30_debate/</guid>
+      <guid>https://yanfei-wu.github.io/blog/2016-09-30_debate/</guid>
       <description>
 
 &lt;p&gt;The US presidential election of 2016 is in less than 2 months. After series of presidential primary elections and caucuses, businessman Donald Trump became the Republican Party&amp;rsquo;s presidential nominee and former Secretary of State Hillary Clinton became the Democratic Party&amp;rsquo;s presidential nominee. Before November, there are three presidential debates between Clinton and Trump. The first debate just took place several days ago on September 26th.&lt;/p&gt;
