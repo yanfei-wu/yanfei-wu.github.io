@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Data Cleaning on Yanfei Wu</title>
-    <link>https://yanfei-wu.github.io/tags/data-cleaning/index.xml</link>
+    <link>/tags/data-cleaning/index.xml</link>
     <description>Recent content in Data Cleaning on Yanfei Wu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2016 Yanfei Wu</copyright>
-    <atom:link href="https://yanfei-wu.github.io/tags/data-cleaning/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/data-cleaning/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>&#34;Toxic Beauty&#34;: Chemicals in Cosmetics</title>
-      <link>https://yanfei-wu.github.io/blog/2017-03-15_chemicals/</link>
+      <link>/blog/2017-03-15_chemicals/</link>
       <pubDate>Wed, 15 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://yanfei-wu.github.io/blog/2017-03-15_chemicals/</guid>
+      <guid>/blog/2017-03-15_chemicals/</guid>
       <description>
 
 &lt;p&gt;How many different beauty products do you apply onto your face and body everyday? How many chemical ingredients do they contain? And how many of those chemicals have potential health risks?&lt;/p&gt;
 
-&lt;p&gt;I admit that I have been a little careless when it comes to the safety of my cosmetic products. Then one day I came across this &lt;a href=&#34;https://www.healthdata.gov/dataset/chemicals-cosmetics&#34;&gt;dataset&lt;/a&gt; from California Safe Cosmetics Program in California Department of Public Health. It appears that companies (manufacturer, packer, and/or distributor named on the product label) must submit a list of all products that contain any ingredients &lt;strong&gt;known or suspected to cause cancer, birth defects, or other developmental or reproductive harm&lt;/strong&gt; if the company has annual aggregate sales of cosmetic products of one million dollars or more, and has sold cosmetic products in California on or after January 1, 2007. So I started to dig into this dataset because I was very curious about what exactly were reported. Let me walk you through what I did. All codes are available in &lt;a href=&#34;https://github.com/yanfei-wu/&#34;&gt;my Github Repository&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I admit that I have been a little careless when it comes to the safety of my cosmetic products. Then one day I came across this &lt;a href=&#34;https://www.healthdata.gov/dataset/chemicals-cosmetics&#34;&gt;dataset&lt;/a&gt; from California Safe Cosmetics Program in California Department of Public Health. It appears that companies (manufacturer, packer, and/or distributor named on the product label) must submit a list of all products that contain any ingredients &lt;strong&gt;known or suspected to cause cancer, birth defects, or other developmental or reproductive harm&lt;/strong&gt; if the company has annual aggregate sales of cosmetic products of one million dollars or more, and has sold cosmetic products in California on or after January 1, 2007. So I started to dig into this dataset because I was very curious about what exactly were reported. Let me walk you through what I did. All codes are available in &lt;a href=&#34;https://github.com/yanfei-wu/chemical_cosmetic&#34;&gt;my Github Repository&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&#34;data-cleaning&#34;&gt;Data Cleaning&lt;/h3&gt;
 
