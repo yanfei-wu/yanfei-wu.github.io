@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Machine Learning on Yanfei Wu</title>
+    <link>/tags/machine-learning/index.xml</link>
+    <description>Recent content in Machine Learning on Yanfei Wu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy;2016 Yanfei Wu</copyright>
+    <atom:link href="/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>South Park Lines: Who is Speaking? (Part 1)</title>
+      <link>/blog/2017-03-20_southpark/</link>
+      <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2017-03-20_southpark/</guid>
+      <description>&lt;p&gt;The dataset contain 70k lines from South Park cartoon. It was downloaded from &lt;a href=&#34;https://www.kaggle.com/tovarischsukhov/southparklines&#34;&gt;Kaggle&lt;/a&gt;. The raw dataset is annotated with season, episode and speaker.
+The content will come soon&amp;hellip;&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

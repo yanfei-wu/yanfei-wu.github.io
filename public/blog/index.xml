@@ -2,20 +2,135 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blogs on Yanfei Wu</title>
-    <link>https://yanfei-wu.github.io/blog/index.xml</link>
+    <link>/blog/index.xml</link>
     <description>Recent content in Blogs on Yanfei Wu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2016 Yanfei Wu</copyright>
-    <lastBuildDate>Wed, 15 Mar 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://yanfei-wu.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Mar 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>South Park Lines: Who is Speaking? (Part 1)</title>
+      <link>/blog/2017-03-20_southpark/</link>
+      <pubDate>Fri, 24 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2017-03-20_southpark/</guid>
+      <description>
+
+&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;South Park is an adult animated sitcom about four potty-mouthed grade boys Eric Cartman, Stan Marsh, Kyle Broflovshi, and Kenny McCormick and their adventures in a fictional Colorado town called South Park. The show debuted in 1997 and has been through 20 seasons now. It is such a famous show and it has won a lot of awards but for some reason I never really watched this show (except for a couple YouTube clips).&lt;/p&gt;
+
+&lt;p&gt;Recently, I found a dataset from &lt;a href=&#34;https://www.kaggle.com/tovarischsukhov/southparklines&#34;&gt;Kaggle&lt;/a&gt; with the lines of the first 18 seasons. These lines have been annotated with season, episode and speaker. I was curious about what I can find out about the show just from this dataset. Also, I thought it would be interesting to build a classification model to guess the speakers based on the lines. This post will focus on the first part using data visualization. All the codes for this post can be found in &lt;a href=&#34;https://github.com/yanfei-wu/tv_lines&#34;&gt;my Github Repository&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here it goes.&lt;/p&gt;
+
+&lt;h3 id=&#34;get-to-know-the-show&#34;&gt;Get to Know the Show&lt;/h3&gt;
+
+&lt;p&gt;First, I looked at some basic information about the show based on this dataset, such as the number of episodes, the number of characters, the number of lines, etc. The information is summarized in the table below:&lt;/p&gt;
+
+&lt;div&gt;
+&lt;table border=&#34;1&#34; align=&#34;center&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr align=&#34;center&#34;&gt;
+      &lt;th&gt; Seasons &lt;/th&gt;
+      &lt;th&gt;  Episodes  &lt;/th&gt;
+      &lt;th&gt;  Characters  &lt;/th&gt;
+      &lt;th&gt;  Lines  &lt;/th&gt;
+      &lt;th&gt;  Words  &lt;/th&gt;
+      &lt;th&gt;  Words (Unique)  &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr align=&#34;center&#34;&gt;
+      &lt;td width=&#34;15%&#34;&gt; 18 &lt;/td&gt;
+      &lt;td width=&#34;15%&#34;&gt; 257 &lt;/td&gt;
+      &lt;td width=&#34;15%&#34;&gt; 3,949 &lt;/td&gt;
+      &lt;td width=&#34;15%&#34;&gt; 70,789 &lt;/td&gt;
+      &lt;td width=&#34;15%&#34;&gt; 811,296 &lt;/td&gt;
+      &lt;td width=&#34;20%&#34;&gt; 30,347 &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;/div&gt;  
+
+&lt;p&gt;So how long are the lines? The number of words in a line is used to define the line length. The distribution of the line length shows that the majority of the lines in the show are relatively short (with a median of 8 words and a 75 percentile of 14 words).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../southpark_file/linelength_dist.png&#34; class=&#34;img-responsive&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Another question is how did the show evolve over the seasons in terms of the number of episodes, characters, and lines?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../southpark_file/over_season.png&#34; class=&#34;img-responsive&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Based on the plot above, the show started off with 13 episodes and around 250 characters in Season 1. On average, it had about 320 lines per episode but the lines seem to be short. The first season was clearly a success as we can see a big jump in the numbers of episodes and characters as well as the average numbers of lines and words in Season 2. Overall, these numbers peaked from Season 2 through Season 4 followed by some slow decay. During Season 10 to Season 15, more characters were included in each season although each season remained to have 14 episodes. The average number of lines, interestingly, did not show a corresponding increase. But the lines were definitely getting longer on average from Season 13.&lt;/p&gt;
+
+&lt;h3 id=&#34;get-to-know-the-characters&#34;&gt;Get to Know the Characters&lt;/h3&gt;
+
+&lt;h4 id=&#34;who-spoke-the-most&#34;&gt;Who Spoke the Most?&lt;/h4&gt;
+
+&lt;p&gt;We know that the story is about the four boys - Cartman, Stan, Kyle, and Kenny. Let&amp;rsquo;s see if that is what the lines are telling us. But first, we can see who actually appeared in all 18 seasons. It turned out that they are: &lt;em&gt;Stan, Kyle, Cartman, Gerald, Mr. Mackey, Randy, Kenny, Clyde, Sheila, Sharon, Wendy, Principal Victoria, and Liane (and also voices annotated as &amp;lsquo;Woman&amp;rsquo;, &amp;lsquo;Man&amp;rsquo;, and &amp;lsquo;Announcer&amp;rsquo;)&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Then, let&amp;rsquo;s see who spoke the most. We can check both the total number of lines and the number of words for each character.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../southpark_file/topspeaker.png&#34; class=&#34;img-responsive&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Clearly, Cartman is No. 1, followed by Stan and Kyle. Kenny, however, falls out of the top 5. Instead, Butters and Randy are in the top 5 list although their line shares are significantly less than the other three. Also something to note is Butters actually did not appear in all 18 seasons. He was introduced into the show in Season 2.&lt;/p&gt;
+
+&lt;p&gt;So from now on, we can just focus on the top 5 speakers. The changes of their word shares over the seasons are shown below. Cartman remained to be No. 1 throughout the seasons, taking up to around 15% of the word shares. Stan and Kyle started off similarly like Cartman but their word shares decreased over time. Butters and Randy did not speak much in the first 4 seasons but they rise to be among the top speakers and ended up having similar word shares as Stan and Kyle, around 5%.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../southpark_file/wordshare.png&#34; class=&#34;img-responsive&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../southpark_file/linelength.png&#34; class=&#34;img-responsive&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The average lengths of the lines (defined as the total number of words divided by total number of lines) for Cartman, Stan, Kyle and Randy have not changed dramatically over the seasons. Also, their line lengths are relatively close, 10-15 words per line. But for Butters, his average line length shows a huge jump from Season 2 (when he was first introduced to the show) to season 3. I was very curious about exactly how this character was introduced. What did he say in Season 2? It turned out that he only said two lines:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;Me, too!&amp;rdquo;&lt;br /&gt;
+ &amp;ldquo;Pass this up.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&#34;what-did-top-speakers-say&#34;&gt;What did Top Speakers Say?&lt;/h4&gt;
+
+&lt;p&gt;So what exactly did the characters say? A word cloud from &lt;em&gt;all the lines&lt;/em&gt; is shown as the cover image of this post. But I am more interested in the &lt;em&gt;lines of the top speakers&lt;/em&gt;. What are their most frequent words and the most characteristic words?&lt;/p&gt;
+
+&lt;p&gt;Finding out the most frequent words is simply a word count problem. A note here is that stopwords were removed. Below I show the top 20 most frequent words for our top 5 speakers.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../southpark_file/frequent_word.png&#34; class=&#34;img-responsive&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Compared to knowing the most frequent words, finding out the most characteristic words for each speaker is probably more interesting. Here, &lt;strong&gt;term frequency-inverse document frequency&lt;/strong&gt; or &lt;strong&gt;tf-idf&lt;/strong&gt; is used. It is often used in information retrieval and text mining as a measure to evaluate how important a word is to a document in a corpus. The tf-idf weight is composed by 2 components. one is the term frequency (tf) and it is simply the number of times term t appears in a document divided by the total number of terms in the corpus. The other component is the inverse document frequency (idf) and it is the natural log of the ratio between the total number of documents and the number of documents with term t in it. The final tf-idf weight is calculated as the product between tf and idf. So a term is more important to a document if it appears in this document for many times (large tf) but it does not appear in many of the documents in the corpus (large idf).&lt;/p&gt;
+
+&lt;p&gt;For our top 5 speakers, their most important words and phrases are shown below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../southpark_file/important_word.png&#34; class=&#34;img-responsive&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../southpark_file/important_phrase.png&#34; class=&#34;img-responsive&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;There are some swear words, as you can see. And Kenny apparently had been killed many times!&lt;/p&gt;
+
+&lt;h4 id=&#34;what-did-kenny-say&#34;&gt;What did Kenny Say?&lt;/h4&gt;
+
+&lt;p&gt;As one of the four main characters, Kenny had significantly small word shares in the show. So who is Kenny? What did he do in the story? Do these lines tell anything about what he is like? We can simply construct a word cloud using Kenny&amp;rsquo;s lines in the dataset (with stopwords removed). Apparently, the F word is among the top of Kenny&amp;rsquo;s vocabulary, along with other swear words!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../southpark_file/kenny_wordcloud.png&#34; class=&#34;img-responsive&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The word cloud is based on word frequency. Another way to look at this is the importance of the words. The most important 20 words in Kenny&amp;rsquo;s lines with the highest tf-idf weights are shown below. We know that the show is known for its use of profanity. It seems that Kenny, one of the main characters in the show who spoke the least mainly spoke profanity.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../southpark_file/topwords_kenny.png&#34; class=&#34;img-responsive&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
+
+&lt;p&gt;In this post, I walked you through my exploration of the South Park lines dataset and showed you what I learned about the show and the characters from this dataset. My next step is to build a classification model which is able to guess the speaker based on the lines given. Stay tuned :)&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>&#34;Toxic Beauty&#34;: Chemicals in Cosmetics</title>
-      <link>https://yanfei-wu.github.io/blog/2017-03-15_chemicals/</link>
+      <link>/blog/2017-03-15_chemicals/</link>
       <pubDate>Wed, 15 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://yanfei-wu.github.io/blog/2017-03-15_chemicals/</guid>
+      <guid>/blog/2017-03-15_chemicals/</guid>
       <description>
 
 &lt;p&gt;How many different beauty products do you apply onto your face and body everyday? How many chemical ingredients do they contain? And how many of those chemicals have potential health risks?&lt;/p&gt;
@@ -116,10 +231,10 @@
     
     <item>
       <title>Sentiment Analysis: First Presidential Debate 2016</title>
-      <link>https://yanfei-wu.github.io/blog/2016-09-30_debate/</link>
+      <link>/blog/2016-09-30_debate/</link>
       <pubDate>Fri, 30 Sep 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://yanfei-wu.github.io/blog/2016-09-30_debate/</guid>
+      <guid>/blog/2016-09-30_debate/</guid>
       <description>
 
 &lt;p&gt;The US presidential election of 2016 is in less than 2 months. After series of presidential primary elections and caucuses, businessman Donald Trump became the Republican Party&amp;rsquo;s presidential nominee and former Secretary of State Hillary Clinton became the Democratic Party&amp;rsquo;s presidential nominee. Before November, there are three presidential debates between Clinton and Trump. The first debate just took place several days ago on September 26th.&lt;/p&gt;
@@ -179,10 +294,10 @@ Not surprisingly, words like &amp;ldquo;Bill&amp;rdquo;, &amp;ldquo;Emails&amp;r
     
     <item>
       <title>Hello World!</title>
-      <link>https://yanfei-wu.github.io/blog/2016-08-26_hello/</link>
+      <link>/blog/2016-08-26_hello/</link>
       <pubDate>Fri, 26 Aug 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://yanfei-wu.github.io/blog/2016-08-26_hello/</guid>
+      <guid>/blog/2016-08-26_hello/</guid>
       <description>&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;About six months ago I was still working on my thesis. Putting together everything I did over the past six years brought me back to those days in graduate school. It reminded me of the ups and downs along the way, and of course the six freezing winters I spent in Minnesota&amp;hellip;It was definitely not an easy six year in my life but I was grateful that I had such an experience. I appreciated all the challenges I had to take, all the cool things I learned, and all the wonderful people I met. These are things that made me stronger and they prepared me for my new adventure - data science.&lt;/p&gt;
@@ -192,6 +307,1533 @@ Not surprisingly, words like &amp;ldquo;Bill&amp;rdquo;, &amp;ldquo;Emails&amp;r
 &lt;p&gt;Finally, something fun to share - a word cloud of my thesis:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;../hello_file/thesis_wordcloud.png&#34; class=&#34;img-responsive&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/blog/southpark_file/southpark_lines_exploration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/southpark_file/southpark_lines_exploration/</guid>
+      <description>
+
+&lt;h2 id=&#34;1-set-up&#34;&gt;1. Set Up&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import pandas as pd
+import numpy as np
+
+import matplotlib
+import matplotlib.pyplot as plt
+import seaborn as sns
+%matplotlib inline
+
+from scipy.misc import imread 
+import re
+from wordcloud import WordCloud, ImageColorGenerator, STOPWORDS
+import string
+
+import json
+import warnings
+warnings.filterwarnings(&#39;ignore&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;%load_ext version_information
+%version_information pandas, numpy, matplotlib, seaborn, scipy, re, wordcloud, json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;table&gt;&lt;tr&gt;&lt;th&gt;Software&lt;/th&gt;&lt;th&gt;Version&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Python&lt;/td&gt;&lt;td&gt;3.5.2 64bit [GCC 4.2.1 Compatible Apple LLVM 4.2 (clang-425.0.28)]&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;IPython&lt;/td&gt;&lt;td&gt;5.1.0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;OS&lt;/td&gt;&lt;td&gt;Darwin 16.1.0 x86_64 i386 64bit&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;pandas&lt;/td&gt;&lt;td&gt;0.18.1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;numpy&lt;/td&gt;&lt;td&gt;1.11.1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;matplotlib&lt;/td&gt;&lt;td&gt;1.5.3&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;seaborn&lt;/td&gt;&lt;td&gt;0.7.1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;scipy&lt;/td&gt;&lt;td&gt;0.18.1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;re&lt;/td&gt;&lt;td&gt;2.2.1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;wordcloud&lt;/td&gt;&lt;td&gt;1.2.1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;json&lt;/td&gt;&lt;td&gt;2.0.9&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan=&#39;2&#39;&gt;Fri Mar 24 12:51:26 2017 PDT&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# customized plot style
+s = json.load( open(&amp;quot;plot_style.json&amp;quot;) )
+matplotlib.rcParams.update(s)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;2-read-and-clean-data&#34;&gt;2. Read and Clean Data&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Dataset was downloaded from &lt;a href=&#34;https://www.kaggle.com/tovarischsukhov/southparklines&#34;&gt;Kaggle&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;lines = pd.read_csv(&#39;All-seasons.csv&#39;)
+print(lines.shape)
+lines.head()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;(70896, 4)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Season&lt;/th&gt;
+      &lt;th&gt;Episode&lt;/th&gt;
+      &lt;th&gt;Character&lt;/th&gt;
+      &lt;th&gt;Line&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Stan&lt;/td&gt;
+      &lt;td&gt;You guys, you guys! Chef is going away. \n&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Kyle&lt;/td&gt;
+      &lt;td&gt;Going away? For how long?\n&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Stan&lt;/td&gt;
+      &lt;td&gt;Forever.\n&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;3&lt;/th&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Chef&lt;/td&gt;
+      &lt;td&gt;I&#39;m sorry boys.\n&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;4&lt;/th&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Stan&lt;/td&gt;
+      &lt;td&gt;Chef said he&#39;s been bored, so he joining a gro...&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# check na
+pd.isnull(lines).sum()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Season       0
+Episode      0
+Character    0
+Line         0
+dtype: int64
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# unique seasons
+lines.Season.unique()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;array([&#39;10&#39;, &#39;Season&#39;, &#39;11&#39;, &#39;12&#39;, &#39;13&#39;, &#39;14&#39;, &#39;15&#39;, &#39;16&#39;, &#39;17&#39;, &#39;18&#39;, &#39;1&#39;,
+       &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39;, &#39;6&#39;, &#39;7&#39;, &#39;8&#39;, &#39;9&#39;], dtype=object)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# &#39;Season&#39; as one of the unique seasons. something is wrong
+lines[lines[&#39;Season&#39;] == &#39;Season&#39;].head()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Season&lt;/th&gt;
+      &lt;th&gt;Episode&lt;/th&gt;
+      &lt;th&gt;Character&lt;/th&gt;
+      &lt;th&gt;Line&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;3471&lt;/th&gt;
+      &lt;td&gt;Season&lt;/td&gt;
+      &lt;td&gt;Episode&lt;/td&gt;
+      &lt;td&gt;Character&lt;/td&gt;
+      &lt;td&gt;Line&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;6950&lt;/th&gt;
+      &lt;td&gt;Season&lt;/td&gt;
+      &lt;td&gt;Episode&lt;/td&gt;
+      &lt;td&gt;Character&lt;/td&gt;
+      &lt;td&gt;Line&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;10258&lt;/th&gt;
+      &lt;td&gt;Season&lt;/td&gt;
+      &lt;td&gt;Episode&lt;/td&gt;
+      &lt;td&gt;Character&lt;/td&gt;
+      &lt;td&gt;Line&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;13516&lt;/th&gt;
+      &lt;td&gt;Season&lt;/td&gt;
+      &lt;td&gt;Episode&lt;/td&gt;
+      &lt;td&gt;Character&lt;/td&gt;
+      &lt;td&gt;Line&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;16863&lt;/th&gt;
+      &lt;td&gt;Season&lt;/td&gt;
+      &lt;td&gt;Episode&lt;/td&gt;
+      &lt;td&gt;Character&lt;/td&gt;
+      &lt;td&gt;Line&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# remove rows not filled with correct information
+lines = lines[(lines[&#39;Season&#39;] != &#39;Season&#39;) | (lines[&#39;Episode&#39;] != &#39;Episode&#39;) | (lines[&#39;Character&#39;] != &#39;Character&#39;) | (lines[&#39;Line&#39;] != &#39;Line&#39;)]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# convert &#39;Season&#39;, &#39;Episode&#39; to integer
+lines[&#39;Season&#39;] = lines[&#39;Season&#39;].astype(int)
+lines[&#39;Episode&#39;] = lines[&#39;Episode&#39;].astype(int)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# clean the lines
+# remove newline
+lines[&#39;Line&#39;] = lines[&#39;Line&#39;].apply(lambda x: re.sub(&#39;\n&#39;, &#39;&#39;, x))
+
+# remove punctuations in the lines and convert to lower case -&amp;gt; as a new variable
+exclude = list(string.punctuation)
+exclude.remove(&amp;quot;&#39;&amp;quot;) # not to mess up with words like I&#39;m, He&#39;ll
+lines[&#39;Line_nopunc&#39;] = lines[&#39;Line&#39;].apply(lambda x: &#39;&#39;.join([s.lower() for s in x if s not in exclude]))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;lines.head()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Season&lt;/th&gt;
+      &lt;th&gt;Episode&lt;/th&gt;
+      &lt;th&gt;Character&lt;/th&gt;
+      &lt;th&gt;Line&lt;/th&gt;
+      &lt;th&gt;Line_nopunc&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Stan&lt;/td&gt;
+      &lt;td&gt;You guys, you guys! Chef is going away.&lt;/td&gt;
+      &lt;td&gt;you guys you guys chef is going away&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Kyle&lt;/td&gt;
+      &lt;td&gt;Going away? For how long?&lt;/td&gt;
+      &lt;td&gt;going away for how long&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Stan&lt;/td&gt;
+      &lt;td&gt;Forever.&lt;/td&gt;
+      &lt;td&gt;forever&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;3&lt;/th&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Chef&lt;/td&gt;
+      &lt;td&gt;I&#39;m sorry boys.&lt;/td&gt;
+      &lt;td&gt;i&#39;m sorry boys&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;4&lt;/th&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Stan&lt;/td&gt;
+      &lt;td&gt;Chef said he&#39;s been bored, so he joining a gro...&lt;/td&gt;
+      &lt;td&gt;chef said he&#39;s been bored so he joining a grou...&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&amp;quot;Total number of lines: {}&amp;quot;.format(lines.shape[0]))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Total number of lines: 70879
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;3-data-visualization&#34;&gt;3. Data Visualization&lt;/h2&gt;
+
+&lt;h3 id=&#34;3-1-line-length-number-of-words&#34;&gt;3-1. Line Length (Number of Words)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# add a new variable &#39;Word&#39; representing number of words for each line
+lines[&#39;Word&#39;] = lines[&#39;Line_nopunc&#39;].apply(lambda x: len(x.split()))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# some statistics
+lines.Word.describe()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;count    70879.000000
+mean        11.446211
+std         13.318312
+min          0.000000
+25%          4.000000
+50%          8.000000
+75%         14.000000
+max        312.000000
+Name: Word, dtype: float64
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# plot the distribution
+p = sns.distplot(lines.Word, bins = 50, color = &#39;blue&#39;)
+p.set(xlabel = &#39;Number of Words per Line&#39;, ylabel = &#39;Frequency&#39;)
+p.set_title(&#39;Distribution of Line Length&#39;, fontweight = &#39;bold&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;matplotlib.text.Text at 0x11c0067f0&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_19_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Over 75% of the lines are short with less than 15 words.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&amp;quot;Total number of words: {}&amp;quot;.format(lines.Word.sum()))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Total number of words: 811296
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;3-2-basic-information-over-seasons&#34;&gt;3-2. Basic Information over Seasons&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# group by season
+byseason = lines.groupby(&#39;Season&#39;).agg({&#39;Episode&#39;: lambda x: x.nunique(), \
+                                        &#39;Character&#39;: lambda x: x.nunique(), \
+                                        &#39;Line&#39;: &#39;count&#39;, &#39;Word&#39;: &#39;sum&#39;}).reset_index()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;byseason[&#39;Line_per_Episode&#39;] = byseason[&#39;Line&#39;]/byseason[&#39;Episode&#39;]
+byseason[&#39;Word_per_Episode&#39;] = byseason[&#39;Word&#39;]/byseason[&#39;Episode&#39;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;byseason.head()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Season&lt;/th&gt;
+      &lt;th&gt;Episode&lt;/th&gt;
+      &lt;th&gt;Word&lt;/th&gt;
+      &lt;th&gt;Character&lt;/th&gt;
+      &lt;th&gt;Line&lt;/th&gt;
+      &lt;th&gt;Line_per_Episode&lt;/th&gt;
+      &lt;th&gt;Word_per_Episode&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;13&lt;/td&gt;
+      &lt;td&gt;40025&lt;/td&gt;
+      &lt;td&gt;247&lt;/td&gt;
+      &lt;td&gt;4170&lt;/td&gt;
+      &lt;td&gt;320.769231&lt;/td&gt;
+      &lt;td&gt;3078.846154&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;18&lt;/td&gt;
+      &lt;td&gt;63352&lt;/td&gt;
+      &lt;td&gt;442&lt;/td&gt;
+      &lt;td&gt;6416&lt;/td&gt;
+      &lt;td&gt;356.444444&lt;/td&gt;
+      &lt;td&gt;3519.555556&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;17&lt;/td&gt;
+      &lt;td&gt;58023&lt;/td&gt;
+      &lt;td&gt;447&lt;/td&gt;
+      &lt;td&gt;5798&lt;/td&gt;
+      &lt;td&gt;341.058824&lt;/td&gt;
+      &lt;td&gt;3413.117647&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;3&lt;/th&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;17&lt;/td&gt;
+      &lt;td&gt;60250&lt;/td&gt;
+      &lt;td&gt;478&lt;/td&gt;
+      &lt;td&gt;5680&lt;/td&gt;
+      &lt;td&gt;334.117647&lt;/td&gt;
+      &lt;td&gt;3544.117647&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;4&lt;/th&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;14&lt;/td&gt;
+      &lt;td&gt;48783&lt;/td&gt;
+      &lt;td&gt;379&lt;/td&gt;
+      &lt;td&gt;4414&lt;/td&gt;
+      &lt;td&gt;315.285714&lt;/td&gt;
+      &lt;td&gt;3484.500000&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;byseason.describe()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Season&lt;/th&gt;
+      &lt;th&gt;Episode&lt;/th&gt;
+      &lt;th&gt;Word&lt;/th&gt;
+      &lt;th&gt;Character&lt;/th&gt;
+      &lt;th&gt;Line&lt;/th&gt;
+      &lt;th&gt;Line_per_Episode&lt;/th&gt;
+      &lt;th&gt;Word_per_Episode&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;count&lt;/th&gt;
+      &lt;td&gt;18.000000&lt;/td&gt;
+      &lt;td&gt;18.000000&lt;/td&gt;
+      &lt;td&gt;18.000000&lt;/td&gt;
+      &lt;td&gt;18.000000&lt;/td&gt;
+      &lt;td&gt;18.000000&lt;/td&gt;
+      &lt;td&gt;18.000000&lt;/td&gt;
+      &lt;td&gt;18.000000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;mean&lt;/th&gt;
+      &lt;td&gt;9.500000&lt;/td&gt;
+      &lt;td&gt;14.277778&lt;/td&gt;
+      &lt;td&gt;45072.000000&lt;/td&gt;
+      &lt;td&gt;362.333333&lt;/td&gt;
+      &lt;td&gt;3937.722222&lt;/td&gt;
+      &lt;td&gt;271.791236&lt;/td&gt;
+      &lt;td&gt;3141.538844&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;std&lt;/th&gt;
+      &lt;td&gt;5.338539&lt;/td&gt;
+      &lt;td&gt;2.108960&lt;/td&gt;
+      &lt;td&gt;9236.274873&lt;/td&gt;
+      &lt;td&gt;69.473651&lt;/td&gt;
+      &lt;td&gt;1147.732435&lt;/td&gt;
+      &lt;td&gt;44.566578&lt;/td&gt;
+      &lt;td&gt;253.328793&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;min&lt;/th&gt;
+      &lt;td&gt;1.000000&lt;/td&gt;
+      &lt;td&gt;10.000000&lt;/td&gt;
+      &lt;td&gt;32073.000000&lt;/td&gt;
+      &lt;td&gt;238.000000&lt;/td&gt;
+      &lt;td&gt;2305.000000&lt;/td&gt;
+      &lt;td&gt;221.500000&lt;/td&gt;
+      &lt;td&gt;2710.357143&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;25%&lt;/th&gt;
+      &lt;td&gt;5.250000&lt;/td&gt;
+      &lt;td&gt;14.000000&lt;/td&gt;
+      &lt;td&gt;39953.000000&lt;/td&gt;
+      &lt;td&gt;330.000000&lt;/td&gt;
+      &lt;td&gt;3269.500000&lt;/td&gt;
+      &lt;td&gt;236.910714&lt;/td&gt;
+      &lt;td&gt;2984.535714&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;50%&lt;/th&gt;
+      &lt;td&gt;9.500000&lt;/td&gt;
+      &lt;td&gt;14.000000&lt;/td&gt;
+      &lt;td&gt;42142.500000&lt;/td&gt;
+      &lt;td&gt;372.500000&lt;/td&gt;
+      &lt;td&gt;3502.000000&lt;/td&gt;
+      &lt;td&gt;252.028571&lt;/td&gt;
+      &lt;td&gt;3070.565934&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;75%&lt;/th&gt;
+      &lt;td&gt;13.750000&lt;/td&gt;
+      &lt;td&gt;14.750000&lt;/td&gt;
+      &lt;td&gt;48750.000000&lt;/td&gt;
+      &lt;td&gt;399.250000&lt;/td&gt;
+      &lt;td&gt;4369.500000&lt;/td&gt;
+      &lt;td&gt;311.920168&lt;/td&gt;
+      &lt;td&gt;3370.688235&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;max&lt;/th&gt;
+      &lt;td&gt;18.000000&lt;/td&gt;
+      &lt;td&gt;18.000000&lt;/td&gt;
+      &lt;td&gt;63352.000000&lt;/td&gt;
+      &lt;td&gt;478.000000&lt;/td&gt;
+      &lt;td&gt;6416.000000&lt;/td&gt;
+      &lt;td&gt;356.444444&lt;/td&gt;
+      &lt;td&gt;3544.117647&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;fig, ax = plt.subplots(nrows=4, ncols=1, sharex=True, sharey=False, figsize=(7, 6))
+
+ax[0].plot(byseason.Season, byseason.Episode, marker = &#39;o&#39;, color = &#39;orange&#39;, linestyle=&#39;:&#39;, \
+           linewidth = 0.5, label = &#39;Episodes&#39;)
+ax[0].axhline(y=byseason.Episode.mean(), c=&amp;quot;black&amp;quot;,linewidth=2, linestyle=&#39;:&#39;, label = &#39;Mean&#39;)
+ax[0].set_xlim([0, 20])
+ax[0].set_ylim([9, 19])
+ax[0].grid(False)
+ax[0].legend()
+
+ax[1].plot(byseason.Season, byseason.Character, marker = &#39;o&#39;, color = &#39;green&#39;, linestyle=&#39;:&#39;, \
+        linewidth = 0.5, label = &#39;Characters&#39;)
+ax[1].axhline(y=byseason.Character.mean(), c=&amp;quot;black&amp;quot;,linewidth=2, linestyle=&#39;:&#39;, label = &#39;Mean&#39;)
+ax[1].set_xlim([0, 20])
+ax[1].grid(False)
+ax[1].legend()
+
+ax[2].plot(byseason.Season, byseason.Line_per_Episode, marker = &#39;o&#39;, color = &#39;r&#39;, linestyle=&#39;:&#39;, \
+        linewidth = 0.5, label = &#39;Lines (per Episode Average)&#39;)
+ax[2].axhline(y=byseason.Line_per_Episode.mean(), c=&amp;quot;black&amp;quot;,linewidth=2, linestyle=&#39;:&#39;, label = &#39;Mean&#39;)
+ax[2].set_xlim([0, 20])
+ax[2].set_ylim([210, 370])
+ax[2].grid(False)
+ax[2].legend()
+
+ax[3].plot(byseason.Season, byseason.Word_per_Episode, marker = &#39;o&#39;, color = &#39;b&#39;, linestyle=&#39;:&#39;, \
+       linewidth = 0.5, label = &#39;Words (per Episode Average)&#39;)
+ax[3].axhline(y=byseason.Word_per_Episode.mean(), c=&#39;black&#39;, linewidth=2, linestyle=&#39;:&#39;, label=&#39;Mean&#39;)
+ax[3].set_xlim([0, 20])
+ax[3].set_ylim([2600, 3700])
+ax[3].grid(False)
+ax[3].legend()
+           
+fig.text(0.5, 0, &#39;Season&#39;, ha=&#39;center&#39;)
+fig.text(0, 0.5, &#39;Count&#39;, va=&#39;center&#39;, rotation=&#39;vertical&#39;)
+fig.suptitle(&#39;&#39;, fontsize = 14, y = 1.02)
+fig.tight_layout()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_27_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&amp;quot;Total episodes in the 18 seasons: {}&amp;quot;.format(byseason.Episode.sum()))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Total episodes in the 18 seasons: 257
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;3-3-characters-who-appreared-in-all-the-seasons&#34;&gt;3-3. Characters Who Appreared in All the Seasons&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# recuring characters
+seasons = lines.Season.unique()
+characters = lines.Character.unique()
+print(&amp;quot;Total number of unique characters: {}&amp;quot;.format(len(characters)))
+for season in seasons:
+    character = lines[lines[&#39;Season&#39;] == season].Character.unique()
+    characters = [item for item in characters if item in character]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Total number of unique characters: 3949
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&amp;quot;Number of characters who appear in all 18 seasons: {}&amp;quot;.format(len(characters)))
+print(characters)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Number of characters who appear in all 18 seasons: 16
+[&#39;Stan&#39;, &#39;Kyle&#39;, &#39;Cartman&#39;, &#39;Gerald&#39;, &#39;Mr. Mackey&#39;, &#39;Randy&#39;, &#39;Kenny&#39;, &#39;Clyde&#39;, &#39;Woman&#39;, &#39;Sheila&#39;, &#39;Man&#39;, &#39;Announcer&#39;, &#39;Sharon&#39;, &#39;Wendy&#39;, &#39;Principal Victoria&#39;, &#39;Liane&#39;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;3-4-characters-who-spoke-most&#34;&gt;3-4. Characters Who Spoke Most&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# group by character
+bycharacter = lines.groupby(&#39;Character&#39;).agg({&#39;Line&#39;: &#39;count&#39;, &#39;Word&#39;: &#39;sum&#39;}).reset_index()
+bycharacter = bycharacter.sort_values([&#39;Line&#39;, &#39;Word&#39;], ascending = False)
+bycharacter.head(10)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Character&lt;/th&gt;
+      &lt;th&gt;Word&lt;/th&gt;
+      &lt;th&gt;Line&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;621&lt;/th&gt;
+      &lt;td&gt;Cartman&lt;/td&gt;
+      &lt;td&gt;129680&lt;/td&gt;
+      &lt;td&gt;9774&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;3384&lt;/th&gt;
+      &lt;td&gt;Stan&lt;/td&gt;
+      &lt;td&gt;68901&lt;/td&gt;
+      &lt;td&gt;7680&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1832&lt;/th&gt;
+      &lt;td&gt;Kyle&lt;/td&gt;
+      &lt;td&gt;63642&lt;/td&gt;
+      &lt;td&gt;7099&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;567&lt;/th&gt;
+      &lt;td&gt;Butters&lt;/td&gt;
+      &lt;td&gt;29322&lt;/td&gt;
+      &lt;td&gt;2602&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2942&lt;/th&gt;
+      &lt;td&gt;Randy&lt;/td&gt;
+      &lt;td&gt;31087&lt;/td&gt;
+      &lt;td&gt;2467&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2314&lt;/th&gt;
+      &lt;td&gt;Mr. Garrison&lt;/td&gt;
+      &lt;td&gt;15038&lt;/td&gt;
+      &lt;td&gt;1002&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;681&lt;/th&gt;
+      &lt;td&gt;Chef&lt;/td&gt;
+      &lt;td&gt;11082&lt;/td&gt;
+      &lt;td&gt;917&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1785&lt;/th&gt;
+      &lt;td&gt;Kenny&lt;/td&gt;
+      &lt;td&gt;4159&lt;/td&gt;
+      &lt;td&gt;881&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;3228&lt;/th&gt;
+      &lt;td&gt;Sharon&lt;/td&gt;
+      &lt;td&gt;8600&lt;/td&gt;
+      &lt;td&gt;862&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2341&lt;/th&gt;
+      &lt;td&gt;Mr. Mackey&lt;/td&gt;
+      &lt;td&gt;10680&lt;/td&gt;
+      &lt;td&gt;633&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Some of the top characters actually did not appear in all the seasons, such as Butters (who entered the show in Season 2) and Mr. Garrison.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(11, 4))
+sns.barplot(x = &#39;Line&#39;, y=&#39;Character&#39;, data=bycharacter.head(10), palette = &#39;coolwarm_r&#39;, ax=ax[0])
+ax[0].set(xlabel=&#39;Number of Lines&#39;, ylabel=&#39;&#39;)
+
+sns.barplot(x = &#39;Word&#39;, y=&#39;Character&#39;, data=bycharacter.sort_values([&#39;Word&#39;, &#39;Line&#39;], ascending = False).head(10), \
+            palette = &#39;coolwarm_r&#39;, ax=ax[1])
+ax[1].set(xlabel=&#39;Number of Words&#39;, ylabel=&#39;&#39;)
+
+fig.suptitle(&#39;Top Speakers&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;matplotlib.text.Text at 0x11f23d6d8&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_35_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# add new variable &#39;Length&#39;: average length of the lines
+bycharacter[&#39;Length&#39;] = bycharacter[&#39;Word&#39;]/bycharacter[&#39;Line&#39;]
+bycharacter.head(10)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Character&lt;/th&gt;
+      &lt;th&gt;Word&lt;/th&gt;
+      &lt;th&gt;Line&lt;/th&gt;
+      &lt;th&gt;Length&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;621&lt;/th&gt;
+      &lt;td&gt;Cartman&lt;/td&gt;
+      &lt;td&gt;129680&lt;/td&gt;
+      &lt;td&gt;9774&lt;/td&gt;
+      &lt;td&gt;13.267853&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;3384&lt;/th&gt;
+      &lt;td&gt;Stan&lt;/td&gt;
+      &lt;td&gt;68901&lt;/td&gt;
+      &lt;td&gt;7680&lt;/td&gt;
+      &lt;td&gt;8.971484&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1832&lt;/th&gt;
+      &lt;td&gt;Kyle&lt;/td&gt;
+      &lt;td&gt;63642&lt;/td&gt;
+      &lt;td&gt;7099&lt;/td&gt;
+      &lt;td&gt;8.964925&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;567&lt;/th&gt;
+      &lt;td&gt;Butters&lt;/td&gt;
+      &lt;td&gt;29322&lt;/td&gt;
+      &lt;td&gt;2602&lt;/td&gt;
+      &lt;td&gt;11.269024&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2942&lt;/th&gt;
+      &lt;td&gt;Randy&lt;/td&gt;
+      &lt;td&gt;31087&lt;/td&gt;
+      &lt;td&gt;2467&lt;/td&gt;
+      &lt;td&gt;12.601135&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2314&lt;/th&gt;
+      &lt;td&gt;Mr. Garrison&lt;/td&gt;
+      &lt;td&gt;15038&lt;/td&gt;
+      &lt;td&gt;1002&lt;/td&gt;
+      &lt;td&gt;15.007984&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;681&lt;/th&gt;
+      &lt;td&gt;Chef&lt;/td&gt;
+      &lt;td&gt;11082&lt;/td&gt;
+      &lt;td&gt;917&lt;/td&gt;
+      &lt;td&gt;12.085060&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1785&lt;/th&gt;
+      &lt;td&gt;Kenny&lt;/td&gt;
+      &lt;td&gt;4159&lt;/td&gt;
+      &lt;td&gt;881&lt;/td&gt;
+      &lt;td&gt;4.720772&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;3228&lt;/th&gt;
+      &lt;td&gt;Sharon&lt;/td&gt;
+      &lt;td&gt;8600&lt;/td&gt;
+      &lt;td&gt;862&lt;/td&gt;
+      &lt;td&gt;9.976798&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2341&lt;/th&gt;
+      &lt;td&gt;Mr. Mackey&lt;/td&gt;
+      &lt;td&gt;10680&lt;/td&gt;
+      &lt;td&gt;633&lt;/td&gt;
+      &lt;td&gt;16.872038&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# statistics
+bycharacter.describe()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Word&lt;/th&gt;
+      &lt;th&gt;Line&lt;/th&gt;
+      &lt;th&gt;Length&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;count&lt;/th&gt;
+      &lt;td&gt;3949.000000&lt;/td&gt;
+      &lt;td&gt;3949.000000&lt;/td&gt;
+      &lt;td&gt;3949.000000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;mean&lt;/th&gt;
+      &lt;td&gt;205.443403&lt;/td&gt;
+      &lt;td&gt;17.948595&lt;/td&gt;
+      &lt;td&gt;10.864565&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;std&lt;/th&gt;
+      &lt;td&gt;2688.393553&lt;/td&gt;
+      &lt;td&gt;238.722578&lt;/td&gt;
+      &lt;td&gt;11.164474&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;min&lt;/th&gt;
+      &lt;td&gt;1.000000&lt;/td&gt;
+      &lt;td&gt;1.000000&lt;/td&gt;
+      &lt;td&gt;1.000000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;25%&lt;/th&gt;
+      &lt;td&gt;6.000000&lt;/td&gt;
+      &lt;td&gt;1.000000&lt;/td&gt;
+      &lt;td&gt;4.166667&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;50%&lt;/th&gt;
+      &lt;td&gt;21.000000&lt;/td&gt;
+      &lt;td&gt;2.000000&lt;/td&gt;
+      &lt;td&gt;8.391304&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;75%&lt;/th&gt;
+      &lt;td&gt;72.000000&lt;/td&gt;
+      &lt;td&gt;6.000000&lt;/td&gt;
+      &lt;td&gt;13.658537&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;max&lt;/th&gt;
+      &lt;td&gt;129680.000000&lt;/td&gt;
+      &lt;td&gt;9774.000000&lt;/td&gt;
+      &lt;td&gt;163.000000&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# distribution of average line length by character
+p = sns.distplot(bycharacter.Length, bins = 50, color = &#39;blue&#39;)
+p.set(xlabel = &#39;Average Line Length (by Character)&#39;, ylabel = &#39;Frequency&#39;)
+p.set_title(&#39;Distribution of Average Line Length&#39;, fontweight = &#39;bold&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;matplotlib.text.Text at 0x11f6824e0&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_38_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# plot the number of lines and the average line length for the top 5 speakers
+N = 5
+ind = np.arange(N) 
+width = 0.35
+
+fig, ax1 = plt.subplots()
+ax1.bar(ind, bycharacter.Line[:5], width, color=&#39;r&#39;)
+ax1.grid(False)
+ax1.set_ylabel(&#39;Number of Lines&#39;, color=&#39;r&#39;, alpha = 0.7)
+ax1.tick_params(&#39;y&#39;, colors=&#39;r&#39;)
+
+ax2 = ax1.twinx()
+ax2.bar(ind + width, bycharacter.Length[:5], width, color=&#39;b&#39;, alpha = 0.7)
+ax2.grid(False)
+ax2.set_ylabel(&#39;Average Line Length&#39;, color=&#39;b&#39;)
+ax2.tick_params(&#39;y&#39;, colors=&#39;b&#39;)
+ax2.set_xlim([-width, N])
+ax2.set_xticks(ind + width)
+ax2.set_xticklabels((&#39;Cartman&#39;, &#39;Stan&#39;, &#39;Kyle&#39;, &#39;Butters&#39;, &#39;Randy&#39;))
+
+fig.suptitle(&#39;Top Speakers&#39;, fontsize = 14)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;matplotlib.text.Text at 0x11f8cb9e8&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_39_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Cartman, as the No.1 speaker, spoke the most lines and his lines are relatively long sentences (average line length around the 75 pencentile)&lt;/li&gt;
+&lt;li&gt;Butters and Randy have significantly less line shares compared with Stan and Kyle, but their lines are a little longer&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;3-5-all-lines&#34;&gt;3-5. All Lines&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# all lines
+text = &#39; &#39;.join(lines.Line_nopunc)
+
+# all words in these lines (no stopwords)
+word_nostopword = [word for word in text.split() if word not in STOPWORDS]
+
+# unique words in all lines 
+print(&amp;quot;Total number of unique words (including stopwords): {}&amp;quot;.format(len(set(text.split()))))
+print(&amp;quot;Total number of unique words (excluding stopwords): {}&amp;quot;.format(len(set(word_nostopword))))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Total number of unique words (including stopwords): 30347
+Total number of unique words (excluding stopwords): 30168
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# wordcloud visualization
+mask = imread(&#39;cartman.jpg&#39;) # mask
+image_colors = ImageColorGenerator(mask) # custom color using mask image
+
+wc = WordCloud(background_color = &#39;white&#39;, mask = mask, max_words = 3000, \
+               stopwords = STOPWORDS, color_func = image_colors, scale = 1.0, random_state= 12)
+wc.generate(text)
+wc.to_file(&#39;cartman_wordcloud2.png&#39;)
+
+plt.figure(figsize = (6, 6), facecolor = &#39;white&#39;)
+plt.imshow(wc)
+plt.axis(&#39;off&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;(-0.5, 1702.5, 1574.5, -0.5)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_43_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;3-6-lines-of-top-speakers&#34;&gt;3-6. Lines of top speakers&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# top_speakers = [&#39;Cartman&#39;, &#39;Stan&#39;, &#39;Kyle&#39;, &#39;Butters&#39;, &#39;Randy&#39;]
+cartman = lines[lines[&#39;Character&#39;] == &#39;Cartman&#39;]
+cartman_byseason = cartman.groupby(&#39;Season&#39;).agg({&#39;Line&#39;: &#39;count&#39;, &#39;Word&#39;: &#39;sum&#39;}).reset_index()
+
+stan = lines[lines[&#39;Character&#39;] == &#39;Stan&#39;]
+stan_byseason = stan.groupby(&#39;Season&#39;).agg({&#39;Line&#39;: &#39;count&#39;, &#39;Word&#39;: &#39;sum&#39;}).reset_index()
+
+kyle = lines[lines[&#39;Character&#39;] == &#39;Kyle&#39;]
+kyle_byseason = kyle.groupby(&#39;Season&#39;).agg({&#39;Line&#39;: &#39;count&#39;, &#39;Word&#39;: &#39;sum&#39;}).reset_index()
+
+butters = lines[lines[&#39;Character&#39;] == &#39;Butters&#39;]
+butters_byseason = butters.groupby(&#39;Season&#39;).agg({&#39;Line&#39;: &#39;count&#39;, &#39;Word&#39;: &#39;sum&#39;}).reset_index()
+
+randy = lines[lines[&#39;Character&#39;] == &#39;Randy&#39;]
+randy_byseason = randy.groupby(&#39;Season&#39;).agg({&#39;Line&#39;: &#39;count&#39;, &#39;Word&#39;: &#39;sum&#39;}).reset_index()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# butters did not appear in season 1
+butters_byseason.loc[-1] = [1, 0, 0]
+butters_byseason.index = butters_byseason.index + 1  # shifting index
+butters_byseason = butters_byseason.sort()  # sorting by index
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# plot percent of words spoken by top characters in each season
+plt.plot(cartman_byseason.Season, cartman_byseason.Word/byseason.Word, marker = &#39;o&#39;, color = &#39;c&#39;, linestyle=&#39;:&#39;, \
+        linewidth = 0.5, markersize = 5, label = &#39;Cartman&#39;)
+plt.plot(stan_byseason.Season, stan_byseason.Word/byseason.Word, marker = &#39;o&#39;, color = &#39;purple&#39;, linestyle=&#39;:&#39;, \
+        linewidth = 0.5, markersize = 5, label = &#39;Stan&#39;)
+plt.plot(kyle_byseason.Season, kyle_byseason.Word/byseason.Word, marker = &#39;o&#39;, color = &#39;green&#39;, linestyle=&#39;:&#39;, \
+        linewidth = 0.5, markersize = 5, label = &#39;Kyle&#39;)
+plt.plot(butters_byseason.Season, butters_byseason.Word/byseason.Word, marker = &#39;o&#39;, color = &#39;orange&#39;, linestyle=&#39;:&#39;, \
+        linewidth = 0.5, markersize = 5, label = &#39;Butters&#39;)
+plt.plot(randy_byseason.Season, randy_byseason.Word/byseason.Word, marker = &#39;o&#39;, color = &#39;black&#39;, linestyle=&#39;:&#39;, \
+        linewidth = 0.5, markersize = 5, label = &#39;Randy&#39;)
+
+plt.xlim([0, 20])
+plt.ylim([-0.02, 0.22])
+plt.xlabel(&#39;Season&#39;)
+plt.ylabel(&#39;Word Share&#39;)
+plt.title(&#39;Word Shares of Top Speakers by Season&#39;, fontweight = &#39;bold&#39;)
+plt.legend(bbox_to_anchor=(1, 0.75), loc=&#39;upper left&#39;, ncol=1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;matplotlib.legend.Legend at 0x1204b0fd0&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_47_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# plot line length of top characters in each season
+plt.plot(cartman_byseason.Season, cartman_byseason.Word/cartman_byseason.Line, marker = &#39;o&#39;, color = &#39;c&#39;, linestyle=&#39;:&#39;, \
+        linewidth = 0.5, markersize = 5, label = &#39;Cartman&#39;)
+plt.plot(stan_byseason.Season, stan_byseason.Word/stan_byseason.Line, marker = &#39;o&#39;, color = &#39;purple&#39;, linestyle=&#39;:&#39;, \
+        linewidth = 0.5, markersize = 5, label = &#39;Stan&#39;)
+plt.plot(kyle_byseason.Season, kyle_byseason.Word/kyle_byseason.Line, marker = &#39;o&#39;, color = &#39;green&#39;, linestyle=&#39;:&#39;, \
+        linewidth = 0.5, markersize = 5, label = &#39;Kyle&#39;)
+plt.plot(butters_byseason.Season, butters_byseason.Word/(butters_byseason.Line + 1), marker = &#39;o&#39;, color = &#39;orange&#39;, linestyle=&#39;:&#39;, \
+        linewidth = 0.5, markersize = 5, label = &#39;Butters&#39;)
+plt.plot(randy_byseason.Season, randy_byseason.Word/randy_byseason.Line, marker = &#39;o&#39;, color = &#39;black&#39;, linestyle=&#39;:&#39;, \
+        linewidth = 0.5, markersize = 5, label = &#39;Randy&#39;)
+
+plt.xlim([0, 20])
+plt.ylim([-0.5, 20.5])
+plt.xlabel(&#39;Season&#39;)
+plt.ylabel(&#39;Average Line Length&#39;)
+plt.title(&#39;Line Length of Top Speakers by Season&#39;, fontweight = &#39;bold&#39;)
+plt.legend(bbox_to_anchor=(1, 0.75), loc=&#39;upper left&#39;, ncol=1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;matplotlib.legend.Legend at 0x1206811d0&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_48_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Cartman remained to be No. 1 speaker throughout the seasons. Stan and Kyle started off similarly like Cartman but decreases later. Butters and Randy did not speak much in the first 4 seasons but they rise to be top speakers and have similar word shares as Stan and Kyle.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# What did butters say in season 2?
+butters[butters[&#39;Season&#39;] == 2][&#39;Line&#39;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;35651         Me, too!
+35964    Pass this up.
+Name: Line, dtype: object
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# who else are top speakers when the show started (season 1)?
+bycharacter_s1 = lines[lines[&#39;Season&#39;] == 1].groupby(&#39;Character&#39;).agg({&#39;Line&#39;: &#39;count&#39;, &#39;Word&#39;: &#39;sum&#39;}).reset_index()
+bycharacter_s1 = bycharacter_s1.sort_values([&#39;Line&#39;, &#39;Word&#39;], ascending = False)
+bycharacter_s1.head()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Character&lt;/th&gt;
+      &lt;th&gt;Word&lt;/th&gt;
+      &lt;th&gt;Line&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;209&lt;/th&gt;
+      &lt;td&gt;Stan&lt;/td&gt;
+      &lt;td&gt;4934&lt;/td&gt;
+      &lt;td&gt;651&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;33&lt;/th&gt;
+      &lt;td&gt;Cartman&lt;/td&gt;
+      &lt;td&gt;6238&lt;/td&gt;
+      &lt;td&gt;624&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;111&lt;/th&gt;
+      &lt;td&gt;Kyle&lt;/td&gt;
+      &lt;td&gt;4296&lt;/td&gt;
+      &lt;td&gt;555&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;35&lt;/th&gt;
+      &lt;td&gt;Chef&lt;/td&gt;
+      &lt;td&gt;3057&lt;/td&gt;
+      &lt;td&gt;251&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;142&lt;/th&gt;
+      &lt;td&gt;Mr. Garrison&lt;/td&gt;
+      &lt;td&gt;2898&lt;/td&gt;
+      &lt;td&gt;212&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&#34;3-7-words-by-characters&#34;&gt;3-7. Words by Characters&lt;/h3&gt;
+
+&lt;h4 id=&#34;word-frequency&#34;&gt;Word frequency&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# combine lines by character
+character_lines = lines.groupby(&#39;Character&#39;)[&#39;Line_nopunc&#39;].apply(list).reset_index()
+character_lines[&#39;Line_nopunc&#39;] = character_lines[&#39;Line_nopunc&#39;].apply(lambda x: &#39; &#39;.join(x))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# put lines together into a text file for each top speaker
+cartman_text = &#39;&#39;.join(character_lines[character_lines[&#39;Character&#39;] == &#39;Cartman&#39;][&#39;Line_nopunc&#39;])
+stan_text = &#39;&#39;.join(character_lines[character_lines[&#39;Character&#39;] == &#39;Stan&#39;][&#39;Line_nopunc&#39;])
+kyle_text = &#39;&#39;.join(character_lines[character_lines[&#39;Character&#39;] == &#39;Kyle&#39;][&#39;Line_nopunc&#39;])
+butters_text = &#39;&#39;.join(character_lines[character_lines[&#39;Character&#39;] == &#39;Butters&#39;][&#39;Line_nopunc&#39;])
+randy_text = &#39;&#39;.join(character_lines[character_lines[&#39;Character&#39;] == &#39;Randy&#39;][&#39;Line_nopunc&#39;])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from collections import Counter
+
+# mostly spoken words for the top speakers (exclude stopwords)
+# cartman 
+cartman_word = [w for w in cartman_text.split()]
+cartman_nostopword = [w for w in cartman_word if w not in list(STOPWORDS)]
+cartman_mostfreq = Counter(cartman_nostopword).most_common(20)
+cartman_df = pd.DataFrame(cartman_mostfreq, columns = [&#39;Word&#39;, &#39;Count&#39;])
+
+# stan
+stan_word = [w for w in stan_text.split()]
+stan_nostopword = [w for w in stan_word if w not in list(STOPWORDS)]
+stan_mostfreq = Counter(stan_nostopword).most_common(20)
+stan_df = pd.DataFrame(stan_mostfreq, columns = [&#39;Word&#39;, &#39;Count&#39;])
+
+# kyle
+kyle_word = [w for w in kyle_text.split()]
+kyle_nostopword = [w for w in kyle_word if w not in list(STOPWORDS)]
+kyle_mostfreq = Counter(kyle_nostopword).most_common(20)
+kyle_df = pd.DataFrame(kyle_mostfreq, columns = [&#39;Word&#39;, &#39;Count&#39;])
+
+# butters
+butters_word = [w for w in butters_text.split()]
+butters_nostopword = [w for w in butters_word if w not in list(STOPWORDS)]
+butters_mostfreq = Counter(butters_nostopword).most_common(20)
+butters_df = pd.DataFrame(butters_mostfreq, columns = [&#39;Word&#39;, &#39;Count&#39;])
+
+# randy
+randy_word = [w for w in randy_text.split()]
+randy_nostopword = [w for w in randy_word if w not in list(STOPWORDS)]
+randy_mostfreq = Counter(randy_nostopword).most_common(20)
+randy_df = pd.DataFrame(randy_mostfreq, columns = [&#39;Word&#39;, &#39;Count&#39;])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;fig = plt.figure(figsize=(6, 5.7), facecolor = &#39;white&#39;)
+ax = fig.add_subplot(111)
+
+ax.text(0.075, 0, &#39;\n&#39;.join(cartman_df.Word), bbox={&#39;facecolor&#39;: &#39;red&#39;, &#39;edgecolor&#39;: &#39;black&#39;, &#39;alpha&#39;: 0.3, &#39;pad&#39;:5})
+ax.text(0.075, 0.95, &#39;Cartman&#39;, fontweight=&#39;bold&#39;)
+ax.text(0.275, 0, &#39;\n&#39;.join(stan_df.Word), bbox={&#39;facecolor&#39;: &#39;red&#39;, &#39;edgecolor&#39;: &#39;black&#39;, &#39;alpha&#39;: 0.3, &#39;pad&#39;:5})
+ax.text(0.275, 0.95, &#39;Stan&#39;, fontweight=&#39;bold&#39;)
+ax.text(0.475, 0, &#39;\n&#39;.join(kyle_df.Word), bbox={&#39;facecolor&#39;: &#39;red&#39;, &#39;edgecolor&#39;: &#39;black&#39;, &#39;alpha&#39;: 0.3, &#39;pad&#39;:5})
+ax.text(0.475, 0.95, &#39;Kyle&#39;, fontweight=&#39;bold&#39;)
+ax.text(0.675, 0, &#39;\n&#39;.join(butters_df.Word), bbox={&#39;facecolor&#39;: &#39;red&#39;, &#39;edgecolor&#39;: &#39;black&#39;, &#39;alpha&#39;: 0.3, &#39;pad&#39;:5})
+ax.text(0.675, 0.95, &#39;Butters&#39;, fontweight=&#39;bold&#39;)
+ax.text(0.875, 0, &#39;\n&#39;.join(randy_df.Word), bbox={&#39;facecolor&#39;: &#39;red&#39;, &#39;edgecolor&#39;: &#39;black&#39;, &#39;alpha&#39;: 0.3, &#39;pad&#39;:5})
+ax.text(0.875, 0.95, &#39;Randy&#39;, fontweight=&#39;bold&#39;)
+
+fig.suptitle(&#39;Top 20 Most Frequent Words&#39;, fontweight=&#39;bold&#39;)
+plt.axis(&#39;off&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;(0.0, 1.0, 0.0, 1.0)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_57_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;tf-idf&#34;&gt;TF IDF&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def top_tfidf_feats(row, features, top_n=20):
+    &#39;&#39;&#39; Get top n tfidf values in row and return them with their corresponding feature names.&#39;&#39;&#39;
+    topn_ids = np.argsort(row)[::-1][:top_n]
+    top_feats = [(features[i], row[i]) for i in topn_ids]
+    df = pd.DataFrame(top_feats)
+    df.columns = [&#39;feature&#39;, &#39;tfidf&#39;]
+    return df
+
+def top_feats_in_doc(vec, features, row_id, top_n=20):
+    &#39;&#39;&#39; Top tfidf features in specific document (matrix row) &#39;&#39;&#39;
+    row = np.squeeze(vec[row_id].toarray())
+    return top_tfidf_feats(row, features, top_n)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sklearn.feature_extraction.text import TfidfVectorizer
+vec_1g = TfidfVectorizer(ngram_range=(1, 1), stop_words=STOPWORDS)
+vec_2g = TfidfVectorizer(ngram_range=(2, 3), stop_words=STOPWORDS)
+
+doc = character_lines.Line_nopunc
+
+vec_1g.fit(doc)
+features_1g = vec_1g.get_feature_names()
+vec1 = vec_1g.transform([&#39; &#39;.join(cartman_nostopword)] + [&#39; &#39;.join(stan_nostopword)] + \
+                        [&#39; &#39;.join(kyle_nostopword)] + [&#39; &#39;.join(butters_nostopword)] + \
+                        [&#39; &#39;.join(randy_nostopword)])
+
+vec_2g.fit(doc)
+features_2g = vec_2g.get_feature_names()
+vec2 = vec_2g.transform([&#39; &#39;.join(cartman_nostopword)] + [&#39; &#39;.join(stan_nostopword)] + \
+                        [&#39; &#39;.join(kyle_nostopword)] + [&#39; &#39;.join(butters_nostopword)] + \
+                        [&#39; &#39;.join(randy_nostopword)])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# find out words with the highest tfidf
+cartman_top1g = top_feats_in_doc(vec1, features_1g, row_id=0, top_n=20)
+stan_top1g = top_feats_in_doc(vec1, features_1g, row_id=1, top_n=20)
+kyle_top1g = top_feats_in_doc(vec1, features_1g, row_id=2, top_n=20)
+butters_top1g = top_feats_in_doc(vec1, features_1g, row_id=3, top_n=20)
+randy_top1g = top_feats_in_doc(vec1, features_1g, row_id=4, top_n=20)
+
+cartman_top2g = top_feats_in_doc(vec2, features_2g, row_id=0, top_n=20)
+stan_top2g = top_feats_in_doc(vec2, features_2g, row_id=1, top_n=20)
+kyle_top2g = top_feats_in_doc(vec2, features_2g, row_id=2, top_n=20)
+butters_top2g = top_feats_in_doc(vec2, features_2g, row_id=3, top_n=20)
+randy_top2g = top_feats_in_doc(vec2, features_2g, row_id=4, top_n=20)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;fig = plt.figure(figsize=(6, 5.7), facecolor = &#39;white&#39;)
+ax = fig.add_subplot(111)
+
+ax.text(0.075, 0, &#39;\n&#39;.join(cartman_top1g.feature), bbox={&#39;facecolor&#39;: &#39;skyblue&#39;, &#39;edgecolor&#39;: &#39;black&#39;, &#39;alpha&#39;: 0.5, &#39;pad&#39;:5})
+ax.text(0.075, 0.95, &#39;Cartman&#39;, fontweight=&#39;bold&#39;)
+ax.text(0.275, 0, &#39;\n&#39;.join(stan_top1g.feature), bbox={&#39;facecolor&#39;: &#39;skyblue&#39;, &#39;edgecolor&#39;: &#39;black&#39;, &#39;alpha&#39;: 0.5, &#39;pad&#39;:5})
+ax.text(0.275, 0.95, &#39;Stan&#39;, fontweight=&#39;bold&#39;)
+ax.text(0.475, 0, &#39;\n&#39;.join(kyle_top1g.feature), bbox={&#39;facecolor&#39;: &#39;skyblue&#39;, &#39;edgecolor&#39;: &#39;black&#39;, &#39;alpha&#39;: 0.5, &#39;pad&#39;:5})
+ax.text(0.475, 0.95, &#39;Kyle&#39;, fontweight=&#39;bold&#39;)
+ax.text(0.675, 0, &#39;\n&#39;.join(butters_top1g.feature), bbox={&#39;facecolor&#39;: &#39;skyblue&#39;, &#39;edgecolor&#39;: &#39;black&#39;, &#39;alpha&#39;: 0.5, &#39;pad&#39;:5})
+ax.text(0.675, 0.95, &#39;Butters&#39;, fontweight=&#39;bold&#39;)
+ax.text(0.875, 0, &#39;\n&#39;.join(randy_top1g.feature), bbox={&#39;facecolor&#39;: &#39;skyblue&#39;, &#39;edgecolor&#39;: &#39;black&#39;, &#39;alpha&#39;: 0.5, &#39;pad&#39;:5})
+ax.text(0.875, 0.95, &#39;Randy&#39;, fontweight=&#39;bold&#39;)
+
+fig.suptitle(&#39;Top 20 Most Important Words&#39;, fontweight=&#39;bold&#39;)
+plt.axis(&#39;off&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;(0.0, 1.0, 0.0, 1.0)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_62_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;fig = plt.figure(figsize=(10, 5.7), facecolor = &#39;white&#39;)
+ax = fig.add_subplot(111)
+
+ax.text(0.0, 0, &#39;\n&#39;.join(cartman_top2g.feature), bbox={&#39;facecolor&#39;: &#39;skyblue&#39;, &#39;edgecolor&#39;: &#39;black&#39;, &#39;alpha&#39;: 0.5, &#39;pad&#39;:5})
+ax.text(0.0, 0.95, &#39;Cartman&#39;, fontweight=&#39;bold&#39;)
+ax.text(0.19, 0, &#39;\n&#39;.join(stan_top2g.feature), bbox={&#39;facecolor&#39;: &#39;skyblue&#39;, &#39;edgecolor&#39;: &#39;black&#39;, &#39;alpha&#39;: 0.5, &#39;pad&#39;:5})
+ax.text(0.19, 0.95, &#39;Stan&#39;, fontweight=&#39;bold&#39;)
+ax.text(0.375, 0, &#39;\n&#39;.join(kyle_top2g.feature), bbox={&#39;facecolor&#39;: &#39;skyblue&#39;, &#39;edgecolor&#39;: &#39;black&#39;, &#39;alpha&#39;: 0.5, &#39;pad&#39;:5})
+ax.text(0.375, 0.95, &#39;Kyle&#39;, fontweight=&#39;bold&#39;)
+ax.text(0.625, 0, &#39;\n&#39;.join(butters_top2g.feature), bbox={&#39;facecolor&#39;: &#39;skyblue&#39;, &#39;edgecolor&#39;: &#39;black&#39;, &#39;alpha&#39;: 0.5, &#39;pad&#39;:5})
+ax.text(0.625, 0.95, &#39;Butters&#39;, fontweight=&#39;bold&#39;)
+ax.text(0.82, 0, &#39;\n&#39;.join(randy_top2g.feature), bbox={&#39;facecolor&#39;: &#39;skyblue&#39;, &#39;edgecolor&#39;: &#39;black&#39;, &#39;alpha&#39;: 0.5, &#39;pad&#39;:5})
+ax.text(0.82, 0.95, &#39;Randy&#39;, fontweight=&#39;bold&#39;)
+
+fig.suptitle(&#39;Top 20 Most Important Phrases&#39;, fontweight=&#39;bold&#39;)
+plt.axis(&#39;off&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;(0.0, 1.0, 0.0, 1.0)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_63_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# find some special bigrams (they are more likely to form bigram than as individual words) 
+from sklearn.feature_extraction.text import CountVectorizer
+
+def get_count(n):
+    &#39;&#39;&#39;return a dictionary with n-gram and their counts&#39;&#39;&#39;
+    vect = CountVectorizer(stop_words=&#39;english&#39;, ngram_range=(n, n))
+    counts = vect.fit_transform(doc)
+    gram = vect.get_feature_names()
+    counts_list = counts.sum(axis = 0)
+    counts_list = np.asarray(counts_list).reshape(-1)
+    gram_count = dict(zip(gram, counts_list))
+    
+    return gram_count
+
+count_1g = get_count(1)
+count_2g = get_count(2)
+
+import operator
+
+def find_special(count1, count2):
+    &#39;&#39;&#39;return the top 20 special bigrams&#39;&#39;&#39;
+    ratio = {}
+    for bigram in count2:
+        words = bigram.split()
+        k1 = words[0]
+        k2 = words[1]
+        if k1 in count1 and k2 in count1:
+            ratio[bigram] = float(count2[bigram])/((count1[k1] + 50)*(count1[k2] + 50)) # bayesian smoothing
+    sorted_ratio = sorted(ratio.items(), key=operator.itemgetter(1), reverse=True)
+    return sorted_ratio[:20]
+
+find_special(count_1g, count_2g)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;[(&#39;mel gibson&#39;, 0.0047743055555555559),
+ (&#39;casa bonita&#39;, 0.0047332185886402754),
+ (&#39;trapper keeper&#39;, 0.0046474035158617904),
+ (&#39;prime minister&#39;, 0.0045582047685834501),
+ (&#39;kathie lee&#39;, 0.0044973544973544973),
+ (&#39;global warming&#39;, 0.0044532409698169219),
+ (&#39;los angeles&#39;, 0.0043186895011169029),
+ (&#39;rabble rabble&#39;, 0.0043044077134986227),
+ (&#39;cheesy poofs&#39;, 0.0043010752688172043),
+ (&#39;barbra streisand&#39;, 0.004097818902842036),
+ (&#39;meow meow&#39;, 0.003955895968352832),
+ (&#39;founding fathers&#39;, 0.0038377192982456138),
+ (&#39;phil collins&#39;, 0.0037071362372567192),
+ (&#39;san francisco&#39;, 0.0036910457963089541),
+ (&#39;pinewood derby&#39;, 0.0035502958579881655),
+ (&#39;mintberry crunch&#39;, 0.0035035035035035035),
+ (&#39;biggie smalls&#39;, 0.003472892147404978),
+ (&#39;okama gamesphere&#39;, 0.003383084577114428),
+ (&#39;customer service&#39;, 0.0033663366336633663),
+ (&#39;christopher reeve&#39;, 0.003335804299481097)]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;what-did-kenny-say&#34;&gt;What did Kenny say&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;kenny_text = &#39;&#39;.join(character_lines[character_lines[&#39;Character&#39;] == &#39;Kenny&#39;][&#39;Line_nopunc&#39;])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;mask = imread(&#39;kenny.jpg&#39;) # mask
+image_colors = ImageColorGenerator(mask) # custom color using mask image
+
+wc = WordCloud(background_color = &#39;white&#39;, mask = mask, max_words = 3000, \
+               stopwords = STOPWORDS, color_func = image_colors, scale = 1.0, random_state= 10)
+wc.generate(kenny_text)
+wc.to_file(&#39;kenny_wordcloud.png&#39;)
+
+plt.figure(figsize = (6, 6), facecolor = &#39;white&#39;)
+plt.imshow(wc)
+plt.axis(&#39;off&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;(-0.5, 354.5, 478.5, -0.5)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_67_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;kenny_word = [w for w in kenny_text.split()]
+kenny_nostopword = [w for w in kenny_word if w not in list(STOPWORDS)]
+
+vec1_k = vec_1g.transform([&#39; &#39;.join(kenny_nostopword)])
+vec2_k = vec_2g.transform([&#39; &#39;.join(kenny_nostopword)])
+kenny_top1g = top_feats_in_doc(vec1_k, features_1g, row_id=0, top_n=20)
+kenny_top2g = top_feats_in_doc(vec2_k, features_2g, row_id=0, top_n=20)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;kenny_top1g
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;feature&lt;/th&gt;
+      &lt;th&gt;tfidf&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;td&gt;yeah&lt;/td&gt;
+      &lt;td&gt;0.434546&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;td&gt;fuck&lt;/td&gt;
+      &lt;td&gt;0.282016&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;td&gt;woohoo&lt;/td&gt;
+      &lt;td&gt;0.278473&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;3&lt;/th&gt;
+      &lt;td&gt;dude&lt;/td&gt;
+      &lt;td&gt;0.246265&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;4&lt;/th&gt;
+      &lt;td&gt;guys&lt;/td&gt;
+      &lt;td&gt;0.233252&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;5&lt;/th&gt;
+      &lt;td&gt;hey&lt;/td&gt;
+      &lt;td&gt;0.233143&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;6&lt;/th&gt;
+      &lt;td&gt;oh&lt;/td&gt;
+      &lt;td&gt;0.215685&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;7&lt;/th&gt;
+      &lt;td&gt;fucking&lt;/td&gt;
+      &lt;td&gt;0.162086&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;8&lt;/th&gt;
+      &lt;td&gt;okay&lt;/td&gt;
+      &lt;td&gt;0.135240&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;9&lt;/th&gt;
+      &lt;td&gt;huh&lt;/td&gt;
+      &lt;td&gt;0.125770&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;10&lt;/th&gt;
+      &lt;td&gt;uh&lt;/td&gt;
+      &lt;td&gt;0.120562&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;11&lt;/th&gt;
+      &lt;td&gt;fuckin&lt;/td&gt;
+      &lt;td&gt;0.110786&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;12&lt;/th&gt;
+      &lt;td&gt;cartman&lt;/td&gt;
+      &lt;td&gt;0.099954&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;13&lt;/th&gt;
+      &lt;td&gt;kyle&lt;/td&gt;
+      &lt;td&gt;0.086085&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;14&lt;/th&gt;
+      &lt;td&gt;awesome&lt;/td&gt;
+      &lt;td&gt;0.085089&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;15&lt;/th&gt;
+      &lt;td&gt;know&lt;/td&gt;
+      &lt;td&gt;0.082031&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;16&lt;/th&gt;
+      &lt;td&gt;gotta&lt;/td&gt;
+      &lt;td&gt;0.079955&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;17&lt;/th&gt;
+      &lt;td&gt;ow&lt;/td&gt;
+      &lt;td&gt;0.075277&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;18&lt;/th&gt;
+      &lt;td&gt;io&lt;/td&gt;
+      &lt;td&gt;0.074782&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;19&lt;/th&gt;
+      &lt;td&gt;ha&lt;/td&gt;
+      &lt;td&gt;0.074569&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;kenny_top2g
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;feature&lt;/th&gt;
+      &lt;th&gt;tfidf&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;td&gt;hey guys&lt;/td&gt;
+      &lt;td&gt;0.141637&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;td&gt;yeah yeah&lt;/td&gt;
+      &lt;td&gt;0.113497&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;td&gt;uh huh&lt;/td&gt;
+      &lt;td&gt;0.095976&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;3&lt;/th&gt;
+      &lt;td&gt;dude fuck&lt;/td&gt;
+      &lt;td&gt;0.085868&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;4&lt;/th&gt;
+      &lt;td&gt;yeah totally&lt;/td&gt;
+      &lt;td&gt;0.074966&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;5&lt;/th&gt;
+      &lt;td&gt;fuck yeah&lt;/td&gt;
+      &lt;td&gt;0.073601&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;6&lt;/th&gt;
+      &lt;td&gt;woohoo yeah&lt;/td&gt;
+      &lt;td&gt;0.071321&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;7&lt;/th&gt;
+      &lt;td&gt;con te&lt;/td&gt;
+      &lt;td&gt;0.069687&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;8&lt;/th&gt;
+      &lt;td&gt;oh god&lt;/td&gt;
+      &lt;td&gt;0.066066&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;9&lt;/th&gt;
+      &lt;td&gt;purincessu kenni&lt;/td&gt;
+      &lt;td&gt;0.063784&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;10&lt;/th&gt;
+      &lt;td&gt;ha ha&lt;/td&gt;
+      &lt;td&gt;0.062374&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;11&lt;/th&gt;
+      &lt;td&gt;fuck dude&lt;/td&gt;
+      &lt;td&gt;0.055750&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;12&lt;/th&gt;
+      &lt;td&gt;ha ha ha&lt;/td&gt;
+      &lt;td&gt;0.053968&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;13&lt;/th&gt;
+      &lt;td&gt;uh oh&lt;/td&gt;
+      &lt;td&gt;0.053899&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;14&lt;/th&gt;
+      &lt;td&gt;yeah fuck&lt;/td&gt;
+      &lt;td&gt;0.051027&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;15&lt;/th&gt;
+      &lt;td&gt;know yeah&lt;/td&gt;
+      &lt;td&gt;0.049977&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;16&lt;/th&gt;
+      &lt;td&gt;hey hey&lt;/td&gt;
+      &lt;td&gt;0.047844&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;17&lt;/th&gt;
+      &lt;td&gt;nuh uh&lt;/td&gt;
+      &lt;td&gt;0.047547&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;18&lt;/th&gt;
+      &lt;td&gt;yeah woohoo&lt;/td&gt;
+      &lt;td&gt;0.044345&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;19&lt;/th&gt;
+      &lt;td&gt;huh uh&lt;/td&gt;
+      &lt;td&gt;0.044345&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+</description>
     </item>
     
   </channel>
