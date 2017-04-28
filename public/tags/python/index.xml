@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on Yanfei Wu</title>
-    <link>/tags/python/index.xml</link>
+    <link>https://yanfei-wu.github.io/tags/python/index.xml</link>
     <description>Recent content in Python on Yanfei Wu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2016 Yanfei Wu</copyright>
-    <atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://yanfei-wu.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Machine Learning for Employee Retention</title>
-      <link>/blog/2017-04-28_employee_retention/</link>
+      <link>https://yanfei-wu.github.io/blog/2017-04-28_employee_retention/</link>
       <pubDate>Fri, 28 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017-04-28_employee_retention/</guid>
+      <guid>https://yanfei-wu.github.io/blog/2017-04-28_employee_retention/</guid>
       <description>
 
 &lt;p&gt;&lt;em&gt;Note&lt;/em&gt;: The code and full report for this project is available in &lt;a href=&#34;https://github.com/yanfei-wu/ml_udacity/tree/master/capstone&#34;&gt;my Github Repository&lt;/a&gt;.&lt;/p&gt;
@@ -128,10 +128,10 @@
     
     <item>
       <title>South Park Lines: Who is Speaking? (Part 1)</title>
-      <link>/blog/2017-03-20_southpark/</link>
+      <link>https://yanfei-wu.github.io/blog/2017-03-20_southpark/</link>
       <pubDate>Fri, 24 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017-03-20_southpark/</guid>
+      <guid>https://yanfei-wu.github.io/blog/2017-03-20_southpark/</guid>
       <description>
 
 &lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
@@ -243,10 +243,10 @@
     
     <item>
       <title>&#34;Toxic Beauty&#34;: Chemicals in Cosmetics</title>
-      <link>/blog/2017-03-15_chemicals/</link>
+      <link>https://yanfei-wu.github.io/blog/2017-03-15_chemicals/</link>
       <pubDate>Wed, 15 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2017-03-15_chemicals/</guid>
+      <guid>https://yanfei-wu.github.io/blog/2017-03-15_chemicals/</guid>
       <description>
 
 &lt;p&gt;How many different beauty products do you apply onto your face and body everyday? How many chemical ingredients do they contain? And how many of those chemicals have potential health risks?&lt;/p&gt;
