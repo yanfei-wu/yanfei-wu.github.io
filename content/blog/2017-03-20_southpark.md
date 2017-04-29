@@ -2,10 +2,10 @@
 draft = false
 image = "blog/southpark_file/cartman_wordcloud.png"
 date = "2017-03-24"
-title = "South Park Lines: Who is Speaking? (Part 1)"
+title = "Lines from South Park"
 type = "post"
 author = "Yanfei Wu"
-description = "This post is the first part of a NLP & ML project to guess who is speaking based on the lines from South Park. It focuses on data analysis and visualization."
+description = "This post presents some analyses on South Park lines."
 tags = [
 "Python",
 "data visualization",
@@ -17,9 +17,9 @@ tags = [
 
 South Park is an adult animated sitcom about four potty-mouthed grade boys Eric Cartman, Stan Marsh, Kyle Broflovshi, and Kenny McCormick and their adventures in a fictional Colorado town called South Park. The show debuted in 1997 and has been through 20 seasons now. It is such a famous show and it has won a lot of awards but for some reason I never really watched this show (except for a couple YouTube clips). 
 
-Recently, I found a dataset from [Kaggle](https://www.kaggle.com/tovarischsukhov/southparklines) with the lines of the first 18 seasons. These lines have been annotated with season, episode and speaker. I was curious about what I can find out about the show just from this dataset. Also, I thought it would be interesting to build a classification model to guess the speakers based on the lines. This post will focus on the first part using data visualization. All the codes for this post can be found in [my Github Repository](https://github.com/yanfei-wu/tv_lines).
+Recently, I found a dataset from [Kaggle](https://www.kaggle.com/tovarischsukhov/southparklines) with the lines of the first 18 seasons. These lines have been annotated with season, episode and speaker. I was curious about what I can find out about the show from this dataset. So here it goes.
 
-Here it goes.  
+*Note:* All the codes for this post can be found in [my Github Repository](https://github.com/yanfei-wu/tv_lines).
 
 ### Get to Know the Show  
 
@@ -51,11 +51,11 @@ First, I looked at some basic information about the show based on this dataset, 
 <p> </p>
 </div>  
 
-So how long are the lines? The number of words in a line is used to define the line length. The distribution of the line length shows that the majority of the lines in the show are relatively short (with a median of 8 words and a 75 percentile of 14 words).   
+We can see that there are over 70,000 lines in the dataset. So how long are these lines? The number of words in a line is used to define the line length. The distribution of the line length shows that the majority of the lines in the show are relatively short (with a median of 8 words and a 75 percentile of 14 words).   
 
 <img src="../southpark_file/linelength_dist.png" class="img-responsive" style="display: block; margin: auto;" />
 
-Another question is how did the show evolve over the seasons in terms of the number of episodes, characters, and lines?   
+Another question is how did the show evolve over the seasons in terms of the number of episodes, characters, and lines.   
 
 <img src="../southpark_file/over_season.png" class="img-responsive" style="display: block; margin: auto;" />
 
@@ -113,6 +113,5 @@ The word cloud is based on word frequency. Another way to look at this is the im
 <img src="../southpark_file/topwords_kenny.png" class="img-responsive" style="display: block; margin: auto;" />
 
 ### Summary  
-In this post, I walked you through my exploration of the South Park lines dataset and showed you what I learned about the show and the characters from this dataset. My next step is to build a classification model which is able to guess the speaker based on the lines given. Stay tuned :)
-
+In this post, I walked you through my exploration of the South Park lines dataset and showed some interesting facts I learned about the show and the characters from the lines. I guess I will go watch a couple of episodes now :)
 
