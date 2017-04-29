@@ -10,7 +10,7 @@
     <atom:link href="https://yanfei-wu.github.io/tags/natural-language-processing/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>South Park Lines: Who is Speaking? (Part 1)</title>
+      <title>Lines from South Park</title>
       <link>https://yanfei-wu.github.io/blog/2017-03-20_southpark/</link>
       <pubDate>Fri, 24 Mar 2017 00:00:00 +0000</pubDate>
       
@@ -21,9 +21,9 @@
 
 &lt;p&gt;South Park is an adult animated sitcom about four potty-mouthed grade boys Eric Cartman, Stan Marsh, Kyle Broflovshi, and Kenny McCormick and their adventures in a fictional Colorado town called South Park. The show debuted in 1997 and has been through 20 seasons now. It is such a famous show and it has won a lot of awards but for some reason I never really watched this show (except for a couple YouTube clips).&lt;/p&gt;
 
-&lt;p&gt;Recently, I found a dataset from &lt;a href=&#34;https://www.kaggle.com/tovarischsukhov/southparklines&#34;&gt;Kaggle&lt;/a&gt; with the lines of the first 18 seasons. These lines have been annotated with season, episode and speaker. I was curious about what I can find out about the show just from this dataset. Also, I thought it would be interesting to build a classification model to guess the speakers based on the lines. This post will focus on the first part using data visualization. All the codes for this post can be found in &lt;a href=&#34;https://github.com/yanfei-wu/tv_lines&#34;&gt;my Github Repository&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Recently, I found a dataset from &lt;a href=&#34;https://www.kaggle.com/tovarischsukhov/southparklines&#34;&gt;Kaggle&lt;/a&gt; with the lines of the first 18 seasons. These lines have been annotated with season, episode and speaker. I was curious about what I can find out about the show from this dataset. So here it goes.&lt;/p&gt;
 
-&lt;p&gt;Here it goes.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; All the codes for this post can be found in &lt;a href=&#34;https://github.com/yanfei-wu/tv_lines&#34;&gt;my Github Repository&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&#34;get-to-know-the-show&#34;&gt;Get to Know the Show&lt;/h3&gt;
 
@@ -55,11 +55,11 @@
 &lt;p&gt; &lt;/p&gt;
 &lt;/div&gt;  
 
-&lt;p&gt;So how long are the lines? The number of words in a line is used to define the line length. The distribution of the line length shows that the majority of the lines in the show are relatively short (with a median of 8 words and a 75 percentile of 14 words).&lt;/p&gt;
+&lt;p&gt;We can see that there are over 70,000 lines in the dataset. So how long are these lines? The number of words in a line is used to define the line length. The distribution of the line length shows that the majority of the lines in the show are relatively short (with a median of 8 words and a 75 percentile of 14 words).&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;../southpark_file/linelength_dist.png&#34; class=&#34;img-responsive&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Another question is how did the show evolve over the seasons in terms of the number of episodes, characters, and lines?&lt;/p&gt;
+&lt;p&gt;Another question is how did the show evolve over the seasons in terms of the number of episodes, characters, and lines.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;../southpark_file/over_season.png&#34; class=&#34;img-responsive&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 
@@ -120,7 +120,7 @@
 
 &lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
 
-&lt;p&gt;In this post, I walked you through my exploration of the South Park lines dataset and showed you what I learned about the show and the characters from this dataset. My next step is to build a classification model which is able to guess the speaker based on the lines given. Stay tuned :)&lt;/p&gt;
+&lt;p&gt;In this post, I walked you through my exploration of the South Park lines dataset and showed some interesting facts I learned about the show and the characters from the lines. I guess I will go watch a couple of episodes now :)&lt;/p&gt;
 </description>
     </item>
     
