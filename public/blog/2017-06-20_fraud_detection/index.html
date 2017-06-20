@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Fraud Detection: Learning from Imbalanced Data</title>
+<meta name="description" content="Describe your website">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" href="https://yanfei-wu.github.io/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="https://yanfei-wu.github.io/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://yanfei-wu.github.io/css/owl.carousel.css">
+<link rel="stylesheet" href="https://yanfei-wu.github.io/css/owl.theme.css">
+
+
+  <link href="https://yanfei-wu.github.io/css/style.blue.css" rel="stylesheet" id="theme-stylesheet">
+
+
+<link href="https://yanfei-wu.github.io/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="https://yanfei-wu.github.io/img/favicon.png">
+
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              
+<div id="sidebar" class="col-sb-fixedpos col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="/">Yanfei Wu</a></h1>
+    <ul class="sidebar-menu">
+      
+      
+        <li><a href="https://yanfei-wu.github.io/">Home</a></li>
+      
+        <li><a href="https://yanfei-wu.github.io/blog/">Blogs</a></li>
+      
+
+      
+
+
+
+ 
+      
+
+ 
+      
+
+    </ul>
+      <p class="social">
+  
+  
+  
+  
+  
+  <a href="mailto:wuxxx728@umn.edu" data-animate-hover="pulse" class="email">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://www.linkedin.com/in/yanfei-wu-76696383/" data-animate-hover="pulse">
+    <i class="fa fa-linkedin"></i>
+  </a>
+  
+  
+  
+  <a href="https://github.com/yanfei-wu" data-animate-hover="pulse">
+    <i class="fa fa-github"></i>
+  </a>
+  
+</p>
+
+
+    <div class="copyright">
+      <p class="credit">
+        
+          &copy;2016 Yanfei Wu
+        
+        | Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+
+&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background col-main-fixedpos">
+  <div class="small-navbar visible-xs">
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+  <h1 class="small-navbar-heading"><a href="/">Yanfei Wu</a></h1>
+</div>
+
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="image">
+          <img src="https://yanfei-wu.github.io/blog/fraud_file/card.jpg" class="img-responsive" alt="">
+        </div>
+      </div>
+
+      <div class="col-md-8">
+        <h2>Fraud Detection: Learning from Imbalanced Data</h2>
+          <p class="author-category">
+            Yanfei Wu
+          </p>
+          <p class="date-comments">
+            <i class="fa fa-calendar"></i> June 20, 2017
+          </p>
+            
+                  
+      </div>
+    </div>
+</br>
+
+    <div class="row">
+      <div class="content-column-content">
+        <div class="col-lg-10">
+          
+          
+
+<p><em>Note</em>: The code and full report for this project is available in <a href="https://github.com/yanfei-wu/kaggle/faud/">my Github Repository</a>.</p>
+
+<h2 id="1-introduction">1. Introduction</h2>
+
+<p>Combating fraud is an important application of Machine Learning. Fraud exists in many industries including banking and financial sectors, insurance, government agencies, and more. With the advances in computer technology and e-commerce, fraud attempts have seen a drastic increase in recent years, making fraud detection more important than ever. Machine learning for fraud detection works on the basis of large, historical datasets that have been aggregated across many clients. The data serve as the training set and allow businesses to build efficient machine-learning-based fraud detection systems with optimized performance. Compared to standard predictive modeling problem, fraud detection is characterized with skewed class distribution, or class imbalance, since fraud is a relatively rare event. Therefore, one challenge of fraud detection with Machine Learning is to mitigate the class imbalance problem.</p>
+
+<p>The goal of this project is to build supervised classification models for fraud detection using preprocessed and anonymized credit card transaction data. The main focus will be on dealing with class imbalance.</p>
+
+<h2 id="2-analysis">2. Analysis</h2>
+
+<h3 id="2-1-data">2.1 Data</h3>
+
+<p>The dataset (available in <a href="https://www.kaggle.com/dalpozz/creditcardfraud">Kaggle</a> contains transactions made by credit cards in September 2013 by European cardholders. It contains only numerical input variables, including 28 features which are the result of a PCA transformation, and 1 feature which has not been transformed with PCA, namely <code>'Amount'</code>. There are no missing values in the dataset. The original features and more background information about the data are not available due to confidentiality issues. The target variable for the dataset is <code>'Class'</code>. It takes value 1 in case of fraud and 0 otherwise. This dataset presents transactions that occurred in two days, where there are 492 frauds out of 284,807 transactions. <strong>Clearly, the dataset is highly skewed, the positive class (frauds) only account for 0.172% of all transactions.</strong></p>
+
+<h3 id="2-2-methodology">2.2 Methodology</h3>
+
+<p>Class imbalance exists in many real-world classification problems and handling imbalanced dataset has been an actively studied subject in Machine Learning. Before digging into the current problem, some common approaches for dealing with imbalanced data is reviewed below. These approaches include:</p>
+
+<p><em>1. Collect more data.</em><br />
+Having more data might lead to a more balanced dataset. A larger dataset is also helpful for minority class resampling. However, this approach is not always possible in real life.</p>
+
+<p><em>2. Balance the training set.</em><br />
+This can be done by resampling the training set or generating synthetic samples.</p>
+
+<ul>
+<li>Oversample the minority class. Oversampling randomly replicates minority instances to increase their population.<br /></li>
+<li>Undersample the majority class. Undersampling randomly downsamples the majority class.<br /></li>
+<li>Synthesize new minority classes. The best-known example of this approach is SMOTE (Synthetic Minority Oversampling TEchnique). It creates synthetic samples from the minority class instead of making duplicates. The algorithm selects two or more similar instances, i.e., nearest neighbors (using a distance measure), and perturbs an instance one attribute at a time by a random amount within the difference to the neighboring instances to construct new minority instances.<br /></li>
+</ul>
+
+<p>Resampling is the easiest to implement. However, both under/over-sampling have their drawbacks. Undersampling discards potentially important data and makes the independent variables look more variable than they actually are; whereas data duplication with oversampling makes the variable appear to have low variance and could lead to overfitting. SMOTE, compared to traditional oversampling, creates similar examples instead of exact copies of the minority class, which results in more general models and avoids overfitting.</p>
+
+<p><em>3. Change the performance metrics.</em><br />
+The performance of classification algorithms is typically evaluated by a confusion matrix which compares the predicted class and the actual class. In the confusion matrix, the number of negative examples correctly classified is True Negatives (TN), the number of negative examples incorrectly classified as positive is False Positives (FP), the number of positive examples incorrectly classified as negative is False Negatives (FN) and the number of positive examples correctly classified is True Positives (TP). In the context of balanced datasets and equal error costs, the common performance metric is predictive accuracy, which is defined as the percentage of correctly identified examples, i.e., (TP+TN)/(TP+FP+TN+FN). In the case of imbalanced datasets, it is more appropriate to use other metrics.</p>
+
+<ul>
+<li>Precision-recall curve. Precision is defined as TP/(TP+FP) and is a measure of the classifier&rsquo;s exactness. Recall, on the other hand, is defined as TP/(TP+FN). It measures the classifier&rsquo;s sensitivity. There is a tradeoff between precision and recall. For a given model, the classifier performance can be visualized using a precision-recall curve, which captures the tradeoff between precision and recall as the decision threshold is varied. On its own, a model is overall better if the curve is closer to the top right of the chart where precision and recall are both 1.0. One way to capture the overall quality of the model is by computing the area under the curve (AUC). The AUC will be 1.0 for an ideal model.<br /></li>
+</ul>
+
+<p>Note that Receiver Operator Characteristic (ROC) curve is also commonly used to measure the performance of binary classifiers. However, when dealing with highly skewed datasets, it provides a less informative picture of the algorithm&rsquo;s performance than the precision-recall curve.[1]</p>
+
+<p><em>4. Algorithm level approach.</em></p>
+
+<ul>
+<li>Adjust the class weight. This approach is based on reducing the misclassification costs for minority class. Many Machine Learning toolkits have ways to adjust the importance of the classes. For examples, many classifiers in <code>Scikit-learn</code> have an optional <code>'class_weight'</code> parameter that can be set to &lsquo;balanced&rsquo;.<br /></li>
+<li>Adjust the decision threshold. Instead of getting classification labels from the classifier, a good approach to handling class imbalance is to estimate probability and then adjust the decision threshold to separate classes. Probabilistic classification models in <code>Scikit-learn</code> such as logistic regression offer <code>'predict_proba'</code> method to estimate probability.</li>
+</ul>
+
+<h2 id="3-results-and-discussions">3. Results and Discussions</h2>
+
+<h3 id="3-1-model-selection-and-effect-of-adjusting-class-weight">3.1 Model Selection and Effect of Adjusting Class Weight</h3>
+
+<p>As mentioned above, for classification problem with skewed data, it is better to estimate probability than labels. So several naturally probabilistic classification algorithms are selected here, including Naive Bayes, Logistic Regression, Decision Tree Classifier, and Random Forest. Also, except for Naive Bayes, all other models have the <code>'class_weight'</code> parameter that can be set to &lsquo;balanced&rsquo;. So before any resampling of the data, the performance of these models (with or without setting <code>'class_weight'</code> to be &lsquo;balanced&rsquo;) is compared.</p>
+
+<p>The dataset is first randomly split into 80% training set and 20% test set. The features are normalized before training the models. The precision-recall curves of different models (Figure 2) and their AUC scores (Figure 3) are shown below. Since a model is considered better if the curve is closer to the top right of the chart, in this particular case, Random Forest model with <code>'class_weight'</code> set to be &lsquo;balanced&rsquo; seems to be the best. The comparison of areas under the precision-recall curves also shows that Random Forest model (balanced) gives the largest area followed by Random Forest model (not balanced), and logistic model (not balanced). Interestingly, although adjusting class weight shows a positive effect on Random Forest model, it does not result in significant change of the model performance for Logistic Regression, and it even exerts a negative effect (worse precision-recall performance) for Decision Tree Classifier.</p>
+
+<p><img src="../fraud_file/pr.png" class="img-responsive" style="display: block; margin: auto;" /></p>
+
+<p><img src="../fraud_file/auc.png" class="img-responsive" style="display: block; margin: auto;" /></p>
+
+<h3 id="3-2-effect-of-smote">3.2 Effect of SMOTE</h3>
+
+<p>An alternative to adjusting class weight at the algorithm level is to balance the training set, for example, with SMOTE. As introduced above, SMOTE is an oversampling technique, but instead of creating exact copies of the existing minority data, SMOTE generates new, synthetic minority points by interpolating between current minority examples.</p>
+
+<p>A Python package named <a href="http://contrib.scikit-learn.org/imbalanced-learn/index.html#"><code>'imbalanced-learn'</code></a> is used to implement SMOTE. The package offers a number of re-sampling techniques commonly used in datasets showing strong between-class imbalance. SMOTE operation generates additional positive examples so that the class ratio of the training set becomes 1:1. The above four classification algorithms, Naive Bayes, Logistic Regression, Decision Tree, and Random Forest (all out-of-box and without setting <code>'class_weight'</code> to &lsquo;balanced&rsquo;) are trained using the new balanced training set. The models are then compared with their precision-recall curves (Figure 4) and AUC scores (Figure 5). The best model is again out-of-box Random Forest model. The AUC score of the Random Forest model after SMOTE (0.852) is better than the one without SMOTE (0.849), but is not as good as Random Forest model with adjusting class weight (0.861). In other words, both approaches improve the performance of the model but in this particular case, adjusting the class weight is slightly better than SMOTE. Note that SMOTE is limited in the fact that it can only generate examples WITHIN the body of available examples, i.e., it can only fill in the convex hull of existing minority examples but not outside.</p>
+
+<p><img src="../fraud_file/pr_smote.png" class="img-responsive" style="display: block; margin: auto;" /></p>
+
+<p><img src="../fraud_file/auc_smote.png" class="img-responsive" style="display: block; margin: auto;" /></p>
+
+<h2 id="4-conclusion">4. Conclusion</h2>
+
+<p>This project explores approaches for handling class imbalance by building supervised fraud detection models using credit card transaction data. The original dataset is highly skewed with the positive class only accounting for 0.172%. Therefore, instead of using common metrics like accuracy, the precision-recall curve and the area under the curve (AUC) are used as the performance measure for the models. Algorithm level approach (i.e., adjusting class weight) and data rebalancing technique (SMOTE) are used to optimize the model performance. It is found that:</p>
+
+<ul>
+<li>Both adjusting class weight and SMOTE result in better model performance as measured by the precision-recall curve.<br /></li>
+<li>Random Forest model turns out to be the best performing model compared to Naive Bayes, Logistic Regression, and Decision Tree Classifier.<br /></li>
+<li>Adjusting class weight of Random Forest model gives slightly better result than training the model on SMOTE-balanced dataset.</li>
+</ul>
+
+<hr />
+
+<p><em>[1] J. Davis et al. The relationship between Precision-Recall and ROC curves. Proceedings of the 23rd international conference on Machine learning, 2006.</em></p>
+
+        </div>
+      </div>
+    </div>
+
+    <a href="#" class="back-to-top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+
+    
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'yanfeiwu';
+    var disqus_identifier = 'https:\/\/yanfei-wu.github.io\/blog\/2017-06-20_fraud_detection\/';
+    var disqus_title = 'Fraud Detection: Learning from Imbalanced Data';
+    var disqus_url = 'https:\/\/yanfei-wu.github.io\/blog\/2017-06-20_fraud_detection\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+   
+
+          </div>
+      </div>
+  </div>
+  <script src="https://yanfei-wu.github.io/js/jquery.min.js"></script>
+<script src="https://yanfei-wu.github.io/js/bootstrap.min.js"></script>
+<script src="https://yanfei-wu.github.io/js/jquery.cookie.js"> </script>
+<script src="https://yanfei-wu.github.io/js/ekko-lightbox.js"></script>
+<script src="https://yanfei-wu.github.io/js/jquery.scrollTo.min.js"></script>
+<script src="https://yanfei-wu.github.io/js/masonry.pkgd.min.js"></script>
+<script src="https://yanfei-wu.github.io/js/imagesloaded.pkgd.min.js"></script>
+<script src="https://yanfei-wu.github.io/js/owl.carousel.min.js"></script>
+<script src="https://yanfei-wu.github.io/js/front.js"></script>
+<script src="https://yanfei-wu.github.io/js/backtotop.js"></script> 
+
+</body>
+</html>
