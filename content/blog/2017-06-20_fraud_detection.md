@@ -13,7 +13,7 @@ tags = [
 ]
 +++
 
-*Note*: The code and full report for this project is available in [my Github Repository](https://github.com/yanfei-wu/kaggle/faud/).
+*Note*: The code and full report for this project is available in [my Github Repository](https://github.com/yanfei-wu/kaggle/tree/master/fraud).
 
 ## 1. Introduction  
 
@@ -32,29 +32,32 @@ The dataset (available in [Kaggle](https://www.kaggle.com/dalpozz/creditcardfrau
 
 Class imbalance exists in many real-world classification problems and handling imbalanced dataset has been an actively studied subject in Machine Learning. Before digging into the current problem, some common approaches for dealing with imbalanced data is reviewed below. These approaches include:  
 
-*1. Collect more data.*   
+**1. Collect more data.**  
+
 Having more data might lead to a more balanced dataset. A larger dataset is also helpful for minority class resampling. However, this approach is not always possible in real life. 
 
-*2. Balance the training set.*   
+**2. Balance the training set.** 
+
 This can be done by resampling the training set or generating synthetic samples.  
   
-* Oversample the minority class. Oversampling randomly replicates minority instances to increase their population.   
-* Undersample the majority class. Undersampling randomly downsamples the majority class.   
-* Synthesize new minority classes. The best-known example of this approach is SMOTE (Synthetic Minority Oversampling TEchnique). It creates synthetic samples from the minority class instead of making duplicates. The algorithm selects two or more similar instances, i.e., nearest neighbors (using a distance measure), and perturbs an instance one attribute at a time by a random amount within the difference to the neighboring instances to construct new minority instances.   
+- *Oversample the minority class.* Oversampling randomly replicates minority instances to increase their population.   
+- *Undersample the majority class.* Undersampling randomly downsamples the majority class.   
+- *Synthesize new minority classes.* The best-known example of this approach is SMOTE (Synthetic Minority Oversampling TEchnique). It creates synthetic samples from the minority class instead of making duplicates. The algorithm selects two or more similar instances, i.e., nearest neighbors (using a distance measure), and perturbs an instance one attribute at a time by a random amount within the difference to the neighboring instances to construct new minority instances.   
 
 Resampling is the easiest to implement. However, both under/over-sampling have their drawbacks. Undersampling discards potentially important data and makes the independent variables look more variable than they actually are; whereas data duplication with oversampling makes the variable appear to have low variance and could lead to overfitting. SMOTE, compared to traditional oversampling, creates similar examples instead of exact copies of the minority class, which results in more general models and avoids overfitting.  
 
-*3. Change the performance metrics.*   
+**3. Change the performance metrics.**
+
 The performance of classification algorithms is typically evaluated by a confusion matrix which compares the predicted class and the actual class. In the confusion matrix, the number of negative examples correctly classified is True Negatives (TN), the number of negative examples incorrectly classified as positive is False Positives (FP), the number of positive examples incorrectly classified as negative is False Negatives (FN) and the number of positive examples correctly classified is True Positives (TP). In the context of balanced datasets and equal error costs, the common performance metric is predictive accuracy, which is defined as the percentage of correctly identified examples, i.e., (TP+TN)/(TP+FP+TN+FN). In the case of imbalanced datasets, it is more appropriate to use other metrics.   
 
-* Precision-recall curve. Precision is defined as TP/(TP+FP) and is a measure of the classifier's exactness. Recall, on the other hand, is defined as TP/(TP+FN). It measures the classifier's sensitivity. There is a tradeoff between precision and recall. For a given model, the classifier performance can be visualized using a precision-recall curve, which captures the tradeoff between precision and recall as the decision threshold is varied. On its own, a model is overall better if the curve is closer to the top right of the chart where precision and recall are both 1.0. One way to capture the overall quality of the model is by computing the area under the curve (AUC). The AUC will be 1.0 for an ideal model.        
+- *Precision-recall curve.* Precision is defined as TP/(TP+FP) and is a measure of the classifier's exactness. Recall, on the other hand, is defined as TP/(TP+FN). It measures the classifier's sensitivity. There is a tradeoff between precision and recall. For a given model, the classifier performance can be visualized using a precision-recall curve, which captures the tradeoff between precision and recall as the decision threshold is varied. On its own, a model is overall better if the curve is closer to the top right of the chart where precision and recall are both 1.0. One way to capture the overall quality of the model is by computing the area under the curve (AUC). The AUC will be 1.0 for an ideal model.        
 
 Note that Receiver Operator Characteristic (ROC) curve is also commonly used to measure the performance of binary classifiers. However, when dealing with highly skewed datasets, it provides a less informative picture of the algorithm's performance than the precision-recall curve.[1]
 
-*4. Algorithm level approach.*    
+**4. Algorithm level approach.**    
 
-* Adjust the class weight. This approach is based on reducing the misclassification costs for minority class. Many Machine Learning toolkits have ways to adjust the importance of the classes. For examples, many classifiers in `Scikit-learn` have an optional `'class_weight'` parameter that can be set to 'balanced'.  
-* Adjust the decision threshold. Instead of getting classification labels from the classifier, a good approach to handling class imbalance is to estimate probability and then adjust the decision threshold to separate classes. Probabilistic classification models in `Scikit-learn` such as logistic regression offer `'predict_proba'` method to estimate probability. 
+- *Adjust the class weight.* This approach is based on reducing the misclassification costs for minority class. Many Machine Learning toolkits have ways to adjust the importance of the classes. For examples, many classifiers in `Scikit-learn` have an optional `'class_weight'` parameter that can be set to 'balanced'.  
+- *Adjust the decision threshold.* Instead of getting classification labels from the classifier, a good approach to handling class imbalance is to estimate probability and then adjust the decision threshold to separate classes. Probabilistic classification models in `Scikit-learn` such as logistic regression offer `'predict_proba'` method to estimate probability. 
 
 
 ## 3. Results and Discussions  
