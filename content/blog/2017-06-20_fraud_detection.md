@@ -5,7 +5,7 @@ title = "Fraud Detection: Learning from Imbalanced Data"
 type = "post"
 author = "Yanfei Wu"
 date = "2017-06-20"
-description = "In this post, different techniques for handling class imbalance are implemented to build fraud detection models using credit card transaction data."
+description = "Different techniques for handling class imbalance are implemented to build fraud detection models using credit card transaction data."
 tags = [
 "Python",
 "machine learning",

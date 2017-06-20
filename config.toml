@@ -14,8 +14,8 @@ googleAnalytics = ""
   description = "Describe your website"
   copyright = "&copy;2016 Yanfei Wu"
   sidebarAbout = [
-    "This site is about my amazing journey in data science and machine learning. I am a Materials Science PhD transitioning into Data Science. I love analyzing interesting datasets, creating insightful visualizations, and building machine learning models.", 
-    "Hope you enjoy my site. Please feel free to contact me if you have any question or suggestion about my posts, or if you would like to consider me for an opening in your organization:)"
+    "This site is about my amazing journey in data science and machine learning. I am a Materials Science PhD transitioning into Data Science. I love analyzing interesting datasets, creating insightful visualizations, and building machine learning models.",
+    "Hope you enjoy my site. Please feel free to contact me if you have any questions or suggestions. Happy reading :)"
   ]
   # Contact page
      # Since this template is static, the contact form uses www.formspree.io as a
