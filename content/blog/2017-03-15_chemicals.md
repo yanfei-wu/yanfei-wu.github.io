@@ -1,6 +1,6 @@
 +++
 draft = false
-image = "blog/chemicals_file/beauty.jpg"
+image = "blog/chemicals_file/makeup.png"
 date = "2017-03-15"
 title = '"Toxic Beauty": Chemicals in Cosmetics'
 type = "post"
