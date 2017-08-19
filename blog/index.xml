@@ -60,9 +60,8 @@
 
 &lt;p&gt;As an example to examine these different metrics from historical stock data, the top 5 stocks with the highest S&amp;amp;P 500 component weights as well as &lt;strong&gt;SPY&lt;/strong&gt; are analyzed. They are &lt;strong&gt;AAPL&lt;/strong&gt; (weight 3.92%), &lt;strong&gt;MSFT&lt;/strong&gt; (weight 2.68%), &lt;strong&gt;FB&lt;/strong&gt; (weight 1.90%), &lt;strong&gt;AMZN&lt;/strong&gt; (1.83%), &lt;strong&gt;JNJ&lt;/strong&gt; (weight 1.71%). (The weights are as of August 14 2017.)&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Close Price&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The close price for these stocks are separated from the master dataset. The summary statistics is shown in the table below.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Close Price&lt;/strong&gt;&lt;br /&gt;
+The close price for these stocks are separated from the master dataset. The summary statistics is shown in the table below.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;../stock_file/close_price_statistics.png&#34; class=&#34;img-responsive&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 
@@ -70,9 +69,8 @@
 
 &lt;p&gt;&lt;img src=&#34;../stock_file/close_price_correlation.png&#34; class=&#34;img-responsive&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Return: Simple Return&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The dataset contains 5 years of stock price data. Imagine we purchase the stock 5 years ago, we can use this dataset to calculate simple return. Simple return is the incremental amount of net income from an investment, divided by the investment in it (the price 5 years ago when we purchase it).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Return: Simple Return&lt;/strong&gt;&lt;br /&gt;
+The dataset contains 5 years of stock price data. Imagine we purchase the stock 5 years ago, we can use this dataset to calculate simple return. Simple return is the incremental amount of net income from an investment, divided by the investment in it (the price 5 years ago when we purchase it).&lt;/p&gt;
 
 &lt;p&gt;The formular for simple return is given by:&lt;/p&gt;
 
@@ -86,9 +84,8 @@
 
 &lt;p&gt;This kind of plot is one of the simplest ways of comparing stock performance. It puts all different stock price to a same relative scale and makes the trend clear. As we can see, Facebook stock stands out from the plot with over 700% returns over the past five years. Amazon stock comes next to Facebook with around 300% total returns. Apple, Johnson &amp;amp; Johnson, and Microsoft stocks show returns comparable to that of SPY which is around 100% over the past five years.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Return: Annualized Return&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Annualized return is a percentage value showing how much an investment has increased in value on average per year over a period of time. It can be a preferable metric to use over simple return when we want to evaluate how successful an investment has been, or to compare the returns of two investments.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Return: Annualized Return&lt;/strong&gt;&lt;br /&gt;
+Annualized return is a percentage value showing how much an investment has increased in value on average per year over a period of time. It can be a preferable metric to use over simple return when we want to evaluate how successful an investment has been, or to compare the returns of two investments.&lt;/p&gt;
 
 &lt;p&gt;Given simple return, the formula to calculate annualized return is:&lt;/p&gt;
 
@@ -102,7 +99,7 @@
 
 &lt;p&gt;The annualized return for SPY is slightly over 10%. Apple stock is very close to SPY. All other stocks beat SPY in terms of annualized return. Facebook and Amazon realize over 50% and over 30% annualized returns, respectively, which significantly outperform SPY.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Return: Daily Return&lt;/strong&gt;
+&lt;p&gt;&lt;strong&gt;Return: Daily Return&lt;/strong&gt;&lt;br /&gt;
 We know that stock prices change on a daily basis. Therefore, we can also calculate daily returns to monitor the magnitude of the investment value. The daily return can be calculated with the following formula:&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -119,7 +116,7 @@ We know that stock prices change on a daily basis. Therefore, we can also calcul
 
 &lt;p&gt;Overall, we can see that stock price fluctuates every day, like a random walk, so the daily return of a stock fluctuates around 0. All the above stocks have an average daily return slightly above 0, implying that they are overall profitable. Facebook stock price fluctuates the most, as demonstrated in the line chart as well as from its standard deviation of daily return.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Volatility: Standard Deviation&lt;/strong&gt;&lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;Volatility (Standard Deviation)&lt;/strong&gt;&lt;br /&gt;
 As shown above, the daily return of Facebook stock fluctuates the most, and we say it is the most volatile among the 6 stocks. Volatility is a statistical measure of the dispersion of returns for a given stock. Volatility is commonly measured by using the standard deviation (or variance) of the returns from the stock. The daily volatility is thus the standard deviation of daily return. Commonly, the higher the volatility, the riskier the stock, i.e., the price of the stock can change dramatically over a short time period in either direction.&lt;/p&gt;
 
 &lt;p&gt;We can compare the return and volatility of the selected stocks using the following plot. It shows daily volatility in the y-axis, and the average daily return in the x-axis. Ideally, we would hope to have a &amp;lsquo;golden&amp;rsquo; stock that lies on the lower right of the plot, but in reality, a stock with higher average daily return is usually associated with higher volatility (lying on the top right of the plot as Facebook stock). Among these stocks, Apple stock seems to have an average daily return too small for its risk.&lt;/p&gt;
@@ -171,10 +168,13 @@ Alpha is the difference between a fund&amp;rsquo;s expected returns based on its
 &lt;p&gt;Alpha = Stock Return - Risk_Free Return - beta * (Index Return - Risk_Free Return)&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;em&gt;Note that alpha and Sharp ratio have some similarities and differences, as summarized below:&lt;/em&gt;&lt;br /&gt;
-- &lt;em&gt;Similarity&lt;/em&gt;: alpha and Sharpe ratio both offer a way to measure returns on a risk-adjusted basis.&lt;br /&gt;
-- &lt;em&gt;Difference&lt;/em&gt;: alpha applies the measure in relation to a benchmark, whereas Sharpe ratio is based on its own standard deviation (volatility in absolute term).&lt;br /&gt;
-- &lt;em&gt;Usage&lt;/em&gt;: for investors seeking an investment that closely matches the performance of a chosen benchmark, alpha is the number to review. But a fund&amp;rsquo;s R-squared must be high for alpha to be meaningful. Sharpe ratio is meaningful all the time, and it can be used to compare funds of all types, e.g., stock or bond, because standard deviation is calculated the exact same way for any type of fund but different benchmarks will be used to calculate beta, and beta-based alpha.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note that alpha and Sharp ratio both offer a way to measure returns on a risk-adjusted basis.&lt;/em&gt; So what are their difference? &lt;strong&gt;A comparison between alpha and the Sharp ratio&lt;/strong&gt; is shown below:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Alpha applies the measure in relation to a benchmark, whereas Sharpe ratio is based on its own standard deviation (volatility in absolute term).&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Alpha is the number to review for investors seeking an investment that closely matches the performance of a chosen benchmark. But a fund&amp;rsquo;s R-squared must be high for alpha to be meaningful.&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Sharpe ratio is meaningful all the time, and it can be used to compare funds of all types, e.g., stock or bond, because standard deviation is calculated the exact same way for any type of fund but different benchmarks will be used to calculate beta, and beta-based alpha.&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;The selected stocks alpha values are compared below (1.0% is used as the annual risk-free return):&lt;/p&gt;
 
@@ -182,9 +182,8 @@ Alpha is the difference between a fund&amp;rsquo;s expected returns based on its
 
 &lt;p&gt;We can see that with SPY as the benchmark, all stocks except Apple stock have alpha much greater than 0. Facebook stock has the largest alpha value of 0.4, implying that it can potentially generate 40% excess return over SPY after adjusting for the inherited market risk (beta).&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Moving Average - trends in a stock&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;In addition to looking into the above performance metrics, we can also examine the trends in a stock by looking at the chart of the stock price. As shown above, stock data has &amp;lsquo;noises&amp;rsquo;, i.e., random price fluctuations. Moving average can be used to help smooth out short-term fluctuations and highlight longer-term trends or cycles. Given a series of numbers and a fixed subset size, the first element of the moving average is obtained by taking the average of the initial fixed subset of the number series. Then the subset is modified by &amp;ldquo;shifting forward&amp;rdquo;; that is, excluding the first number of the series and including the next value in the subset.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Moving Average - trends in a stock&lt;/strong&gt;&lt;br /&gt;
+In addition to looking into the above performance metrics, we can also examine the trends in a stock by looking at the chart of the stock price. As shown above, stock data has &amp;lsquo;noises&amp;rsquo;, i.e., random price fluctuations. Moving average can be used to help smooth out short-term fluctuations and highlight longer-term trends or cycles. Given a series of numbers and a fixed subset size, the first element of the moving average is obtained by taking the average of the initial fixed subset of the number series. Then the subset is modified by &amp;ldquo;shifting forward&amp;rdquo;; that is, excluding the first number of the series and including the next value in the subset.&lt;/p&gt;
 
 &lt;p&gt;A candlestick chart is commonly used to display the price trend as it shows all four price variables (open, high, low, and close) in one plot. Candlesticks are usually composed of the body and an upper and a lower shadow (or wick). The body illustrates the opening and closing trades. The wick illustrates the highest and lowest traded prices during the time interval represented.&lt;/p&gt;
 
@@ -202,15 +201,13 @@ Alpha is the difference between a fund&amp;rsquo;s expected returns based on its
 
 &lt;p&gt;&lt;em&gt;Note: some stocks do not have all 5-year data and are not included in the analysis.&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Ranks of Individual Stocks&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;After comparing all individual stocks contained the S&amp;amp;P 500 index, the following results are obtained:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ranks of Individual Stocks&lt;/strong&gt;&lt;br /&gt;
+After comparing all individual stocks contained the S&amp;amp;P 500 index, the following results are obtained:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;../stock_file/comparison_individual.png&#34; class=&#34;img-responsive&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Ranks by Sectors&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;By aggregating the dataset by sectors and calculate the average value of the above metrics, we can rank the sectors, as shown by the plots below:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ranks by Sectors&lt;/strong&gt;&lt;br /&gt;
+By aggregating the dataset by sectors and calculate the average value of the above metrics, we can rank the sectors, as shown by the plots below:&lt;/p&gt;
 
 &lt;p&gt;Annualized Return:&lt;/p&gt;
 
