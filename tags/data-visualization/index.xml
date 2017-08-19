@@ -59,7 +59,7 @@
 
 &lt;p&gt;As an example to examine these different metrics from historical stock data, the top 5 stocks with the highest S&amp;amp;P 500 component weights as well as &lt;strong&gt;SPY&lt;/strong&gt; are analyzed. They are &lt;strong&gt;AAPL&lt;/strong&gt; (weight 3.92%), &lt;strong&gt;MSFT&lt;/strong&gt; (weight 2.68%), &lt;strong&gt;FB&lt;/strong&gt; (weight 1.90%), &lt;strong&gt;AMZN&lt;/strong&gt; (1.83%), &lt;strong&gt;JNJ&lt;/strong&gt; (weight 1.71%). (The weights are as of August 14 2017.)&lt;/p&gt;
 
-&lt;p&gt;** &lt;em&gt;Close Price&lt;/em&gt; **&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Close Price&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;The close price for these stocks are separated from the master dataset. The summary statistics is shown in the table below.&lt;/p&gt;
 
@@ -69,7 +69,7 @@
 
 &lt;p&gt;&lt;img src=&#34;../stock_file/close_price_correlation.png&#34; class=&#34;img-responsive&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;** &lt;em&gt;Return: Simple Return&lt;/em&gt; **&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Return: Simple Return&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;The dataset contains 5 years of stock price data. Imagine we purchase the stock 5 years ago, we can use this dataset to calculate simple return. Simple return is the incremental amount of net income from an investment, divided by the investment in it (the price 5 years ago when we purchase it).&lt;/p&gt;
 
@@ -82,7 +82,7 @@
 
 &lt;p&gt;This kind of plot is one of the simplest ways of comparing stock performance. It puts all different stock price to a same relative scale and makes the trend clear. As we can see, Facebook stock stands out from the plot with over 700% returns over the past five years. Amazon stock comes next to Facebook with around 300% total returns. Apple, Johnson &amp;amp; Johnson, and Microsoft stocks show returns comparable to that of SPY which is around 100% over the past five years.&lt;/p&gt;
 
-&lt;p&gt;** &lt;em&gt;Return: Annualized Return&lt;/em&gt; **&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Return: Annualized Return&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Annualized return is a percentage value showing how much an investment has increased in value on average per year over a period of time. It can be a preferable metric to use over simple return when we want to evaluate how successful an investment has been, or to compare the returns of two investments.&lt;/p&gt;
 
@@ -95,7 +95,7 @@
 
 &lt;p&gt;The annualized return for SPY is slightly over 10%. Apple stock is very close to SPY. All other stocks beat SPY in terms of annualized return. Facebook and Amazon realize over 50% and over 30% annualized returns, respectively, which significantly outperform SPY.&lt;/p&gt;
 
-&lt;p&gt;** &lt;em&gt;Return: Daily Return&lt;/em&gt; **
+&lt;p&gt;&lt;strong&gt;Return: Daily Return&lt;/strong&gt;
 We know that stock prices change on a daily basis. Therefore, we can also calculate daily returns to monitor the magnitude of the investment value. The daily return can be calculated with the following formula:&lt;/p&gt;
 
 &lt;p&gt;&amp;rdquo;&amp;ldquo;&amp;rdquo; Daily Return = (Close Price Today - Close Price Yesterday) / Close Price Yesterday &amp;ldquo;&amp;rdquo;&amp;rdquo;&lt;/p&gt;
@@ -110,14 +110,14 @@ We know that stock prices change on a daily basis. Therefore, we can also calcul
 
 &lt;p&gt;Overall, we can see that stock price fluctuates every day, like a random walk, so the daily return of a stock fluctuates around 0. All the above stocks have an average daily return slightly above 0, implying that they are overall profitable. Facebook stock price fluctuates the most, as demonstrated in the line chart as well as from its standard deviation of daily return.&lt;/p&gt;
 
-&lt;p&gt;** &lt;em&gt;Volatility: Standard Deviation&lt;/em&gt; **&lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;Volatility: Standard Deviation&lt;/strong&gt;&lt;br /&gt;
 As shown above, the daily return of Facebook stock fluctuates the most, and we say it is the most volatile among the 6 stocks. Volatility is a statistical measure of the dispersion of returns for a given stock. Volatility is commonly measured by using the standard deviation (or variance) of the returns from the stock. The daily volatility is thus the standard deviation of daily return. Commonly, the higher the volatility, the riskier the stock, i.e., the price of the stock can change dramatically over a short time period in either direction.&lt;/p&gt;
 
 &lt;p&gt;We can compare the return and volatility of the selected stocks using the following plot. It shows daily volatility in the y-axis, and the average daily return in the x-axis. Ideally, we would hope to have a &amp;lsquo;golden&amp;rsquo; stock that lies on the lower right of the plot, but in reality, a stock with higher average daily return is usually associated with higher volatility (lying on the top right of the plot as Facebook stock). Among these stocks, Apple stock seems to have an average daily return too small for its risk.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;../stock_file/volatility_return.png&#34; class=&#34;img-responsive&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;** &lt;em&gt;Sharpe Ratio&lt;/em&gt; **&lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;Sharpe Ratio&lt;/strong&gt;&lt;br /&gt;
 The Sharpe ratio is a risk-adjusted return measurement developed by economist William Sharpe. It is calculated by subtracting the risk-free return, defined as a U.S. Treasury Bond, from the investment&amp;rsquo;s rate of return, and then dividing by the investment&amp;rsquo;s standard deviation of returns. It is useful for comparing funds with similar historical returns. A higher Sharpe ratio indicates a higher risk-adjusted return. With the daily return data, we can calculate Sharpe ratio with the following formula:&lt;/p&gt;
 
 &lt;p&gt;&amp;rdquo;&amp;ldquo;&amp;rdquo; Sharpe Ratio = Mean(stock daily return - risk_free daily return) / Stdv(stock daily return - risk_free daily return) &amp;ldquo;&amp;rdquo;&amp;rdquo;&lt;/p&gt;
@@ -130,7 +130,7 @@ The Sharpe ratio is a risk-adjusted return measurement developed by economist Wi
 
 &lt;p&gt;As mentioned above, Sharpe ratio is useful for comparing funds with similar historical returns. Here, let&amp;rsquo;s compare Apple stock and Johnson &amp;amp; Johnson stock. From this plot, Apple stock has a much smaller Sharpe ratio than JNJ, indicating that it has a much smaller risk-adjusted return. This is consistent with the Daily Volatility vs Average Daily Return plot, which shows that both stocks have almost the same average daily return but AAPL has much higher volatility, resulting in a smaller risk-adjusted return.&lt;/p&gt;
 
-&lt;p&gt;** &lt;em&gt;Beta&lt;/em&gt; **
+&lt;p&gt;&lt;strong&gt;Beta&lt;/strong&gt;
 One measure of relative volatility of a particular stock to the market is its beta. Beta is a historical measure of volatility. When standard deviation measures an asset&amp;rsquo;s price movements compared to its average over time, beta measures the asset&amp;rsquo;s volatility relative to a benchmark (i.e. an index). A beta of zero implies no correlation between the assets. Any beta above zero would imply a positive correlation with volatility expressed by how much over zero the number is. Any beta below zero would imply a negative correlation with volatility expressed by how much under zero the number is.&lt;/p&gt;
 
 &lt;p&gt;The formula for calculating beta is given by:
@@ -147,7 +147,7 @@ The calculated beta values for the selected stocks are shown below:&lt;/p&gt;
 &lt;li&gt;Johnson &amp;amp; Johnson stock has a beta value smaller than 1 (close to 0.7), implying a volatility smaller (30% less) than the benchmark.&lt;br /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;** &lt;em&gt;Alpha&lt;/em&gt; **&lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;Alpha&lt;/strong&gt;&lt;br /&gt;
 Alpha is the difference between a fund&amp;rsquo;s expected returns based on its beta and its actual returns. It is used to measure performance on a risk adjusted basis. An alpha of zero means the investment has exactly earned a return adequate for the volatility assumed. An alpha over zero means the investment has earned a return that has compensated for the volatility risk taken. An alpha of less than zero means the investment has earned a return that has not compensated for the volatility risk taken.&lt;/p&gt;
 
 &lt;p&gt;To calculate alpha, we can use the following formula:
@@ -164,7 +164,7 @@ Alpha is the difference between a fund&amp;rsquo;s expected returns based on its
 
 &lt;p&gt;We can see that with SPY as the benchmark, all stocks except Apple stock have alpha much greater than 0. Facebook stock has the largest alpha value of 0.4, implying that it can potentially generate 40% excess return over SPY after adjusting for the inherited market risk (beta).&lt;/p&gt;
 
-&lt;p&gt;** &lt;em&gt;Moving Average - trends in a stock&lt;/em&gt; **&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Moving Average - trends in a stock&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;In addition to looking into the above performance metrics, we can also examine the trends in a stock by looking at the chart of the stock price. As shown above, stock data has &amp;lsquo;noises&amp;rsquo;, i.e., random price fluctuations. Moving average can be used to help smooth out short-term fluctuations and highlight longer-term trends or cycles. Given a series of numbers and a fixed subset size, the first element of the moving average is obtained by taking the average of the initial fixed subset of the number series. Then the subset is modified by &amp;ldquo;shifting forward&amp;rdquo;; that is, excluding the first number of the series and including the next value in the subset.&lt;/p&gt;
 
@@ -184,12 +184,13 @@ Alpha is the difference between a fund&amp;rsquo;s expected returns based on its
 
 &lt;p&gt;&lt;em&gt;Note: some stocks do not have all 5-year data and are not included in the analysis.&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;** &lt;em&gt;Ranks of Individual Stocks&lt;/em&gt; **&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ranks of Individual Stocks&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;After comparing all individual stocks contained the S&amp;amp;P 500 index, the following results are obtained:&lt;/p&gt;
 
-&lt;p&gt;5-year simple return:
-| Highest - Top 5    | Lowest - Top 5   |
+&lt;p&gt;5-year simple return:&lt;/p&gt;
+
+&lt;p&gt;| Highest - Top 5    | Lowest - Top 5   |
 |&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;|
 | Stock  | Return    | Stock| Return    |
 |&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|
@@ -199,8 +200,9 @@ Alpha is the difference between a fund&amp;rsquo;s expected returns based on its
 | FB     |  7.378312 | MOS  | -0.647579 |
 | INCY   |  5.919452 | NOV  | -0.598479 |&lt;/p&gt;
 
-&lt;p&gt;Annualized return:
-| Highest - Top 5    | Lowest - Top 5   |
+&lt;p&gt;Annualized return:&lt;/p&gt;
+
+&lt;p&gt;| Highest - Top 5    | Lowest - Top 5   |
 |&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;|
 | Stock  | Return    | Stock| Return    |
 |&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|
@@ -210,8 +212,9 @@ Alpha is the difference between a fund&amp;rsquo;s expected returns based on its
 | FB     | 0.529788  | MOS  | -0.188269 |
 | INCY   | 0.472361  | NOV  | -0.166815 |&lt;/p&gt;
 
-&lt;p&gt;Daily Volatility:
-| Lowest - Top 5     | Highest - Top 5  |
+&lt;p&gt;Daily Volatility:&lt;/p&gt;
+
+&lt;p&gt;| Lowest - Top 5     | Highest - Top 5  |
 |&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;|
 | Stock  | Volatility| Stock| Volatility|
 |&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|
@@ -221,8 +224,9 @@ Alpha is the difference between a fund&amp;rsquo;s expected returns based on its
 | WM     | 0.008725  | DVA  | 0.033393  |
 | RSG    | 0.008850  | JEC  | 0.032622  |&lt;/p&gt;
 
-&lt;p&gt;Sharpe ratio:
-| Highest - Top 5    | Lowest - Top 5   |
+&lt;p&gt;Sharpe ratio:&lt;/p&gt;
+
+&lt;p&gt;| Highest - Top 5    | Lowest - Top 5   |
 |&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;|
 | Stock  | Sharpe    | Stock| Sharpe    |
 |&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|
@@ -232,8 +236,9 @@ Alpha is the difference between a fund&amp;rsquo;s expected returns based on its
 | EA     | 0.094236  | MAT  | -0.026853 |
 | LUV    | 0.089887  | CTL  | -0.025788 |&lt;/p&gt;
 
-&lt;p&gt;Beta:&lt;br /&gt;
-| Lowest - Top 5     | Highest - Top 5  |
+&lt;p&gt;Beta:&lt;/p&gt;
+
+&lt;p&gt;| Lowest - Top 5     | Highest - Top 5  |
 |&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;|
 | Stock  | Beta      | Stock| Beta      |
 |&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|
@@ -243,8 +248,9 @@ Alpha is the difference between a fund&amp;rsquo;s expected returns based on its
 | EIX    | 0.463275  | CHK  | 1.750542  |
 | AWK    | 0.484815  | LNC  | 1.683014  |&lt;/p&gt;
 
-&lt;p&gt;Alpha:
-| Highest - Top 5    | Lowest - Top 5   |
+&lt;p&gt;Alpha:&lt;/p&gt;
+
+&lt;p&gt;| Highest - Top 5    | Lowest - Top 5   |
 |&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;|
 | Stock  | Alpha     | Stock| Alpha     |
 |&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|
@@ -254,8 +260,9 @@ Alpha is the difference between a fund&amp;rsquo;s expected returns based on its
 | FB     | 0.399971  | MRO  | -0.345597 |
 | STZ    | 0.345713  | UAA  | -0.334458 |&lt;/p&gt;
 
-&lt;p&gt;** &lt;em&gt;Ranks by Sectors&lt;/em&gt; **
-By aggregating the dataset by sectors and calculate the average value of the above metrics, we can rank the sectors, as shown by the plots below:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ranks by Sectors&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;By aggregating the dataset by sectors and calculate the average value of the above metrics, we can rank the sectors, as shown by the plots below:&lt;/p&gt;
 
 &lt;p&gt;Annualized Return:&lt;/p&gt;
 

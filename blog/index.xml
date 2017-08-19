@@ -60,7 +60,7 @@
 
 &lt;p&gt;As an example to examine these different metrics from historical stock data, the top 5 stocks with the highest S&amp;amp;P 500 component weights as well as &lt;strong&gt;SPY&lt;/strong&gt; are analyzed. They are &lt;strong&gt;AAPL&lt;/strong&gt; (weight 3.92%), &lt;strong&gt;MSFT&lt;/strong&gt; (weight 2.68%), &lt;strong&gt;FB&lt;/strong&gt; (weight 1.90%), &lt;strong&gt;AMZN&lt;/strong&gt; (1.83%), &lt;strong&gt;JNJ&lt;/strong&gt; (weight 1.71%). (The weights are as of August 14 2017.)&lt;/p&gt;
 
-&lt;p&gt;** &lt;em&gt;Close Price&lt;/em&gt; **&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Close Price&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;The close price for these stocks are separated from the master dataset. The summary statistics is shown in the table below.&lt;/p&gt;
 
@@ -70,7 +70,7 @@
 
 &lt;p&gt;&lt;img src=&#34;../stock_file/close_price_correlation.png&#34; class=&#34;img-responsive&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;** &lt;em&gt;Return: Simple Return&lt;/em&gt; **&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Return: Simple Return&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;The dataset contains 5 years of stock price data. Imagine we purchase the stock 5 years ago, we can use this dataset to calculate simple return. Simple return is the incremental amount of net income from an investment, divided by the investment in it (the price 5 years ago when we purchase it).&lt;/p&gt;
 
@@ -83,7 +83,7 @@
 
 &lt;p&gt;This kind of plot is one of the simplest ways of comparing stock performance. It puts all different stock price to a same relative scale and makes the trend clear. As we can see, Facebook stock stands out from the plot with over 700% returns over the past five years. Amazon stock comes next to Facebook with around 300% total returns. Apple, Johnson &amp;amp; Johnson, and Microsoft stocks show returns comparable to that of SPY which is around 100% over the past five years.&lt;/p&gt;
 
-&lt;p&gt;** &lt;em&gt;Return: Annualized Return&lt;/em&gt; **&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Return: Annualized Return&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Annualized return is a percentage value showing how much an investment has increased in value on average per year over a period of time. It can be a preferable metric to use over simple return when we want to evaluate how successful an investment has been, or to compare the returns of two investments.&lt;/p&gt;
 
@@ -96,7 +96,7 @@
 
 &lt;p&gt;The annualized return for SPY is slightly over 10%. Apple stock is very close to SPY. All other stocks beat SPY in terms of annualized return. Facebook and Amazon realize over 50% and over 30% annualized returns, respectively, which significantly outperform SPY.&lt;/p&gt;
 
-&lt;p&gt;** &lt;em&gt;Return: Daily Return&lt;/em&gt; **
+&lt;p&gt;&lt;strong&gt;Return: Daily Return&lt;/strong&gt;
 We know that stock prices change on a daily basis. Therefore, we can also calculate daily returns to monitor the magnitude of the investment value. The daily return can be calculated with the following formula:&lt;/p&gt;
 
 &lt;p&gt;&amp;rdquo;&amp;ldquo;&amp;rdquo; Daily Return = (Close Price Today - Close Price Yesterday) / Close Price Yesterday &amp;ldquo;&amp;rdquo;&amp;rdquo;&lt;/p&gt;
@@ -111,14 +111,14 @@ We know that stock prices change on a daily basis. Therefore, we can also calcul
 
 &lt;p&gt;Overall, we can see that stock price fluctuates every day, like a random walk, so the daily return of a stock fluctuates around 0. All the above stocks have an average daily return slightly above 0, implying that they are overall profitable. Facebook stock price fluctuates the most, as demonstrated in the line chart as well as from its standard deviation of daily return.&lt;/p&gt;
 
-&lt;p&gt;** &lt;em&gt;Volatility: Standard Deviation&lt;/em&gt; **&lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;Volatility: Standard Deviation&lt;/strong&gt;&lt;br /&gt;
 As shown above, the daily return of Facebook stock fluctuates the most, and we say it is the most volatile among the 6 stocks. Volatility is a statistical measure of the dispersion of returns for a given stock. Volatility is commonly measured by using the standard deviation (or variance) of the returns from the stock. The daily volatility is thus the standard deviation of daily return. Commonly, the higher the volatility, the riskier the stock, i.e., the price of the stock can change dramatically over a short time period in either direction.&lt;/p&gt;
 
 &lt;p&gt;We can compare the return and volatility of the selected stocks using the following plot. It shows daily volatility in the y-axis, and the average daily return in the x-axis. Ideally, we would hope to have a &amp;lsquo;golden&amp;rsquo; stock that lies on the lower right of the plot, but in reality, a stock with higher average daily return is usually associated with higher volatility (lying on the top right of the plot as Facebook stock). Among these stocks, Apple stock seems to have an average daily return too small for its risk.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;../stock_file/volatility_return.png&#34; class=&#34;img-responsive&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;** &lt;em&gt;Sharpe Ratio&lt;/em&gt; **&lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;Sharpe Ratio&lt;/strong&gt;&lt;br /&gt;
 The Sharpe ratio is a risk-adjusted return measurement developed by economist William Sharpe. It is calculated by subtracting the risk-free return, defined as a U.S. Treasury Bond, from the investment&amp;rsquo;s rate of return, and then dividing by the investment&amp;rsquo;s standard deviation of returns. It is useful for comparing funds with similar historical returns. A higher Sharpe ratio indicates a higher risk-adjusted return. With the daily return data, we can calculate Sharpe ratio with the following formula:&lt;/p&gt;
 
 &lt;p&gt;&amp;rdquo;&amp;ldquo;&amp;rdquo; Sharpe Ratio = Mean(stock daily return - risk_free daily return) / Stdv(stock daily return - risk_free daily return) &amp;ldquo;&amp;rdquo;&amp;rdquo;&lt;/p&gt;
@@ -131,7 +131,7 @@ The Sharpe ratio is a risk-adjusted return measurement developed by economist Wi
 
 &lt;p&gt;As mentioned above, Sharpe ratio is useful for comparing funds with similar historical returns. Here, let&amp;rsquo;s compare Apple stock and Johnson &amp;amp; Johnson stock. From this plot, Apple stock has a much smaller Sharpe ratio than JNJ, indicating that it has a much smaller risk-adjusted return. This is consistent with the Daily Volatility vs Average Daily Return plot, which shows that both stocks have almost the same average daily return but AAPL has much higher volatility, resulting in a smaller risk-adjusted return.&lt;/p&gt;
 
-&lt;p&gt;** &lt;em&gt;Beta&lt;/em&gt; **
+&lt;p&gt;&lt;strong&gt;Beta&lt;/strong&gt;
 One measure of relative volatility of a particular stock to the market is its beta. Beta is a historical measure of volatility. When standard deviation measures an asset&amp;rsquo;s price movements compared to its average over time, beta measures the asset&amp;rsquo;s volatility relative to a benchmark (i.e. an index). A beta of zero implies no correlation between the assets. Any beta above zero would imply a positive correlation with volatility expressed by how much over zero the number is. Any beta below zero would imply a negative correlation with volatility expressed by how much under zero the number is.&lt;/p&gt;
 
 &lt;p&gt;The formula for calculating beta is given by:
@@ -148,7 +148,7 @@ The calculated beta values for the selected stocks are shown below:&lt;/p&gt;
 &lt;li&gt;Johnson &amp;amp; Johnson stock has a beta value smaller than 1 (close to 0.7), implying a volatility smaller (30% less) than the benchmark.&lt;br /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;** &lt;em&gt;Alpha&lt;/em&gt; **&lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;Alpha&lt;/strong&gt;&lt;br /&gt;
 Alpha is the difference between a fund&amp;rsquo;s expected returns based on its beta and its actual returns. It is used to measure performance on a risk adjusted basis. An alpha of zero means the investment has exactly earned a return adequate for the volatility assumed. An alpha over zero means the investment has earned a return that has compensated for the volatility risk taken. An alpha of less than zero means the investment has earned a return that has not compensated for the volatility risk taken.&lt;/p&gt;
 
 &lt;p&gt;To calculate alpha, we can use the following formula:
@@ -165,7 +165,7 @@ Alpha is the difference between a fund&amp;rsquo;s expected returns based on its
 
 &lt;p&gt;We can see that with SPY as the benchmark, all stocks except Apple stock have alpha much greater than 0. Facebook stock has the largest alpha value of 0.4, implying that it can potentially generate 40% excess return over SPY after adjusting for the inherited market risk (beta).&lt;/p&gt;
 
-&lt;p&gt;** &lt;em&gt;Moving Average - trends in a stock&lt;/em&gt; **&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Moving Average - trends in a stock&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;In addition to looking into the above performance metrics, we can also examine the trends in a stock by looking at the chart of the stock price. As shown above, stock data has &amp;lsquo;noises&amp;rsquo;, i.e., random price fluctuations. Moving average can be used to help smooth out short-term fluctuations and highlight longer-term trends or cycles. Given a series of numbers and a fixed subset size, the first element of the moving average is obtained by taking the average of the initial fixed subset of the number series. Then the subset is modified by &amp;ldquo;shifting forward&amp;rdquo;; that is, excluding the first number of the series and including the next value in the subset.&lt;/p&gt;
 
@@ -185,12 +185,13 @@ Alpha is the difference between a fund&amp;rsquo;s expected returns based on its
 
 &lt;p&gt;&lt;em&gt;Note: some stocks do not have all 5-year data and are not included in the analysis.&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;** &lt;em&gt;Ranks of Individual Stocks&lt;/em&gt; **&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ranks of Individual Stocks&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;After comparing all individual stocks contained the S&amp;amp;P 500 index, the following results are obtained:&lt;/p&gt;
 
-&lt;p&gt;5-year simple return:
-| Highest - Top 5    | Lowest - Top 5   |
+&lt;p&gt;5-year simple return:&lt;/p&gt;
+
+&lt;p&gt;| Highest - Top 5    | Lowest - Top 5   |
 |&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;|
 | Stock  | Return    | Stock| Return    |
 |&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|
@@ -200,8 +201,9 @@ Alpha is the difference between a fund&amp;rsquo;s expected returns based on its
 | FB     |  7.378312 | MOS  | -0.647579 |
 | INCY   |  5.919452 | NOV  | -0.598479 |&lt;/p&gt;
 
-&lt;p&gt;Annualized return:
-| Highest - Top 5    | Lowest - Top 5   |
+&lt;p&gt;Annualized return:&lt;/p&gt;
+
+&lt;p&gt;| Highest - Top 5    | Lowest - Top 5   |
 |&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;|
 | Stock  | Return    | Stock| Return    |
 |&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|
@@ -211,8 +213,9 @@ Alpha is the difference between a fund&amp;rsquo;s expected returns based on its
 | FB     | 0.529788  | MOS  | -0.188269 |
 | INCY   | 0.472361  | NOV  | -0.166815 |&lt;/p&gt;
 
-&lt;p&gt;Daily Volatility:
-| Lowest - Top 5     | Highest - Top 5  |
+&lt;p&gt;Daily Volatility:&lt;/p&gt;
+
+&lt;p&gt;| Lowest - Top 5     | Highest - Top 5  |
 |&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;|
 | Stock  | Volatility| Stock| Volatility|
 |&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|
@@ -222,8 +225,9 @@ Alpha is the difference between a fund&amp;rsquo;s expected returns based on its
 | WM     | 0.008725  | DVA  | 0.033393  |
 | RSG    | 0.008850  | JEC  | 0.032622  |&lt;/p&gt;
 
-&lt;p&gt;Sharpe ratio:
-| Highest - Top 5    | Lowest - Top 5   |
+&lt;p&gt;Sharpe ratio:&lt;/p&gt;
+
+&lt;p&gt;| Highest - Top 5    | Lowest - Top 5   |
 |&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;|
 | Stock  | Sharpe    | Stock| Sharpe    |
 |&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|
@@ -233,8 +237,9 @@ Alpha is the difference between a fund&amp;rsquo;s expected returns based on its
 | EA     | 0.094236  | MAT  | -0.026853 |
 | LUV    | 0.089887  | CTL  | -0.025788 |&lt;/p&gt;
 
-&lt;p&gt;Beta:&lt;br /&gt;
-| Lowest - Top 5     | Highest - Top 5  |
+&lt;p&gt;Beta:&lt;/p&gt;
+
+&lt;p&gt;| Lowest - Top 5     | Highest - Top 5  |
 |&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;|
 | Stock  | Beta      | Stock| Beta      |
 |&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|
@@ -244,8 +249,9 @@ Alpha is the difference between a fund&amp;rsquo;s expected returns based on its
 | EIX    | 0.463275  | CHK  | 1.750542  |
 | AWK    | 0.484815  | LNC  | 1.683014  |&lt;/p&gt;
 
-&lt;p&gt;Alpha:
-| Highest - Top 5    | Lowest - Top 5   |
+&lt;p&gt;Alpha:&lt;/p&gt;
+
+&lt;p&gt;| Highest - Top 5    | Lowest - Top 5   |
 |&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;|
 | Stock  | Alpha     | Stock| Alpha     |
 |&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|&amp;mdash;&amp;mdash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;|
@@ -255,8 +261,9 @@ Alpha is the difference between a fund&amp;rsquo;s expected returns based on its
 | FB     | 0.399971  | MRO  | -0.345597 |
 | STZ    | 0.345713  | UAA  | -0.334458 |&lt;/p&gt;
 
-&lt;p&gt;** &lt;em&gt;Ranks by Sectors&lt;/em&gt; **
-By aggregating the dataset by sectors and calculate the average value of the above metrics, we can rank the sectors, as shown by the plots below:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ranks by Sectors&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;By aggregating the dataset by sectors and calculate the average value of the above metrics, we can rank the sectors, as shown by the plots below:&lt;/p&gt;
 
 &lt;p&gt;Annualized Return:&lt;/p&gt;
 
@@ -2338,6 +2345,1311 @@ kenny_top2g = top_feats_in_doc(vec2_k, features_2g, row_id=0, top_n=20)
   &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yanfei-wu.github.io/blog/stock_file/SP500_Stock_Analysis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yanfei-wu.github.io/blog/stock_file/SP500_Stock_Analysis/</guid>
+      <description>
+
+&lt;h1 id=&#34;five-year-s-p-500-stock-analysis&#34;&gt;Five-Year S&amp;amp;P 500 Stock Analysis&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# optional code visibility 
+from IPython.display import HTML
+from IPython.display import display
+
+display(HTML(&#39;&#39;&#39;&amp;lt;script&amp;gt;
+  function code_toggle() {
+    if (code_shown){
+      $(&#39;div.input&#39;).hide(&#39;500&#39;);
+      $(&#39;#toggleButton&#39;).val(&#39;Click to show code in this notebook&#39;)
+    } else {
+      $(&#39;div.input&#39;).show(&#39;500&#39;);
+      $(&#39;#toggleButton&#39;).val(&#39;Click to hide code in this notebook&#39;)
+    }
+    code_shown = !code_shown
+  }
+
+  $( document ).ready(function(){
+    code_shown=false;
+    $(&#39;div.input&#39;).hide()
+  });
+&amp;lt;/script&amp;gt;
+&amp;lt;form action=&amp;quot;javascript:code_toggle()&amp;quot;&amp;gt;&amp;lt;input type=&amp;quot;submit&amp;quot; 
+    id=&amp;quot;toggleButton&amp;quot; value=&amp;quot;Click to show code in this notebook&amp;quot;&amp;gt;&amp;lt;/form&amp;gt;&#39;&#39;&#39;)) 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;script&gt;
+  function code_toggle() {
+    if (code_shown){
+      $(&amp;lsquo;div.input&amp;rsquo;).hide(&amp;lsquo;500&amp;rsquo;);
+      $(&amp;lsquo;#toggleButton&amp;rsquo;).val(&amp;lsquo;Click to show code in this notebook&amp;rsquo;)
+    } else {
+      $(&amp;lsquo;div.input&amp;rsquo;).show(&amp;lsquo;500&amp;rsquo;);
+      $(&amp;lsquo;#toggleButton&amp;rsquo;).val(&amp;lsquo;Click to hide code in this notebook&amp;rsquo;)
+    }
+    code_shown = !code_shown
+  }&lt;/p&gt;
+
+&lt;p&gt;$( document ).ready(function(){
+    code_shown=false;
+    $(&amp;lsquo;div.input&amp;rsquo;).hide()
+  });
+&lt;/script&gt;
+&lt;form action=&#34;javascript:code_toggle()&#34;&gt;&lt;input type=&#34;submit&#34; 
+    id=&#34;toggleButton&#34; value=&#34;Click to show code in this notebook&#34;&gt;&lt;/form&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;1-introduction&#34;&gt;1. Introduction&lt;/h2&gt;
+
+&lt;p&gt;The &lt;a href=&#34;https://en.wikipedia.org/wiki/S%26P_500_Index&#34;&gt;S&amp;amp;P 500&lt;/a&gt; is an American stock market index based on the market capitalizations of &lt;a href=&#34;https://en.wikipedia.org/wiki/List_of_S%26P_500_companies&#34;&gt;505 large companies&lt;/a&gt; having common stock listed on the NYSE or NASDAQ. It covers about 80 percent of the American equity market by capitalization. The index is weighted by free-float market capitalization, so more valuable companies account for relatively more of the index.&lt;/p&gt;
+
+&lt;p&gt;A variety of performance metrics are calculated and visualized, including returns, volatility, alpha, beta, Sharpe ratio, moving averages. The different stocks/sectors contained in the index are compared in terms of these metrics. The best and worst performing stocks/sectors are identified. The ultimate goal for stock analysis is to design an optimal portforlio and a trading model that can potentially allow maximized returns, but this is beyond this current notebook and will be explored in a separate notebook.&lt;/p&gt;
+
+&lt;h3 id=&#34;data&#34;&gt;Data&lt;/h3&gt;
+
+&lt;p&gt;The price data for all individual stocks contained in the index were obtained from Google Finance, and then concatenated into a master file. Also included is the price data of SPDR S&amp;amp;P 500 trust ETF (designed to track the S&amp;amp;P 500 stock market index) to be the reference. A script was used get the data and create the file (&lt;code&gt;get_data.py&lt;/code&gt;). The information of Global Industry Classification Standard (GICS) sector of each stock was also aquired and included in the the &lt;code&gt;Sector&lt;/code&gt; attribute of the final data. The final data contains the following fields:
+&amp;gt; - &lt;code&gt;Date&lt;/code&gt;: date in the format of YYYY-MM-DD
+&amp;gt; - &lt;code&gt;Open&lt;/code&gt;: the stock open price
+&amp;gt; - &lt;code&gt;High&lt;/code&gt;: the highest price of the day
+&amp;gt; - &lt;code&gt;Low&lt;/code&gt;: the lowest price of the day&lt;br /&gt;
+&amp;gt; - &lt;code&gt;Close&lt;/code&gt;: the stock close price
+&amp;gt; - &lt;code&gt;Volume&lt;/code&gt;: the stock trading volume
+&amp;gt; - &lt;code&gt;Name&lt;/code&gt;: the stock ticker symbol
+&amp;gt; - &lt;code&gt;Sector&lt;/code&gt;: the GICS sector name&lt;/p&gt;
+
+&lt;h2 id=&#34;2-analysis&#34;&gt;2. Analysis&lt;/h2&gt;
+
+&lt;h3 id=&#34;2-1-load-data&#34;&gt;2.1 Load Data&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import numpy as np
+import pandas as pd
+from datetime import datetime
+import matplotlib.pyplot as plt
+
+import matplotlib.cm as cm
+import seaborn as sns
+sns.set_style(&#39;white&#39;)
+%matplotlib inline
+
+# import customer functions
+from vis import plot_candlestick_ohlc
+from helper import get_close_price, calculate_metrics
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# read data
+data = pd.read_csv(&#39;./data/all_sp500_data_2.csv&#39;)
+print(&#39;First 5 Rows of the dataset: &#39;)
+display(data.head())
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;First 5 Rows of the dataset: 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Date&lt;/th&gt;
+      &lt;th&gt;Open&lt;/th&gt;
+      &lt;th&gt;High&lt;/th&gt;
+      &lt;th&gt;Low&lt;/th&gt;
+      &lt;th&gt;Close&lt;/th&gt;
+      &lt;th&gt;Volume&lt;/th&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+      &lt;th&gt;Sector&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;td&gt;2012-08-14&lt;/td&gt;
+      &lt;td&gt;89.49&lt;/td&gt;
+      &lt;td&gt;89.65&lt;/td&gt;
+      &lt;td&gt;87.76&lt;/td&gt;
+      &lt;td&gt;87.87&lt;/td&gt;
+      &lt;td&gt;5486506.0&lt;/td&gt;
+      &lt;td&gt;CAT&lt;/td&gt;
+      &lt;td&gt;Industrials&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;td&gt;2012-08-15&lt;/td&gt;
+      &lt;td&gt;87.25&lt;/td&gt;
+      &lt;td&gt;87.73&lt;/td&gt;
+      &lt;td&gt;86.16&lt;/td&gt;
+      &lt;td&gt;87.61&lt;/td&gt;
+      &lt;td&gt;6346120.0&lt;/td&gt;
+      &lt;td&gt;CAT&lt;/td&gt;
+      &lt;td&gt;Industrials&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;td&gt;2012-08-16&lt;/td&gt;
+      &lt;td&gt;87.74&lt;/td&gt;
+      &lt;td&gt;88.83&lt;/td&gt;
+      &lt;td&gt;87.23&lt;/td&gt;
+      &lt;td&gt;88.59&lt;/td&gt;
+      &lt;td&gt;4979566.0&lt;/td&gt;
+      &lt;td&gt;CAT&lt;/td&gt;
+      &lt;td&gt;Industrials&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;3&lt;/th&gt;
+      &lt;td&gt;2012-08-17&lt;/td&gt;
+      &lt;td&gt;89.86&lt;/td&gt;
+      &lt;td&gt;90.10&lt;/td&gt;
+      &lt;td&gt;89.10&lt;/td&gt;
+      &lt;td&gt;90.01&lt;/td&gt;
+      &lt;td&gt;7849959.0&lt;/td&gt;
+      &lt;td&gt;CAT&lt;/td&gt;
+      &lt;td&gt;Industrials&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;4&lt;/th&gt;
+      &lt;td&gt;2012-08-20&lt;/td&gt;
+      &lt;td&gt;89.74&lt;/td&gt;
+      &lt;td&gt;90.48&lt;/td&gt;
+      &lt;td&gt;89.23&lt;/td&gt;
+      &lt;td&gt;90.44&lt;/td&gt;
+      &lt;td&gt;5298310.0&lt;/td&gt;
+      &lt;td&gt;CAT&lt;/td&gt;
+      &lt;td&gt;Industrials&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&#39;Information of the dataset: &#39;)
+display(data.info())
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Information of the dataset: 
+&amp;lt;class &#39;pandas.core.frame.DataFrame&#39;&amp;gt;
+RangeIndex: 605586 entries, 0 to 605585
+Data columns (total 8 columns):
+Date      605586 non-null object
+Open      605203 non-null float64
+High      605376 non-null float64
+Low       605361 non-null float64
+Close     605586 non-null float64
+Volume    605181 non-null float64
+Name      605586 non-null object
+Sector    605586 non-null object
+dtypes: float64(5), object(3)
+memory usage: 37.0+ MB
+
+
+
+None
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&#39;Number of missing values in each column: &#39;)
+display(pd.isnull(data).sum()) 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Number of missing values in each column: 
+
+
+
+Date        0
+Open      383
+High      210
+Low       225
+Close       0
+Volume    405
+Name        0
+Sector      0
+dtype: int64
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&#39;Unique number of stocks (excluding SPY): {}&#39;.format(data[&#39;Name&#39;].nunique() - 1))
+print(&#39;Unique number of sectors: {}&#39;.format(data[&#39;Sector&#39;].nunique() - 1))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Unique number of stocks (excluding SPY): 501
+Unique number of sectors: 11
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# get how many stocks in each sector
+sector = data[[&#39;Sector&#39;, &#39;Name&#39;]].drop_duplicates()
+print(&#39;Sector size (number of stocks in sector): &#39;)
+display(sector.groupby([&#39;Sector&#39;])[&#39;Name&#39;].count())
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Sector size (number of stocks in sector): 
+
+
+
+Sector
+Consumer Discretionary        83
+Consumer Staples              35
+Energy                        31
+Financials                    68
+Health Care                   61
+Industrials                   65
+Information Technology        69
+Materials                     26
+Real Estate                   31
+SPY                            1
+Telecommunication Services     4
+Utilities                     28
+Name: Name, dtype: int64
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Data Summary:&lt;/strong&gt;
+* The dataset contains 605,586 rows and 8 columns.&lt;br /&gt;
+* &lt;code&gt;Open&lt;/code&gt;, &lt;code&gt;High&lt;/code&gt;, &lt;code&gt;Low&lt;/code&gt;, and &lt;code&gt;Volume&lt;/code&gt; contain missing values (less than 0.1%). &lt;code&gt;Close&lt;/code&gt; has no missing values.&lt;br /&gt;
+* There are 501 unique stocks (not including SPY) in the dataset and they belong to 11 unique sectors. The largest sector is Consumer Discretionary, and the smallest is Telecommunication Services.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;2-2-example-stocks-performance-metrics&#34;&gt;2.2 Example Stocks -  Performance Metrics&lt;/h3&gt;
+
+&lt;p&gt;The top 5 stocks with the highest S&amp;amp;P 500 component weights are &lt;strong&gt;AAPL&lt;/strong&gt; (3.92), &lt;strong&gt;MSFT&lt;/strong&gt; (2.68), &lt;strong&gt;FB&lt;/strong&gt; (1.90), &lt;strong&gt;AMZN&lt;/strong&gt; (1.83), &lt;strong&gt;JNJ&lt;/strong&gt; (1.71). Some common metrics including returns, volatility, alpha, beta, Sharpe ratio, moving averages of these stocks are analyzed below.&lt;/p&gt;
+
+&lt;p&gt;*Note: &lt;strong&gt;SPY&lt;/strong&gt; is also included in the analysis to serve as reference.*&lt;/p&gt;
+
+&lt;h4 id=&#34;close-price&#34;&gt;&lt;em&gt;CLOSE PRICE&lt;/em&gt;&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# construct a data frame with close price of the 5 stocks
+tickers = [&#39;AAPL&#39;, &#39;MSFT&#39;, &#39;FB&#39;, &#39;AMZN&#39;, &#39;JNJ&#39;, &#39;SPY&#39;]
+close = get_close_price(data, tickers)
+
+print(&#39;First 5 rows of the close price dataset: &#39;)
+display(close.head())
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;First 5 rows of the close price dataset: 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;AAPL&lt;/th&gt;
+      &lt;th&gt;MSFT&lt;/th&gt;
+      &lt;th&gt;FB&lt;/th&gt;
+      &lt;th&gt;AMZN&lt;/th&gt;
+      &lt;th&gt;JNJ&lt;/th&gt;
+      &lt;th&gt;SPY&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Date&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2012-08-14&lt;/th&gt;
+      &lt;td&gt;90.24&lt;/td&gt;
+      &lt;td&gt;30.13&lt;/td&gt;
+      &lt;td&gt;20.38&lt;/td&gt;
+      &lt;td&gt;233.19&lt;/td&gt;
+      &lt;td&gt;68.64&lt;/td&gt;
+      &lt;td&gt;140.79&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2012-08-15&lt;/th&gt;
+      &lt;td&gt;90.12&lt;/td&gt;
+      &lt;td&gt;30.20&lt;/td&gt;
+      &lt;td&gt;21.20&lt;/td&gt;
+      &lt;td&gt;237.42&lt;/td&gt;
+      &lt;td&gt;68.35&lt;/td&gt;
+      &lt;td&gt;140.95&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2012-08-16&lt;/th&gt;
+      &lt;td&gt;90.91&lt;/td&gt;
+      &lt;td&gt;30.78&lt;/td&gt;
+      &lt;td&gt;19.87&lt;/td&gt;
+      &lt;td&gt;241.55&lt;/td&gt;
+      &lt;td&gt;68.20&lt;/td&gt;
+      &lt;td&gt;142.01&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2012-08-17&lt;/th&gt;
+      &lt;td&gt;92.59&lt;/td&gt;
+      &lt;td&gt;30.90&lt;/td&gt;
+      &lt;td&gt;19.05&lt;/td&gt;
+      &lt;td&gt;241.17&lt;/td&gt;
+      &lt;td&gt;67.80&lt;/td&gt;
+      &lt;td&gt;142.22&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2012-08-20&lt;/th&gt;
+      &lt;td&gt;95.02&lt;/td&gt;
+      &lt;td&gt;30.74&lt;/td&gt;
+      &lt;td&gt;20.01&lt;/td&gt;
+      &lt;td&gt;240.35&lt;/td&gt;
+      &lt;td&gt;67.70&lt;/td&gt;
+      &lt;td&gt;142.22&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&#39;Statistics of the close price for selected stocks: &#39;)
+display(close.describe())
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Statistics of the close price for selected stocks: 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;AAPL&lt;/th&gt;
+      &lt;th&gt;MSFT&lt;/th&gt;
+      &lt;th&gt;FB&lt;/th&gt;
+      &lt;th&gt;AMZN&lt;/th&gt;
+      &lt;th&gt;JNJ&lt;/th&gt;
+      &lt;th&gt;SPY&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;count&lt;/th&gt;
+      &lt;td&gt;1258.000000&lt;/td&gt;
+      &lt;td&gt;1258.000000&lt;/td&gt;
+      &lt;td&gt;1258.000000&lt;/td&gt;
+      &lt;td&gt;1258.000000&lt;/td&gt;
+      &lt;td&gt;1258.000000&lt;/td&gt;
+      &lt;td&gt;1258.000000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;mean&lt;/th&gt;
+      &lt;td&gt;101.096733&lt;/td&gt;
+      &lt;td&gt;45.940525&lt;/td&gt;
+      &lt;td&gt;81.728967&lt;/td&gt;
+      &lt;td&gt;493.512107&lt;/td&gt;
+      &lt;td&gt;100.797687&lt;/td&gt;
+      &lt;td&gt;194.980771&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;std&lt;/th&gt;
+      &lt;td&gt;25.009571&lt;/td&gt;
+      &lt;td&gt;12.216807&lt;/td&gt;
+      &lt;td&gt;39.772139&lt;/td&gt;
+      &lt;td&gt;230.863315&lt;/td&gt;
+      &lt;td&gt;16.124040&lt;/td&gt;
+      &lt;td&gt;27.457270&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;min&lt;/th&gt;
+      &lt;td&gt;55.790000&lt;/td&gt;
+      &lt;td&gt;26.370000&lt;/td&gt;
+      &lt;td&gt;17.730000&lt;/td&gt;
+      &lt;td&gt;220.600000&lt;/td&gt;
+      &lt;td&gt;67.210000&lt;/td&gt;
+      &lt;td&gt;135.700000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;25%&lt;/th&gt;
+      &lt;td&gt;77.702500&lt;/td&gt;
+      &lt;td&gt;36.077500&lt;/td&gt;
+      &lt;td&gt;49.837500&lt;/td&gt;
+      &lt;td&gt;305.125000&lt;/td&gt;
+      &lt;td&gt;92.090000&lt;/td&gt;
+      &lt;td&gt;177.200000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;50%&lt;/th&gt;
+      &lt;td&gt;100.750000&lt;/td&gt;
+      &lt;td&gt;45.390000&lt;/td&gt;
+      &lt;td&gt;78.730000&lt;/td&gt;
+      &lt;td&gt;384.730000&lt;/td&gt;
+      &lt;td&gt;100.855000&lt;/td&gt;
+      &lt;td&gt;200.205000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;75%&lt;/th&gt;
+      &lt;td&gt;117.160000&lt;/td&gt;
+      &lt;td&gt;54.350000&lt;/td&gt;
+      &lt;td&gt;115.022500&lt;/td&gt;
+      &lt;td&gt;698.252500&lt;/td&gt;
+      &lt;td&gt;112.690000&lt;/td&gt;
+      &lt;td&gt;210.940000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;max&lt;/th&gt;
+      &lt;td&gt;161.060000&lt;/td&gt;
+      &lt;td&gt;74.220000&lt;/td&gt;
+      &lt;td&gt;172.450000&lt;/td&gt;
+      &lt;td&gt;1052.800000&lt;/td&gt;
+      &lt;td&gt;136.570000&lt;/td&gt;
+      &lt;td&gt;247.870000&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# calculate correlation matrix
+corr = close.corr()
+
+# Generate a mask for the upper triangle
+mask = np.zeros_like(corr, dtype=np.bool)
+mask[np.triu_indices_from(mask)] = True
+# plot correlation matrix
+fig, ax = plt.subplots(figsize=(6, 6))
+sns.heatmap(corr, mask=mask, square=True, linewidths=.5, annot=True, 
+            cbar_kws={&amp;quot;shrink&amp;quot;: .5})
+ax.set_title(&#39;Correlation Matrix of Close Price&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_19_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Observation:&lt;/strong&gt;&lt;br /&gt;
+Overall, these stocks are highly correlated, with correlation coefficients close to 1. Among these stocks, Apple stock shows relatively weaker correlations with other stocks.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&#34;return-5-year-simple-return&#34;&gt;&lt;em&gt;RETURN: 5-Year Simple Return&lt;/em&gt;&lt;/h4&gt;
+
+&lt;p&gt;The dataset contains 5 years of stock price data. We can use this to calculate 5-year simple return. Simple return is the incremental amount of net income from an investment, divided by the investment in it.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Simple Return = (Current Price - Purchase Price) / Purchase Price&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;close_copy = close.copy() # make a copy of the close dataframe to make changes
+
+# get close price ratio to that of the 2012-08-14
+close_copy = (close_copy - close_copy.ix[0, :])/close_copy.ix[0, :]*100 
+
+# plot price ratio over time
+close_copy.plot(legend=True, figsize=(7, 4), linewidth=1)
+plt.axhline(y=0, linestyle=&#39;dashed&#39;, color=&#39;black&#39;, linewidth=1)
+plt.xlabel(&#39;&#39;)
+plt.ylabel(&#39;Return %&#39;)
+plt.title(&#39;Stock Returns over Past 5 Year&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_22_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Observations:&lt;/strong&gt;&lt;br /&gt;
+* Facebook stock stands out from the plot with over 700% returns over the past five years
+* Amazon stock comes next to Facebook in terms of 5-year simple return
+* Apple, Johnson &amp;amp; Johnson, and Microsoft stocks show returns comparable to that of SPY&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&#34;return-annualized-return&#34;&gt;&lt;em&gt;RETURN: Annualized Return&lt;/em&gt;&lt;/h4&gt;
+
+&lt;p&gt;Annualized return is a percentage value showing how much an investment has increased in value on average per year over a period of time. It can be a preferable metric to use over simple return when we want to evaluate how successful an investment has been, or to compare the returns of two investments.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Annualized Return = (Simple Return + 1) ^ (1 / Years Held) - 1&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Using the 5-year simple return, the annualized returns of these stocks are calculated and compared.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# calculate annualized return with the 5-year simple return
+annual_retn = {}
+for t in close_copy.columns:
+    annual_retn[t] = ((close_copy[t][-1:].values/100 + 1)**(1/5) - 1)*100
+
+ind = np.arange(len(annual_retn))
+width = 0.35
+fig, ax = plt.subplots()
+ax.bar(ind, list(annual_retn.values()), color=&#39;blue&#39;)
+plt.axhline(y=annual_retn[&#39;SPY&#39;], linestyle=&#39;dashed&#39;, color=&#39;red&#39;, linewidth=1)
+ax.set_ylabel(&#39;Annualized Return %&#39;)
+ax.set_title(&#39;Stock Annualized Return&#39;)
+ax.set_xticks(ind + width)
+ax.set_xticklabels(list(annual_retn.keys()))
+ax.grid(True, linestyle=&#39;:&#39;, linewidth=0.75);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_25_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Observations:&lt;/strong&gt;
+* These stocks all beat SPY (Apple only by very slightly) in terms of annualized return
+* Facebook and Amazon realize over 50% and over 30% annualized returns, respectively, which significantly outperform SPY&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&#34;return-daily-returns&#34;&gt;&lt;em&gt;RETURN: Daily Returns&lt;/em&gt;&lt;/h4&gt;
+
+&lt;p&gt;Stock prices change on a daily basis, so we can also calculate daily returns to monitor the magnitude of the investment value.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Daily Return = (Close Price Today - Close Price Yesterday) / Close Price Yesterday&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# daily returns of these stocks
+close_copy = close.copy() 
+daily_retn = close_copy.pct_change().dropna()
+print(&#39;First 5 rows of the daily return dataset: &#39;)
+display(daily_retn.head())
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;First 5 rows of the daily return dataset: 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;AAPL&lt;/th&gt;
+      &lt;th&gt;MSFT&lt;/th&gt;
+      &lt;th&gt;FB&lt;/th&gt;
+      &lt;th&gt;AMZN&lt;/th&gt;
+      &lt;th&gt;JNJ&lt;/th&gt;
+      &lt;th&gt;SPY&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Date&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2012-08-15&lt;/th&gt;
+      &lt;td&gt;-0.001330&lt;/td&gt;
+      &lt;td&gt;0.002323&lt;/td&gt;
+      &lt;td&gt;0.040236&lt;/td&gt;
+      &lt;td&gt;0.018140&lt;/td&gt;
+      &lt;td&gt;-0.004225&lt;/td&gt;
+      &lt;td&gt;0.001136&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2012-08-16&lt;/th&gt;
+      &lt;td&gt;0.008766&lt;/td&gt;
+      &lt;td&gt;0.019205&lt;/td&gt;
+      &lt;td&gt;-0.062736&lt;/td&gt;
+      &lt;td&gt;0.017395&lt;/td&gt;
+      &lt;td&gt;-0.002195&lt;/td&gt;
+      &lt;td&gt;0.007520&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2012-08-17&lt;/th&gt;
+      &lt;td&gt;0.018480&lt;/td&gt;
+      &lt;td&gt;0.003899&lt;/td&gt;
+      &lt;td&gt;-0.041268&lt;/td&gt;
+      &lt;td&gt;-0.001573&lt;/td&gt;
+      &lt;td&gt;-0.005865&lt;/td&gt;
+      &lt;td&gt;0.001479&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2012-08-20&lt;/th&gt;
+      &lt;td&gt;0.026245&lt;/td&gt;
+      &lt;td&gt;-0.005178&lt;/td&gt;
+      &lt;td&gt;0.050394&lt;/td&gt;
+      &lt;td&gt;-0.003400&lt;/td&gt;
+      &lt;td&gt;-0.001475&lt;/td&gt;
+      &lt;td&gt;0.000000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2012-08-21&lt;/th&gt;
+      &lt;td&gt;-0.013681&lt;/td&gt;
+      &lt;td&gt;0.001952&lt;/td&gt;
+      &lt;td&gt;-0.042479&lt;/td&gt;
+      &lt;td&gt;-0.003745&lt;/td&gt;
+      &lt;td&gt;0.001182&lt;/td&gt;
+      &lt;td&gt;-0.003234&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&#39;Statistics of the daily return for selected stocks: &#39;)
+display(daily_retn.describe())
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Statistics of the daily return for selected stocks: 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;AAPL&lt;/th&gt;
+      &lt;th&gt;MSFT&lt;/th&gt;
+      &lt;th&gt;FB&lt;/th&gt;
+      &lt;th&gt;AMZN&lt;/th&gt;
+      &lt;th&gt;JNJ&lt;/th&gt;
+      &lt;th&gt;SPY&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;count&lt;/th&gt;
+      &lt;td&gt;1257.000000&lt;/td&gt;
+      &lt;td&gt;1257.000000&lt;/td&gt;
+      &lt;td&gt;1257.000000&lt;/td&gt;
+      &lt;td&gt;1257.000000&lt;/td&gt;
+      &lt;td&gt;1257.000000&lt;/td&gt;
+      &lt;td&gt;1257.000000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;mean&lt;/th&gt;
+      &lt;td&gt;0.000579&lt;/td&gt;
+      &lt;td&gt;0.000812&lt;/td&gt;
+      &lt;td&gt;0.001941&lt;/td&gt;
+      &lt;td&gt;0.001312&lt;/td&gt;
+      &lt;td&gt;0.000566&lt;/td&gt;
+      &lt;td&gt;0.000476&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;std&lt;/th&gt;
+      &lt;td&gt;0.015743&lt;/td&gt;
+      &lt;td&gt;0.014214&lt;/td&gt;
+      &lt;td&gt;0.022723&lt;/td&gt;
+      &lt;td&gt;0.018294&lt;/td&gt;
+      &lt;td&gt;0.008615&lt;/td&gt;
+      &lt;td&gt;0.007732&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;min&lt;/th&gt;
+      &lt;td&gt;-0.123519&lt;/td&gt;
+      &lt;td&gt;-0.113995&lt;/td&gt;
+      &lt;td&gt;-0.090551&lt;/td&gt;
+      &lt;td&gt;-0.109972&lt;/td&gt;
+      &lt;td&gt;-0.032696&lt;/td&gt;
+      &lt;td&gt;-0.040884&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;25%&lt;/th&gt;
+      &lt;td&gt;-0.006947&lt;/td&gt;
+      &lt;td&gt;-0.006175&lt;/td&gt;
+      &lt;td&gt;-0.008964&lt;/td&gt;
+      &lt;td&gt;-0.007570&lt;/td&gt;
+      &lt;td&gt;-0.003694&lt;/td&gt;
+      &lt;td&gt;-0.003040&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;50%&lt;/th&gt;
+      &lt;td&gt;0.000442&lt;/td&gt;
+      &lt;td&gt;0.000311&lt;/td&gt;
+      &lt;td&gt;0.001085&lt;/td&gt;
+      &lt;td&gt;0.000857&lt;/td&gt;
+      &lt;td&gt;0.000299&lt;/td&gt;
+      &lt;td&gt;0.000501&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;75%&lt;/th&gt;
+      &lt;td&gt;0.008875&lt;/td&gt;
+      &lt;td&gt;0.007764&lt;/td&gt;
+      &lt;td&gt;0.012078&lt;/td&gt;
+      &lt;td&gt;0.010861&lt;/td&gt;
+      &lt;td&gt;0.005486&lt;/td&gt;
+      &lt;td&gt;0.004783&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;max&lt;/th&gt;
+      &lt;td&gt;0.082044&lt;/td&gt;
+      &lt;td&gt;0.104522&lt;/td&gt;
+      &lt;td&gt;0.296115&lt;/td&gt;
+      &lt;td&gt;0.141311&lt;/td&gt;
+      &lt;td&gt;0.049585&lt;/td&gt;
+      &lt;td&gt;0.039791&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# plot daily return for 100 day period for clarity
+daily_retn.iloc[:100].plot(legend=True, figsize=(7, 4), linewidth=1)
+plt.axhline(y=0, linestyle=&#39;dashed&#39;, color=&#39;black&#39;, linewidth=1)
+plt.ylabel(&#39;Daily Return&#39;)
+plt.xlabel(&#39;&#39;)
+plt.title(&#39;Stock Daily Return in 100 Days&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_30_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Observation:&lt;/strong&gt;
+* Stock price fluctuates every day, and the stock daily return fluctuates around 0. All the above stocks have an average daily return slightly above 0.&lt;br /&gt;
+* Facebook stock price fluctuates the most, as demmonstrated in the plot and from its daily return standard deviation.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&#34;volatility-standard-deviation&#34;&gt;&lt;em&gt;VOLATILITY - Standard Deviation&lt;/em&gt;&lt;/h4&gt;
+
+&lt;p&gt;From daily return, we can calculate the volatility of a stock. Volatility is a statistical measure of the dispersion of returns for a given stock. Volatility is commonly measured by using the standard deviation of the returns from the stock. Commonly, the higher the volatility, the riskier the stock, i.e., the price of the stock can change dramatically over a short time period in either direction.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Daily Volatility = Standard Deviation of Daily Return&lt;br /&gt;
+Annualized Volatility = Daily Volatility * Squar Root of Number of Trading Days in a Year&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# plot daily volatility vs average daily return
+colors = cm.rainbow(np.linspace(0, 1, len(daily_retn.columns)))
+fig, ax = plt.subplots(figsize=(6, 4))
+
+for l, x, y, c in zip(daily_retn.columns, 
+                      daily_retn.mean(), 
+                      daily_retn.std(), 
+                      colors):
+    plt.scatter(x, y, color=c, s=30, label=l)
+
+plt.axvline(x=0, linewidth=1, linestyle=&#39;dashed&#39;, color=&#39;black&#39;)
+
+ax.grid(True, linestyle=&#39;:&#39;, linewidth=0.75)
+plt.xlim([-0.006, 0.006])
+plt.xlabel(&#39;Average Daily Return&#39;)
+plt.ylabel(&#39;Daily Volatility&#39;)
+plt.title(&#39;Daily Volatility vs Average Daily Return&#39;)
+plt.legend();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_33_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;br /&gt;
+This plot shows the relationship between a stock&amp;rsquo;s return and volatility for the selected stocks. Ideally, we would hope to have a &amp;lsquo;golden&amp;rsquo; stock that lies on the lower right of the plot, but in reality, a stock with higher average daily return is usually associated with higher volatility (lying on the top right of the plot as Facebook stock). Among these stocks, Apple stock seems to have an average daily return too small for its risk.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&#34;sharpe-ratio&#34;&gt;&lt;em&gt;Sharpe Ratio&lt;/em&gt;&lt;/h4&gt;
+
+&lt;p&gt;The &lt;strong&gt;Sharpe ratio&lt;/strong&gt; is a risk-adjusted return measurement developed by economist William Sharpe. It is calculated by subtracting the risk-free return, defined as a U.S. Treasury Bond, from the investment&amp;rsquo;s rate of return, and then dividing by the investment&amp;rsquo;s standard deviation of returns. It is useful for comparing funds with &lt;em&gt;similar historical returns&lt;/em&gt;. A higher Sharpe ratio indicates a higher risk-adjusted return. With the daily return data, we can calculate Sharpe ratio with the following formula:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Sharpe Ratio = Mean(stock daily return - risk_free daily return) / Stdv(stock daily return - risk_free daily return)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Since the daily risk-free rate of return is very small (close to 0), the Sharpe ratio is roughly equal to the ratio between the average daily return and the daily volatility.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# calculate Sharpe ratio 
+daily_rf_retn = (1 + 0.01)**(1/252) - 1 # very small number, approx. 0
+daily_retn_adj = daily_retn - daily_rf_retn
+sharpe = {}
+for t in daily_retn_adj.columns:
+    sharpe[t] = daily_retn_adj[t].mean() / daily_retn_adj[t].std()
+
+# plot sharpe ratio
+ind = np.arange(len(sharpe))
+width = 0.35
+fig, ax = plt.subplots()
+ax.bar(ind, list(sharpe.values()), color=&#39;blue&#39;)
+plt.axhline(y=sharpe[&#39;SPY&#39;], linestyle=&#39;dashed&#39;, color=&#39;red&#39;, linewidth=1)
+ax.set_ylabel(&#39;Sharpe Ratio&#39;)
+ax.set_title(&#39;Stock Sharpe Ratio&#39;)
+ax.set_xticks(ind + width)
+ax.set_xticklabels(list(sharpe.keys()))
+ax.grid(True, linestyle=&#39;:&#39;, linewidth=0.75);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_36_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Discussion:&lt;/strong&gt;&lt;br /&gt;
+As mentioned above, Sharpe ratio is useful for comparing funds with similar historical returns. Here, let&amp;rsquo;s compare Apple stock and Johnson &amp;amp; Johnson stock. From this plot, Apple stock has a much smaller Sharpe ratio than JNJ, indicating that it has a much smaller risk-adjusted return. This is consistent to the Daily Volatility vs Average Daily Return plot, which shows that both stocks have almost the same average daily return but AAPL has much higher volatility, resulting in a smaller risk-adjusted return.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&#34;beta&#34;&gt;&lt;em&gt;BETA&lt;/em&gt;&lt;/h4&gt;
+
+&lt;p&gt;One measure of relative volatility of a particular stock to the market is its &lt;strong&gt;beta&lt;/strong&gt;. Beta is a historical measure of volatility. When standard deviation measures an asset&amp;rsquo;s price movements compared to its average over time, beta measures the asset&amp;rsquo;s volatility &lt;em&gt;relative to a benchmark&lt;/em&gt; (i.e. an index). A beta of zero implies no correlation between the assets. Any beta above zero would imply a positive correlation with volatility expressed by how much over zero the number is. Any beta below zero would imply a negative correlation with volatility expressed by how much under zero the number is.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Beta = Covariance(stock&amp;rsquo;s daily return %, index&amp;rsquo;s daily return %) / Var(index&amp;rsquo;s daily return %)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# calculate beta
+ref = daily_retn[&#39;SPY&#39;].values # SPY as benchmark
+beta = {} 
+for t in tickers:
+    beta[t] = np.cov(daily_retn[t].values, ref)[0][1]/np.var(ref)
+    
+# plot bar plot of beta
+ind = np.arange(len(beta))
+width = 0.35
+fig, ax = plt.subplots()
+ax.bar(ind, list(beta.values()), color=&#39;blue&#39;)
+plt.axhline(y=beta[&#39;SPY&#39;], linestyle=&#39;dashed&#39;, color=&#39;red&#39;, linewidth=1)
+ax.set_ylabel(&#39;Beta&#39;)
+ax.set_title(&#39;Stock Beta&#39;)
+ax.set_ylim((0, 1.3))
+ax.set_xticks(ind + width)
+ax.set_xticklabels(list(beta.keys()))
+ax.grid(True, linestyle=&#39;:&#39;, linewidth=0.75);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_39_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Observation:&lt;/strong&gt;
+* All the beta values are above zero, implying positive correlations with the volatility of SPY.&lt;br /&gt;
+* Microsoft, Apple, Amazon, and Facebook stocks have beta values greater than 1, and thus are theoretically more volatile than the benchmark SPY. For example, Amazon stock&amp;rsquo;s beta value is close to 1.2, which implies a volatility 20% greater than SPY&lt;br /&gt;
+* Johnson &amp;amp; Johnson stock has a beta value smaller than 1 (close to 0.7), implying a volatility smaller (30% less) than the benchmark&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&#34;alpha&#34;&gt;&lt;em&gt;ALPHA&lt;/em&gt;&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Alpha&lt;/strong&gt; is the difference between a fund&amp;rsquo;s expected returns based on its beta and its actual returns. It is used to measure performance on a risk adjusted basis. An alpha of zero means the investment has exactly earned a return adequate for the volatility assumed. An alpha over zero means the investment has has earned a return that has compensated for the volatility risk taken. An alpha of less than zero means the investment has earned a return that has not compensated for the volatility risk taken.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Alpha =  Stock Return - Risk_Free Return  - beta * (Index Return - Risk_Free Return)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Comparison between alpha and Sharp ratio:&lt;/strong&gt;
+- Similarity: alpha and Sharpe ratio both offer a way to measure returns on a risk-adjusted basis.
+- Difference: alpha applies the measure in relation to a benchmark, whereas Sharpe ratio is based on its own standard deviation (volatility in absolute term).
+- Usage: for investors seeking an investment that closely matches the performance of a chosen benchmark, alpha is the number to review. But a fund&amp;rsquo;s R-squared must be high for alpha to be meaningful. Sharpe ratio is meaningful all the time, and it can be used to compare funds of all types, e.g., stock or bond, because standard deviation is calculated the exact same way for any type of fund but different benchmarks will be used to calculate beta, and beta-based alpha.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# calculate alpha
+# use anualized return for the stock&#39;s and index&#39;s returns
+# use 1.0% as the annual risk-free return
+alpha = {}
+for i, (k, v) in enumerate(beta.items()):
+    alpha[k] = annual_retn[k]/100 - 0.01 - v*(annual_retn[&#39;SPY&#39;]/100 - 0.01)
+    
+# plot alpha 
+ind = np.arange(len(alpha))
+width = 0.35
+fig, ax = plt.subplots()
+ax.bar(ind, list(alpha.values()), color=&#39;blue&#39;)
+plt.axhline(y=alpha[&#39;SPY&#39;], linestyle=&#39;dashed&#39;, color=&#39;red&#39;, linewidth=1)
+ax.set_ylabel(&#39;Alpha&#39;)
+ax.set_title(&#39;Stock Alpha&#39;)
+ax.set_ylim((-0.05, 0.45))
+ax.set_xticks(ind + width)
+ax.set_xticklabels(list(alpha.keys()))
+ax.grid(True, linestyle=&#39;:&#39;, linewidth=0.75);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_42_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Observation:&lt;/strong&gt;&lt;br /&gt;
+With SPY as the benchmark, all stocks except Apple stock have alpha much greater than 0. Facebook stock has the largest alpha value of 0.4, implying that it can potentially generate 40% excess return over SPY after adjusting for the inherited market risk (beta).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&#34;moving-average-look-at-an-individual-stock&#34;&gt;MOVING AVERAGE - Look at an Individual Stock&lt;/h4&gt;
+
+&lt;p&gt;After comparing these metrics, we can now look into more details of one individual stock, for example, the &amp;lsquo;winner&amp;rsquo; stock FB.&lt;/p&gt;
+
+&lt;p&gt;Above, we visualize the stock price changes (calculated with close price) using line charts. But there are other prices in one day, including open, high, low, and close. A &lt;a href=&#34;https://en.wikipedia.org/wiki/Candlestick_chart&#34;&gt;candlestick chart&lt;/a&gt; can be used to see all four variables in one plot. Candlesticks are usually composed of the body and an upper and a lower shadow (or wick). The body illustrates the opening and closing trades. The wick illustrates the highest and lowest traded prices during the time interval represented.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./images/candlestick.png&#34; alt=&#34;candlestick&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As shown above, stock data has &amp;lsquo;noises&amp;rsquo;, i.e., random price fluctuations. &lt;strong&gt;Moving average&lt;/strong&gt; can be used to help smooth out short-term fluctuations and highlight longer-term trends or cycles. Given a series of numbers and a fixed subset size, the first element of the moving average is obtained by taking the average of the initial fixed subset of the number series. Then the subset is modified by &amp;ldquo;shifting forward&amp;rdquo;; that is, excluding the first number of the series and including the next value in the subset.&lt;/p&gt;
+
+&lt;p&gt;Below is a candlestick plot of Facebook stock in the past year with 20-day, 50-day, and 200-day moving averages.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# the plot_candlestick_ohlc is defined in vis.py 
+plot_candlestick_ohlc(data, stick=&#39;Daily&#39;, ticker=&#39;FB&#39;, ma=True, ma_interval=[20, 50, 200], 
+                      start_date=&#39;2016-08-14&#39;, end_date=&#39;2017-08-14&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_46_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;br /&gt;
+The green box from the candlestick chart indicates a month of &lt;em&gt;gain&lt;/em&gt; with the close price higher than the open price. The red box indicates a month of &lt;em&gt;loss&lt;/em&gt; with the close price lower than the open price.&lt;/p&gt;
+
+&lt;p&gt;From the above plot, we can see that a moving average is much smoother than the actua stock data. Moving average is thus a stronger indicator of the stock price. A stock needs to be above or below the moving average line in order for the line to change direction. Therefore, crossing a moving average signals a possible change in trend, and should draw attention.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;2-3-all-stock&#34;&gt;2.3 All Stock&lt;/h3&gt;
+
+&lt;p&gt;After looking at these different aspects of the example stock data, it is time to extend the analyses to all stocks contained in the S&amp;amp;P 500 index and find out the best and worst performing stocks.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; some stocks do not have all 5-year data and are not included in the analysis.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;all_tickers = [] 
+length = len(data[data[&#39;Name&#39;] == &#39;SPY&#39;].index)
+for t in data[&#39;Name&#39;].unique():
+    if len(data[data[&#39;Name&#39;] == t].index) == length:
+        all_tickers.append(t)
+print(&#39;Number of stocks with 5-year data: {}&#39;.format(len(all_tickers)))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Number of stocks with 5-year data: 446
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# compile the stock&#39;s close price into one dataframe
+close_all = get_close_price(data, all_tickers)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# calculate all the metrics for these stocks
+# calculate_metrics() defined in helper.py
+metrics_all = calculate_metrics(close_all, all_tickers)
+print(&#39;First 5 rows of the metrics dataframe: &#39;)
+display(metrics_all.head())
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;First 5 rows of the metrics dataframe: 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;alpha&lt;/th&gt;
+      &lt;th&gt;annual_retn&lt;/th&gt;
+      &lt;th&gt;avg_daily_retn&lt;/th&gt;
+      &lt;th&gt;beta&lt;/th&gt;
+      &lt;th&gt;sharpe&lt;/th&gt;
+      &lt;th&gt;total_retn&lt;/th&gt;
+      &lt;th&gt;volatility&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;CAT&lt;/th&gt;
+      &lt;td&gt;-0.081983&lt;/td&gt;
+      &lt;td&gt;0.052911&lt;/td&gt;
+      &lt;td&gt;0.000310&lt;/td&gt;
+      &lt;td&gt;1.150359&lt;/td&gt;
+      &lt;td&gt;0.018670&lt;/td&gt;
+      &lt;td&gt;0.294071&lt;/td&gt;
+      &lt;td&gt;0.014472&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;CAH&lt;/th&gt;
+      &lt;td&gt;-0.002453&lt;/td&gt;
+      &lt;td&gt;0.109155&lt;/td&gt;
+      &lt;td&gt;0.000503&lt;/td&gt;
+      &lt;td&gt;0.935871&lt;/td&gt;
+      &lt;td&gt;0.034549&lt;/td&gt;
+      &lt;td&gt;0.678652&lt;/td&gt;
+      &lt;td&gt;0.013430&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;D&lt;/th&gt;
+      &lt;td&gt;0.010157&lt;/td&gt;
+      &lt;td&gt;0.077435&lt;/td&gt;
+      &lt;td&gt;0.000347&lt;/td&gt;
+      &lt;td&gt;0.527566&lt;/td&gt;
+      &lt;td&gt;0.030775&lt;/td&gt;
+      &lt;td&gt;0.451963&lt;/td&gt;
+      &lt;td&gt;0.009979&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;DRE&lt;/th&gt;
+      &lt;td&gt;0.050771&lt;/td&gt;
+      &lt;td&gt;0.156508&lt;/td&gt;
+      &lt;td&gt;0.000653&lt;/td&gt;
+      &lt;td&gt;0.881799&lt;/td&gt;
+      &lt;td&gt;0.050206&lt;/td&gt;
+      &lt;td&gt;1.068916&lt;/td&gt;
+      &lt;td&gt;0.012228&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;IR&lt;/th&gt;
+      &lt;td&gt;-0.000697&lt;/td&gt;
+      &lt;td&gt;0.139535&lt;/td&gt;
+      &lt;td&gt;0.000631&lt;/td&gt;
+      &lt;td&gt;1.199528&lt;/td&gt;
+      &lt;td&gt;0.040300&lt;/td&gt;
+      &lt;td&gt;0.921494&lt;/td&gt;
+      &lt;td&gt;0.014677&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&#34;rank-by-individual-stocks&#34;&gt;&lt;em&gt;RANK - by Individual Stocks&lt;/em&gt;&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&#39;Stocks with the highest 5-year return: &#39;)
+display(metrics_all.sort_values(by=&#39;total_retn&#39;, 
+                                ascending=False)[&#39;total_retn&#39;].head())
+
+print(&#39;Stocks with the lowest 5-year return: &#39;)
+display(metrics_all.sort_values(by=&#39;total_retn&#39;, 
+                                ascending=True)[&#39;total_retn&#39;].head())
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Stocks with the highest 5-year return: 
+
+
+
+NFLX    18.387755
+NVDA    10.542152
+EA       8.214005
+FB       7.378312
+INCY     5.919452
+Name: total_retn, dtype: float64
+
+
+Stocks with the lowest 5-year return: 
+
+
+
+CHK   -0.788131
+RRC   -0.744488
+UAA   -0.666253
+MOS   -0.647579
+NOV   -0.598479
+Name: total_retn, dtype: float64
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&#39;Stocks with the highest annualized return: &#39;)
+display(metrics_all.sort_values(by=&#39;annual_retn&#39;, 
+                                ascending=False)[&#39;annual_retn&#39;].head())
+
+print(&#39;Stocks with the lowest annualized return: &#39;)
+display(metrics_all.sort_values(by=&#39;annual_retn&#39;, 
+                                ascending=True)[&#39;annual_retn&#39;].head())
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Stocks with the highest annualized return: 
+
+
+
+NFLX    0.809279
+NVDA    0.631013
+EA      0.559156
+FB      0.529788
+INCY    0.472361
+Name: annual_retn, dtype: float64
+
+
+Stocks with the lowest annualized return: 
+
+
+
+CHK   -0.266815
+RRC   -0.238829
+UAA   -0.197059
+MOS   -0.188269
+NOV   -0.166815
+Name: annual_retn, dtype: float64
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&#39;Stocks with the lowest volatility (standard deviation): &#39;)
+display(metrics_all.sort_values(by=&#39;volatility&#39;, 
+                                ascending=True)[&#39;volatility&#39;].head())
+
+print(&#39;Stocks with the highest volatility (standard deviation): &#39;)
+display(metrics_all.sort_values(by=&#39;volatility&#39;, 
+                                ascending=False)[&#39;volatility&#39;].head())
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Stocks with the lowest volatility (standard deviation): 
+
+
+
+SPY    0.007732
+PEP    0.008243
+JNJ    0.008615
+WM     0.008725
+RSG    0.008850
+Name: volatility, dtype: float64
+
+
+Stocks with the highest volatility (standard deviation): 
+
+
+
+HPQ    0.075218
+CHK    0.040829
+FCX    0.034134
+DVA    0.033393
+JEC    0.032622
+Name: volatility, dtype: float64
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&#39;Stocks with the highest Sharpe ratio: &#39;)
+display(metrics_all.sort_values(by=&#39;sharpe&#39;, 
+                                ascending=False)[&#39;sharpe&#39;].head())
+
+print(&#39;Stocks with the lowest Sharpe ratio: &#39;)
+display(metrics_all.sort_values(by=&#39;sharpe&#39;, 
+                                ascending=True)[&#39;sharpe&#39;].head())
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Stocks with the highest Sharpe ratio: 
+
+
+
+NOC     0.103468
+FISV    0.098225
+NVDA    0.096966
+EA      0.094236
+LUV     0.089887
+Name: sharpe, dtype: float64
+
+
+Stocks with the lowest Sharpe ratio: 
+
+
+
+MOS   -0.033347
+RRC   -0.029155
+NOV   -0.028653
+MAT   -0.026853
+CTL   -0.025788
+Name: sharpe, dtype: float64
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&#39;Stocks with the lowest beta: &#39;)
+display(metrics_all.sort_values(by=&#39;beta&#39;, 
+                                ascending=True)[&#39;beta&#39;].head())
+
+print(&#39;Stocks with the highest beta: &#39;)
+display(metrics_all.sort_values(by=&#39;beta&#39;, 
+                                ascending=False)[&#39;beta&#39;].head())
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Stocks with the lowest beta: 
+
+
+
+ED     0.350578
+SO     0.384824
+DUK    0.451130
+EIX    0.463275
+AWK    0.484815
+Name: beta, dtype: float64
+
+
+Stocks with the highest beta: 
+
+
+
+FCX    1.958471
+URI    1.859497
+MU     1.761376
+CHK    1.750542
+LNC    1.683014
+Name: beta, dtype: float64
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&#39;Stocks with the highest alpha: &#39;)
+display(metrics_all.sort_values(by=&#39;alpha&#39;, 
+                                ascending=False)[&#39;alpha&#39;].head())
+
+print(&#39;Stocks with the lowest alpha: &#39;)
+display(metrics_all.sort_values(by=&#39;alpha&#39;, 
+                                ascending=True)[&#39;alpha&#39;].head())
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Stocks with the highest alpha: 
+
+
+
+NFLX    0.659643
+NVDA    0.489420
+EA      0.428524
+FB      0.399971
+STZ     0.345713
+Name: alpha, dtype: float64
+
+
+Stocks with the lowest alpha: 
+
+
+
+CHK   -0.466871
+FCX   -0.388349
+RRC   -0.365522
+MRO   -0.345597
+UAA   -0.334458
+Name: alpha, dtype: float64
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;rank-by-sector&#34;&gt;&lt;em&gt;RANK - by Sector&lt;/em&gt;&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# add sector to the metrics dataframe
+sector = data[[&#39;Name&#39;, &#39;Sector&#39;]].drop_duplicates()
+sector.set_index([&#39;Name&#39;], inplace=True)
+metrics_merged = pd.concat([metrics_all, sector], axis=1).dropna()
+
+# calculate mean metrics
+grouped = metrics_merged.groupby(&#39;Sector&#39;).mean()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# plot annual_retn
+sns.barplot(y=grouped.index, x=grouped.annual_retn)
+plt.xlabel(&#39;Annualized Return&#39;)
+plt.ylabel(&#39;&#39;)
+plt.title(&#39;Mean Annualized Return in Sector&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_62_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# plot sharpe ratio
+sns.barplot(y=grouped.index, x=grouped.sharpe)
+plt.xlabel(&#39;Sharpe Ratio&#39;)
+plt.ylabel(&#39;&#39;)
+plt.title(&#39;Mean Sharpe Ratio in Sector&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_63_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# plot alpha
+sns.barplot(y=grouped.index, x=grouped.alpha)
+plt.xlabel(&#39;Alpha&#39;)
+plt.ylabel(&#39;&#39;)
+plt.title(&#39;Mean Alpha in Sector&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_64_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# plot volatility
+sns.barplot(y=grouped.index, x=grouped.volatility)
+plt.xlabel(&#39;Volatility&#39;)
+plt.ylabel(&#39;&#39;)
+plt.title(&#39;Mean Volatility in Sector&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_65_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# plot beta
+sns.barplot(y=grouped.index, x=grouped.beta)
+plt.xlabel(&#39;Beta&#39;)
+plt.ylabel(&#39;&#39;)
+plt.title(&#39;Mean Beta in Sector&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_66_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Observation:&lt;/strong&gt;&lt;br /&gt;
+* The best sectors seem to be Health Care and Information Technology, in terms of high annualized return, Sharpe ratio, alpha.
+* The Energy sector in the most risky sector and realizes the least risk-adjusted return (both alpha, and Sharpe ratio)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;3-summary&#34;&gt;3. Summary&lt;/h2&gt;
+
+&lt;p&gt;In this notebook, common performance metrics including returns, alpha, beta, sharpe ratio, and moving averages are analyzed for stocks contained in the S&amp;amp;P 500 index. The price data of SPY, i.e., SPDR S&amp;amp;P 500 trust ETF (designed to track the S&amp;amp;P 500 stock market index), is used as reference for performance comparisons and also serves as benchmark for calculating alpha and beta. In addition to individual stocks, the averaged performance of different stock sectors in S&amp;amp;P 500 are also compared.&lt;/p&gt;
+
+&lt;h3 id=&#34;findings&#34;&gt;Findings&lt;/h3&gt;
+
+&lt;p&gt;Given the performance metrics computed in this notebook:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Several IT stocks performed really well in the past 5 years, including Netflix (NFLX), Nvdia (NVDA), Facebook (FB), and Electronic Arts (EA).&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Some Energy stocks had performance among the worst, including Chesapeake Energy (CHK), Range Resources (RRC), National Oilwell (NOV), etc.&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;The best-performing sector is found to be Health Care and Information Technology and the worst-performing one is Energy.&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;next-steps&#34;&gt;Next Steps&lt;/h3&gt;
+
+&lt;p&gt;Some next steps include:
+- Design and evaluate portfolio holdings and trading strategies
+- Build predictive machine learning models to give recommendations on trading actions&lt;/p&gt;
 </description>
     </item>
     
