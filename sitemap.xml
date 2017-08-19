@@ -52,6 +52,11 @@
   </url>
   
   <url>
+    <loc>https://yanfei-wu.github.io/blog/2017-08-19_stock_analysis/</loc>
+    <lastmod>2017-08-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://yanfei-wu.github.io/blog/2017-06-20_fraud_detection/</loc>
     <lastmod>2017-06-20T00:00:00+00:00</lastmod>
   </url>
@@ -108,7 +113,7 @@
   
   <url>
     <loc>https://yanfei-wu.github.io/blog/</loc>
-    <lastmod>2017-06-20T00:00:00+00:00</lastmod>
+    <lastmod>2017-08-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -132,7 +137,7 @@
   
   <url>
     <loc>https://yanfei-wu.github.io/tags/data-visualization/</loc>
-    <lastmod>2017-03-24T00:00:00+00:00</lastmod>
+    <lastmod>2017-08-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -156,7 +161,7 @@
   
   <url>
     <loc>https://yanfei-wu.github.io/tags/python/</loc>
-    <lastmod>2017-06-20T00:00:00+00:00</lastmod>
+    <lastmod>2017-08-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
