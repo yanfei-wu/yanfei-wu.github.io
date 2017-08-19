@@ -64,8 +64,9 @@ Also, the correlation matrix of these stocks is shown in the figure below. Overa
 
 The dataset contains 5 years of stock price data. Imagine we purchase the stock 5 years ago, we can use this dataset to calculate simple return. Simple return is the incremental amount of net income from an investment, divided by the investment in it (the price 5 years ago when we purchase it). 
 
-The formular for simple return is given by:  
-""" Simple Return = (Current Price - Purchase Price) / Purchase Price  """
+The formular for simple return is given by:   
+
+> Simple Return = (Current Price - Purchase Price) / Purchase Price  
 
 The plot below shows stock returns over the past 5 years. 
 
@@ -77,8 +78,9 @@ This kind of plot is one of the simplest ways of comparing stock performance. It
 
 Annualized return is a percentage value showing how much an investment has increased in value on average per year over a period of time. It can be a preferable metric to use over simple return when we want to evaluate how successful an investment has been, or to compare the returns of two investments. 
 
-Given simple return, the formula to calculate annualized return is:  
-""" Annualized Return = (Simple Return + 1) ^ (1 / Years Held) - 1 """ 
+Given simple return, the formula to calculate annualized return is:   
+
+> Annualized Return = (Simple Return + 1) ^ (1 / Years Held) - 1 
 
 Using the simple return of 5 years, the annualized returns of these stocks can be calculated with `Years Held = 5` in the formula above. We can then compare the annualized returns of the stocks of interest by a bar plot, as shown below.  
 
@@ -87,9 +89,9 @@ Using the simple return of 5 years, the annualized returns of these stocks can b
 The annualized return for SPY is slightly over 10%. Apple stock is very close to SPY. All other stocks beat SPY in terms of annualized return. Facebook and Amazon realize over 50% and over 30% annualized returns, respectively, which significantly outperform SPY.  
 
 **Return: Daily Return** 
-We know that stock prices change on a daily basis. Therefore, we can also calculate daily returns to monitor the magnitude of the investment value. The daily return can be calculated with the following formula:  
+We know that stock prices change on a daily basis. Therefore, we can also calculate daily returns to monitor the magnitude of the investment value. The daily return can be calculated with the following formula:   
 
-""" Daily Return = (Close Price Today - Close Price Yesterday) / Close Price Yesterday """ 
+> Daily Return = (Close Price Today - Close Price Yesterday) / Close Price Yesterday  
 
 The summary statistics of daily return is shown in the table below. 
 
@@ -111,7 +113,7 @@ We can compare the return and volatility of the selected stocks using the follow
 **Sharpe Ratio**  
 The Sharpe ratio is a risk-adjusted return measurement developed by economist William Sharpe. It is calculated by subtracting the risk-free return, defined as a U.S. Treasury Bond, from the investment's rate of return, and then dividing by the investment's standard deviation of returns. It is useful for comparing funds with similar historical returns. A higher Sharpe ratio indicates a higher risk-adjusted return. With the daily return data, we can calculate Sharpe ratio with the following formula: 
 
-""" Sharpe Ratio = Mean(stock daily return - risk_free daily return) / Stdv(stock daily return - risk_free daily return) """ 
+> Sharpe Ratio = Mean(stock daily return - risk_free daily return) / Stdv(stock daily return - risk_free daily return) 
 
 *Note that since the daily risk-free rate of return is very small (close to 0), the Sharpe ratio is roughly equal to the ratio between the average daily return and the daily volatility.* 
 
@@ -121,11 +123,13 @@ The selected stocks' Sharpe ratios (1.0% is used as the annual risk-free return 
 
 As mentioned above, Sharpe ratio is useful for comparing funds with similar historical returns. Here, let's compare Apple stock and Johnson & Johnson stock. From this plot, Apple stock has a much smaller Sharpe ratio than JNJ, indicating that it has a much smaller risk-adjusted return. This is consistent with the Daily Volatility vs Average Daily Return plot, which shows that both stocks have almost the same average daily return but AAPL has much higher volatility, resulting in a smaller risk-adjusted return. 
 
-**Beta** 
+**Beta**   
 One measure of relative volatility of a particular stock to the market is its beta. Beta is a historical measure of volatility. When standard deviation measures an asset's price movements compared to its average over time, beta measures the asset's volatility relative to a benchmark (i.e. an index). A beta of zero implies no correlation between the assets. Any beta above zero would imply a positive correlation with volatility expressed by how much over zero the number is. Any beta below zero would imply a negative correlation with volatility expressed by how much under zero the number is. 
 
-The formula for calculating beta is given by: 
-""" Beta = Covariance(stock's daily return, index's daily return) / Var(index's daily return) """ 
+The formula for calculating beta is given by:   
+
+> Beta = Covariance(stock's daily return, index's daily return) / Var(index's daily return)  
+
 The calculated beta values for the selected stocks are shown below:  
 
 <img src="../stock_file/beta.png" class="img-responsive" style="display: block; margin: auto;" />  
@@ -139,12 +143,13 @@ From the bar plot, we can see that
 **Alpha**  
 Alpha is the difference between a fund's expected returns based on its beta and its actual returns. It is used to measure performance on a risk adjusted basis. An alpha of zero means the investment has exactly earned a return adequate for the volatility assumed. An alpha over zero means the investment has earned a return that has compensated for the volatility risk taken. An alpha of less than zero means the investment has earned a return that has not compensated for the volatility risk taken. 
 
-To calculate alpha, we can use the following formula: 
-""" Alpha = Stock Return - Risk_Free Return - beta * (Index Return - Risk_Free Return) """  
+To calculate alpha, we can use the following formula:   
+
+> Alpha = Stock Return - Risk_Free Return - beta * (Index Return - Risk_Free Return)  
 
 *Note that alpha and Sharp ratio have some similarities and differences, as summarized below:*  
-- *Similarity*: alpha and Sharpe ratio both offer a way to measure returns on a risk-adjusted basis. 
-- *Difference*: alpha applies the measure in relation to a benchmark, whereas Sharpe ratio is based on its own standard deviation (volatility in absolute term). 
+- *Similarity*: alpha and Sharpe ratio both offer a way to measure returns on a risk-adjusted basis.   
+- *Difference*: alpha applies the measure in relation to a benchmark, whereas Sharpe ratio is based on its own standard deviation (volatility in absolute term).   
 - *Usage*: for investors seeking an investment that closely matches the performance of a chosen benchmark, alpha is the number to review. But a fund's R-squared must be high for alpha to be meaningful. Sharpe ratio is meaningful all the time, and it can be used to compare funds of all types, e.g., stock or bond, because standard deviation is calculated the exact same way for any type of fund but different benchmarks will be used to calculate beta, and beta-based alpha. 
 
 The selected stocks alpha values are compared below (1.0% is used as the annual risk-free return): 
@@ -177,67 +182,7 @@ After looking at these different aspects of the example stocks, it is time to ex
 
 After comparing all individual stocks contained the S&P 500 index, the following results are obtained: 
 
-5-year simple return: 
-
-|Highest - Top 5     | Lowest - Top 5   | 
-|--------------------|------------------| 
-| NFLX:    18.387755 | CHK:   -0.788131 | 
-| NVDA:    10.542152 | RRC:   -0.744488 | 
-| EA:       8.214005 | UAA:   -0.666253 | 
-| FB:       7.378312 | MOS:   -0.647579 | 
-| INCY:     5.919452 | NOV:   -0.598479 | 
-
-
-Annualized return: 
-
-| Highest - Top 5    | Lowest - Top 5   | 
-|--------------------|------------------| 
-| NFLX:    0.809279  | CHK:   -0.266815 | 
-| NVDA:    0.631013  | RRC:   -0.238829 | 
-| EA:      0.559156  | UAA:   -0.197059 | 
-| FB:      0.529788  | MOS:   -0.188269 | 
-| INCY:    0.472361  | NOV:   -0.166815 | 
-
-Daily Volatility: 
-
-| Lowest - Top 5     | Highest - Top 5  | 
-|--------------------|------------------| 
-| SPY:     0.007732  | HPQ:   0.075218  | 
-| PEP:     0.008243  | CHK:   0.040829  | 
-| JNJ:     0.008615  | FCX:   0.034134  | 
-| WM:      0.008725  | DVA:   0.033393  | 
-| RSG:     0.008850  | JEC:   0.032622  | 
-
-Sharpe ratio: 
-
-| Highest - Top 5    | Lowest - Top 5   | 
-|--------------------|------------------| 
-| NOC:     0.103468  | MOS:   -0.033347 | 
-| FISV:    0.098225  | RRC:   -0.029155 | 
-| NVDA:    0.096966  | NOV:   -0.028653 | 
-| EA:      0.094236  | MAT:   -0.026853 | 
-| LUV:     0.089887  | CTL:   -0.025788 | 
-
-Beta:  
-
-| Lowest - Top 5     | Highest - Top 5  | 
-|--------------------|------------------| 
-| ED:      0.350578  | FCX:   1.958471  | 
-| SO:      0.384824  | URI:   1.859497  | 
-| DUK:     0.451130  | MU:    1.761376  | 
-| EIX:     0.463275  | CHK:   1.750542  | 
-| AWK:     0.484815  | LNC:   1.683014  | 
-
-Alpha: 
-
-| Highest - Top 5   | Lowest - Top 5   | 
-|-------------------|------------------| 
-| NFLX:    0.659643 | CHK:   -0.466871 | 
-| NVDA:   0.489420  | FCX:   -0.388349 | 
-| EA:      0.428524 | RRC:   -0.365522 | 
-| FB:      0.399971 | MRO:   -0.345597 | 
-| STZ:     0.345713 | UAA:   -0.334458 | 
-
+<img src="../stock_file/comparison_individual.png" class="img-responsive" style="display: block; margin: auto;" /> 
 
 **Ranks by Sectors**  
 
