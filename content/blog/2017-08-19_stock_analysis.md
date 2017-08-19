@@ -50,8 +50,7 @@ There are different metrics for evaluating stock performance. Each individual in
 
 As an example to examine these different metrics from historical stock data, the top 5 stocks with the highest S&P 500 component weights as well as **SPY** are analyzed. They are **AAPL** (weight 3.92%), **MSFT** (weight 2.68%), **FB** (weight 1.90%), **AMZN** (1.83%), **JNJ** (weight 1.71%). (The weights are as of August 14 2017.)  
 
-**Close Price** 
-
+**Close Price**   
 The close price for these stocks are separated from the master dataset. The summary statistics is shown in the table below.  
 
 <img src="../stock_file/close_price_statistics.png" class="img-responsive" style="display: block; margin: auto;" /> 
@@ -60,8 +59,7 @@ Also, the correlation matrix of these stocks is shown in the figure below. Overa
 
 <img src="../stock_file/close_price_correlation.png" class="img-responsive" style="display: block; margin: auto;" /> 
 
-**Return: Simple Return** 
-
+**Return: Simple Return**   
 The dataset contains 5 years of stock price data. Imagine we purchase the stock 5 years ago, we can use this dataset to calculate simple return. Simple return is the incremental amount of net income from an investment, divided by the investment in it (the price 5 years ago when we purchase it). 
 
 The formular for simple return is given by:   
@@ -74,8 +72,7 @@ The plot below shows stock returns over the past 5 years.
 
 This kind of plot is one of the simplest ways of comparing stock performance. It puts all different stock price to a same relative scale and makes the trend clear. As we can see, Facebook stock stands out from the plot with over 700% returns over the past five years. Amazon stock comes next to Facebook with around 300% total returns. Apple, Johnson & Johnson, and Microsoft stocks show returns comparable to that of SPY which is around 100% over the past five years.  
 
-**Return: Annualized Return** 
-
+**Return: Annualized Return**   
 Annualized return is a percentage value showing how much an investment has increased in value on average per year over a period of time. It can be a preferable metric to use over simple return when we want to evaluate how successful an investment has been, or to compare the returns of two investments. 
 
 Given simple return, the formula to calculate annualized return is:   
@@ -88,7 +85,7 @@ Using the simple return of 5 years, the annualized returns of these stocks can b
 
 The annualized return for SPY is slightly over 10%. Apple stock is very close to SPY. All other stocks beat SPY in terms of annualized return. Facebook and Amazon realize over 50% and over 30% annualized returns, respectively, which significantly outperform SPY.  
 
-**Return: Daily Return** 
+**Return: Daily Return**   
 We know that stock prices change on a daily basis. Therefore, we can also calculate daily returns to monitor the magnitude of the investment value. The daily return can be calculated with the following formula:   
 
 > Daily Return = (Close Price Today - Close Price Yesterday) / Close Price Yesterday  
@@ -103,7 +100,7 @@ We can also visualize daily return with a line chart. The plot below displays th
 
 Overall, we can see that stock price fluctuates every day, like a random walk, so the daily return of a stock fluctuates around 0. All the above stocks have an average daily return slightly above 0, implying that they are overall profitable. Facebook stock price fluctuates the most, as demonstrated in the line chart as well as from its standard deviation of daily return. 
 
-**Volatility: Standard Deviation**  
+**Volatility (Standard Deviation)**  
 As shown above, the daily return of Facebook stock fluctuates the most, and we say it is the most volatile among the 6 stocks. Volatility is a statistical measure of the dispersion of returns for a given stock. Volatility is commonly measured by using the standard deviation (or variance) of the returns from the stock. The daily volatility is thus the standard deviation of daily return. Commonly, the higher the volatility, the riskier the stock, i.e., the price of the stock can change dramatically over a short time period in either direction. 
 
 We can compare the return and volatility of the selected stocks using the following plot. It shows daily volatility in the y-axis, and the average daily return in the x-axis. Ideally, we would hope to have a 'golden' stock that lies on the lower right of the plot, but in reality, a stock with higher average daily return is usually associated with higher volatility (lying on the top right of the plot as Facebook stock). Among these stocks, Apple stock seems to have an average daily return too small for its risk.   
@@ -147,10 +144,11 @@ To calculate alpha, we can use the following formula:
 
 > Alpha = Stock Return - Risk_Free Return - beta * (Index Return - Risk_Free Return)  
 
-*Note that alpha and Sharp ratio have some similarities and differences, as summarized below:*  
-- *Similarity*: alpha and Sharpe ratio both offer a way to measure returns on a risk-adjusted basis.   
-- *Difference*: alpha applies the measure in relation to a benchmark, whereas Sharpe ratio is based on its own standard deviation (volatility in absolute term).   
-- *Usage*: for investors seeking an investment that closely matches the performance of a chosen benchmark, alpha is the number to review. But a fund's R-squared must be high for alpha to be meaningful. Sharpe ratio is meaningful all the time, and it can be used to compare funds of all types, e.g., stock or bond, because standard deviation is calculated the exact same way for any type of fund but different benchmarks will be used to calculate beta, and beta-based alpha. 
+*Note that alpha and Sharp ratio both offer a way to measure returns on a risk-adjusted basis.* So what are their difference? **A comparison between alpha and the Sharp ratio** is shown below:  
+
+- Alpha applies the measure in relation to a benchmark, whereas Sharpe ratio is based on its own standard deviation (volatility in absolute term).    
+- Alpha is the number to review for investors seeking an investment that closely matches the performance of a chosen benchmark. But a fund's R-squared must be high for alpha to be meaningful.   
+- Sharpe ratio is meaningful all the time, and it can be used to compare funds of all types, e.g., stock or bond, because standard deviation is calculated the exact same way for any type of fund but different benchmarks will be used to calculate beta, and beta-based alpha.  
 
 The selected stocks alpha values are compared below (1.0% is used as the annual risk-free return): 
 
@@ -158,8 +156,7 @@ The selected stocks alpha values are compared below (1.0% is used as the annual 
 
 We can see that with SPY as the benchmark, all stocks except Apple stock have alpha much greater than 0. Facebook stock has the largest alpha value of 0.4, implying that it can potentially generate 40% excess return over SPY after adjusting for the inherited market risk (beta). 
 
-**Moving Average - trends in a stock** 
-
+**Moving Average - trends in a stock**   
 In addition to looking into the above performance metrics, we can also examine the trends in a stock by looking at the chart of the stock price. As shown above, stock data has 'noises', i.e., random price fluctuations. Moving average can be used to help smooth out short-term fluctuations and highlight longer-term trends or cycles. Given a series of numbers and a fixed subset size, the first element of the moving average is obtained by taking the average of the initial fixed subset of the number series. Then the subset is modified by "shifting forward"; that is, excluding the first number of the series and including the next value in the subset. 
 
 A candlestick chart is commonly used to display the price trend as it shows all four price variables (open, high, low, and close) in one plot. Candlesticks are usually composed of the body and an upper and a lower shadow (or wick). The body illustrates the opening and closing trades. The wick illustrates the highest and lowest traded prices during the time interval represented.  
@@ -178,14 +175,12 @@ After looking at these different aspects of the example stocks, it is time to ex
 
 *Note: some stocks do not have all 5-year data and are not included in the analysis.* 
 
-**Ranks of Individual Stocks**  
-
+**Ranks of Individual Stocks**    
 After comparing all individual stocks contained the S&P 500 index, the following results are obtained: 
 
 <img src="../stock_file/comparison_individual.png" class="img-responsive" style="display: block; margin: auto;" /> 
 
-**Ranks by Sectors**  
-
+**Ranks by Sectors**    
 By aggregating the dataset by sectors and calculate the average value of the above metrics, we can rank the sectors, as shown by the plots below: 
 
 Annualized Return: 
