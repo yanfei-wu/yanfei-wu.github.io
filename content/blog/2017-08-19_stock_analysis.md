@@ -178,6 +178,7 @@ After looking at these different aspects of the example stocks, it is time to ex
 After comparing all individual stocks contained the S&P 500 index, the following results are obtained: 
 
 5-year simple return: 
+
 | Highest - Top 5    | Lowest - Top 5   | 
 |--------------------|------------------| 
 | Stock  | Return    | Stock| Return    |
@@ -189,6 +190,7 @@ After comparing all individual stocks contained the S&P 500 index, the following
 | INCY   |  5.919452 | NOV  | -0.598479 | 
 
 Annualized return: 
+
 | Highest - Top 5    | Lowest - Top 5   | 
 |--------------------|------------------| 
 | Stock  | Return    | Stock| Return    |
@@ -200,6 +202,7 @@ Annualized return:
 | INCY   | 0.472361  | NOV  | -0.166815 | 
 
 Daily Volatility: 
+
 | Lowest - Top 5     | Highest - Top 5  | 
 |--------------------|------------------| 
 | Stock  | Volatility| Stock| Volatility|
@@ -211,6 +214,7 @@ Daily Volatility:
 | RSG    | 0.008850  | JEC  | 0.032622  | 
 
 Sharpe ratio: 
+
 | Highest - Top 5    | Lowest - Top 5   | 
 |--------------------|------------------| 
 | Stock  | Sharpe    | Stock| Sharpe    |
@@ -222,6 +226,7 @@ Sharpe ratio:
 | LUV    | 0.089887  | CTL  | -0.025788 | 
 
 Beta:  
+
 | Lowest - Top 5     | Highest - Top 5  | 
 |--------------------|------------------| 
 | Stock  | Beta      | Stock| Beta      |
@@ -233,6 +238,7 @@ Beta:
 | AWK    | 0.484815  | LNC  | 1.683014  | 
 
 Alpha: 
+
 | Highest - Top 5    | Lowest - Top 5   | 
 |--------------------|------------------| 
 | Stock  | Alpha     | Stock| Alpha     |
