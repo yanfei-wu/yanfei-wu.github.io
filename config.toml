@@ -14,8 +14,8 @@ googleAnalytics = ""
   description = "Describe your website"
   copyright = "&copy;2016 Yanfei Wu"
   sidebarAbout = [
-    "This site is about my amazing journey in data science and machine learning. I am a Materials Science PhD transitioning into Data Science. I love analyzing interesting datasets, creating insightful visualizations, and building machine learning models.",
-    "Hope you enjoy my site. Please feel free to contact me if you have any questions or suggestions. Happy reading :)"
+    "I am a data enthusiast and machine learning practitioner. With a background in Materials Science and Engineering, I pivoted into data science through self-education. This site is about my amazing journey in data science and machine learning.",
+    "Please feel free to contact me if you have any questions or suggestions. Happy reading :)"
   ]
   # Contact page
      # Since this template is static, the contact form uses www.formspree.io as a
@@ -37,14 +37,24 @@ googleAnalytics = ""
   url = ""
 
   [[params.navlinks]]
-  name = "Blogs"
+  name = "Blog"
   url = "blog/"
 
+  [[params.navlinks]]
+  name = "Projects"
+  url = "project/"
 
+  [[params.navlinks]]
+  name = "Courses"
+  url = "course/"
+
+  [[params.navlinks]]
+  name = "About"
+  url = "about/"
 
   [params.social]
-  email         = "wuxxx728@umn.edu"
-  linkedin      = "https://www.linkedin.com/in/yanfei-wu-76696383/"
+  email         = "yanfeiwu.data@gmail.com"
+  linkedin      = "https://www.linkedin.com/in/yanfei-wu/"
   github        = "https://github.com/yanfei-wu"
 
   [params.widgets]
