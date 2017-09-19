@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Yanfei Wu</title>
-    <link>https://yanfei-wu.github.io/index.xml</link>
+    <link>/index.xml</link>
     <description>Recent content on Yanfei Wu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2016 Yanfei Wu</copyright>
     <lastBuildDate>Sat, 05 Nov 2016 19:41:01 +0530</lastBuildDate>
-    <atom:link href="https://yanfei-wu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Name of the work 2</title>
-      <link>https://yanfei-wu.github.io/portfolio/work2/</link>
+      <link>/portfolio/work2/</link>
       <pubDate>Sat, 05 Nov 2016 19:41:01 +0530</pubDate>
       
-      <guid>https://yanfei-wu.github.io/portfolio/work2/</guid>
+      <guid>/portfolio/work2/</guid>
       <description>&lt;p&gt;When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane.
 &lt;/p&gt;
 
@@ -48,10 +48,10 @@
     
     <item>
       <title>Name of the work 3</title>
-      <link>https://yanfei-wu.github.io/portfolio/work3/</link>
+      <link>/portfolio/work3/</link>
       <pubDate>Sat, 05 Nov 2016 19:44:32 +0530</pubDate>
       
-      <guid>https://yanfei-wu.github.io/portfolio/work3/</guid>
+      <guid>/portfolio/work3/</guid>
       <description>&lt;p&gt;Fifth abundantly made Give sixth hath. Cattle creature i be don&amp;rsquo;t them.
 &lt;/p&gt;
 
@@ -84,10 +84,10 @@
     
     <item>
       <title>Item without image</title>
-      <link>https://yanfei-wu.github.io/portfolio/work4/</link>
+      <link>/portfolio/work4/</link>
       <pubDate>Sat, 05 Nov 2016 19:50:47 +0530</pubDate>
       
-      <guid>https://yanfei-wu.github.io/portfolio/work4/</guid>
+      <guid>/portfolio/work4/</guid>
       <description>&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
 &lt;/p&gt;
 
@@ -120,10 +120,10 @@
     
     <item>
       <title>Name of the work 5</title>
-      <link>https://yanfei-wu.github.io/portfolio/work5/</link>
+      <link>/portfolio/work5/</link>
       <pubDate>Sat, 05 Nov 2016 19:53:42 +0530</pubDate>
       
-      <guid>https://yanfei-wu.github.io/portfolio/work5/</guid>
+      <guid>/portfolio/work5/</guid>
       <description>&lt;p&gt;Fifth abundantly made Give sixth hath. Cattle creature i be don&amp;rsquo;t them.
 &lt;/p&gt;
 
@@ -156,10 +156,10 @@
     
     <item>
       <title>Name of the work 6</title>
-      <link>https://yanfei-wu.github.io/portfolio/work6/</link>
+      <link>/portfolio/work6/</link>
       <pubDate>Sat, 05 Nov 2016 19:56:17 +0530</pubDate>
       
-      <guid>https://yanfei-wu.github.io/portfolio/work6/</guid>
+      <guid>/portfolio/work6/</guid>
       <description>&lt;p&gt;Fifth abundantly made Give sixth hath. Cattle creature i be don&amp;rsquo;t them.
 &lt;/p&gt;
 
@@ -192,10 +192,10 @@
     
     <item>
       <title>Name of the work 7</title>
-      <link>https://yanfei-wu.github.io/portfolio/work7/</link>
+      <link>/portfolio/work7/</link>
       <pubDate>Sat, 05 Nov 2016 19:57:40 +0530</pubDate>
       
-      <guid>https://yanfei-wu.github.io/portfolio/work7/</guid>
+      <guid>/portfolio/work7/</guid>
       <description>&lt;p&gt;Fifth abundantly made Give sixth hath. Cattle creature i be don&amp;rsquo;t them.
 &lt;/p&gt;
 
@@ -228,10 +228,10 @@
     
     <item>
       <title>Name of the work 8</title>
-      <link>https://yanfei-wu.github.io/portfolio/work8/</link>
+      <link>/portfolio/work8/</link>
       <pubDate>Sat, 05 Nov 2016 19:59:22 +0530</pubDate>
       
-      <guid>https://yanfei-wu.github.io/portfolio/work8/</guid>
+      <guid>/portfolio/work8/</guid>
       <description>&lt;p&gt;Fifth abundantly made Give sixth hath. Cattle creature i be don&amp;rsquo;t them.
 &lt;/p&gt;
 
@@ -264,10 +264,10 @@
     
     <item>
       <title>Item with image</title>
-      <link>https://yanfei-wu.github.io/portfolio/work9/</link>
+      <link>/portfolio/work9/</link>
       <pubDate>Sat, 05 Nov 2016 20:02:19 +0530</pubDate>
       
-      <guid>https://yanfei-wu.github.io/portfolio/work9/</guid>
+      <guid>/portfolio/work9/</guid>
       <description>&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
 &lt;/p&gt;
 
@@ -300,10 +300,10 @@
     
     <item>
       <title>Item with image</title>
-      <link>https://yanfei-wu.github.io/portfolio/work10/</link>
+      <link>/portfolio/work10/</link>
       <pubDate>Sat, 05 Nov 2016 20:22:08 +0530</pubDate>
       
-      <guid>https://yanfei-wu.github.io/portfolio/work10/</guid>
+      <guid>/portfolio/work10/</guid>
       <description>&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
 &lt;/p&gt;
 
@@ -336,10 +336,10 @@
     
     <item>
       <title>Item with image</title>
-      <link>https://yanfei-wu.github.io/portfolio/work11/</link>
+      <link>/portfolio/work11/</link>
       <pubDate>Sat, 05 Nov 2016 20:23:59 +0530</pubDate>
       
-      <guid>https://yanfei-wu.github.io/portfolio/work11/</guid>
+      <guid>/portfolio/work11/</guid>
       <description>&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
 &lt;/p&gt;
 
@@ -372,10 +372,10 @@
     
     <item>
       <title>S&amp;P 500 Stocks Analysis</title>
-      <link>https://yanfei-wu.github.io/blog/2017-08-19_stock_analysis/</link>
+      <link>/blog/2017-08-19_stock_analysis/</link>
       <pubDate>Sat, 19 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://yanfei-wu.github.io/blog/2017-08-19_stock_analysis/</guid>
+      <guid>/blog/2017-08-19_stock_analysis/</guid>
       <description>
 
 &lt;p&gt;&lt;em&gt;Note&lt;/em&gt;: The code for this project is available in &lt;a href=&#34;https://github.com/yanfei-wu/stock/&#34;&gt;my Github Repository&lt;/a&gt;.&lt;/p&gt;
@@ -614,10 +614,10 @@ By aggregating the dataset by sectors and calculate the average value of the abo
     
     <item>
       <title>Fraud Detection: Learning from Imbalanced Data</title>
-      <link>https://yanfei-wu.github.io/blog/2017-06-20_fraud_detection/</link>
+      <link>/blog/2017-06-20_fraud_detection/</link>
       <pubDate>Tue, 20 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://yanfei-wu.github.io/blog/2017-06-20_fraud_detection/</guid>
+      <guid>/blog/2017-06-20_fraud_detection/</guid>
       <description>
 
 &lt;p&gt;&lt;em&gt;Note&lt;/em&gt;: The code and full report for this project is available in &lt;a href=&#34;https://github.com/yanfei-wu/kaggle/tree/master/fraud&#34;&gt;my Github Repository&lt;/a&gt;.&lt;/p&gt;
@@ -711,10 +711,10 @@ By aggregating the dataset by sectors and calculate the average value of the abo
     
     <item>
       <title>Machine Learning for Employee Retention</title>
-      <link>https://yanfei-wu.github.io/blog/2017-04-28_employee_retention/</link>
+      <link>/blog/2017-04-28_employee_retention/</link>
       <pubDate>Fri, 28 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://yanfei-wu.github.io/blog/2017-04-28_employee_retention/</guid>
+      <guid>/blog/2017-04-28_employee_retention/</guid>
       <description>
 
 &lt;p&gt;&lt;em&gt;Note&lt;/em&gt;: The code and full report for this project is available in &lt;a href=&#34;https://github.com/yanfei-wu/ml_udacity/tree/master/capstone&#34;&gt;my Github Repository&lt;/a&gt;.&lt;/p&gt;
@@ -828,10 +828,10 @@ By aggregating the dataset by sectors and calculate the average value of the abo
     
     <item>
       <title>Lines from South Park</title>
-      <link>https://yanfei-wu.github.io/blog/2017-03-20_southpark/</link>
+      <link>/blog/2017-03-20_southpark/</link>
       <pubDate>Fri, 24 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://yanfei-wu.github.io/blog/2017-03-20_southpark/</guid>
+      <guid>/blog/2017-03-20_southpark/</guid>
       <description>
 
 &lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
@@ -943,10 +943,10 @@ By aggregating the dataset by sectors and calculate the average value of the abo
     
     <item>
       <title>&#34;Toxic Beauty&#34;: Chemicals in Cosmetics</title>
-      <link>https://yanfei-wu.github.io/blog/2017-03-15_chemicals/</link>
+      <link>/blog/2017-03-15_chemicals/</link>
       <pubDate>Wed, 15 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://yanfei-wu.github.io/blog/2017-03-15_chemicals/</guid>
+      <guid>/blog/2017-03-15_chemicals/</guid>
       <description>
 
 &lt;p&gt;How many different beauty products do you apply onto your face and body everyday? How many chemical ingredients do they contain? And how many of those chemicals have potential health risks?&lt;/p&gt;
