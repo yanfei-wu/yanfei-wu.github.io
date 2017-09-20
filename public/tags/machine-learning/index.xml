@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Machine Learning on Yanfei Wu</title>
-    <link>https://yanfei-wu.github.io/tags/machine-learning/index.xml</link>
+    <link>/tags/machine-learning/index.xml</link>
     <description>Recent content in Machine Learning on Yanfei Wu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2016 Yanfei Wu</copyright>
-    <atom:link href="https://yanfei-wu.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Fraud Detection: Learning from Imbalanced Data</title>
-      <link>https://yanfei-wu.github.io/blog/2017-06-20_fraud_detection/</link>
+      <link>/blog/2017-06-20_fraud_detection/</link>
       <pubDate>Tue, 20 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://yanfei-wu.github.io/blog/2017-06-20_fraud_detection/</guid>
+      <guid>/blog/2017-06-20_fraud_detection/</guid>
       <description>
 
 &lt;p&gt;&lt;em&gt;Note&lt;/em&gt;: The code and full report for this project is available in &lt;a href=&#34;https://github.com/yanfei-wu/kaggle/tree/master/fraud&#34;&gt;my Github Repository&lt;/a&gt;.&lt;/p&gt;
@@ -108,10 +108,10 @@
     
     <item>
       <title>Machine Learning for Employee Retention</title>
-      <link>https://yanfei-wu.github.io/blog/2017-04-28_employee_retention/</link>
+      <link>/blog/2017-04-28_employee_retention/</link>
       <pubDate>Fri, 28 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://yanfei-wu.github.io/blog/2017-04-28_employee_retention/</guid>
+      <guid>/blog/2017-04-28_employee_retention/</guid>
       <description>
 
 &lt;p&gt;&lt;em&gt;Note&lt;/em&gt;: The code and full report for this project is available in &lt;a href=&#34;https://github.com/yanfei-wu/ml_udacity/tree/master/capstone&#34;&gt;my Github Repository&lt;/a&gt;.&lt;/p&gt;

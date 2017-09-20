@@ -2,21 +2,87 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Courses on Yanfei Wu</title>
-    <link>https://yanfei-wu.github.io/course/index.xml</link>
+    <link>/course/index.xml</link>
     <description>Recent content in Courses on Yanfei Wu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2016 Yanfei Wu</copyright>
     <lastBuildDate>Thu, 05 May 2016 21:48:51 -0700</lastBuildDate>
-    <atom:link href="https://yanfei-wu.github.io/course/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/course/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Courses</title>
-      <link>https://yanfei-wu.github.io/course/</link>
+      <link>/course/</link>
       <pubDate>Thu, 05 May 2016 21:48:51 -0700</pubDate>
       
-      <guid>https://yanfei-wu.github.io/course/</guid>
-      <description>&lt;p&gt;This is a &amp;ldquo;hello world&amp;rdquo; example website for the &lt;a href=&#34;https://github.com/rstudio/blogdown&#34;&gt;&lt;strong&gt;blogdown&lt;/strong&gt;&lt;/a&gt; package. The theme was forked from &lt;a href=&#34;https://github.com/jrutheiser/hugo-lithium-theme&#34;&gt;@jrutheiser/hugo-lithium-theme&lt;/a&gt; and modified by &lt;a href=&#34;https://github.com/yihui/hugo-lithium-theme&#34;&gt;Yihui Xie&lt;/a&gt;.&lt;/p&gt;
+      <guid>/course/</guid>
+      <description>&lt;p&gt;I am a greedy learner on &lt;strong&gt;Massive Open Online Courses&lt;/strong&gt; (MOOCs). I enjoy learning something new every day and here is a list of courses I took.&lt;/p&gt;
+
+&lt;p&gt;&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ &lt;table style=&#34;width:100%&#34;&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Mining Massive Datasets&lt;/th&gt;
+    &lt;th&gt;Statistical Learning&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;img src=&#34;./imgs/MMDS.png&#34; width=&#34;200&#34;&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;img src=&#34;./imgs/SL.png&#34; width=&#34;200&#34;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Stanford University&lt;/td&gt;
+    &lt;td&gt;Stanford University&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;a href=&#34;./pdfs/MMDS.pdf&#34;&gt;Statement of Accomplishment&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href=&#34;./pdfs/SL.pdf&#34;&gt;Statement of Accomplishment&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;table style=&#34;width:100%&#34;&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Machine Learning&lt;/th&gt;
+    &lt;th&gt;Deep Learning&lt;/th&gt; 
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;img src=&#34;./imgs/ML.png&#34; width=&#34;200&#34;&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;img src=&#34;./imgs/DL.png&#34; width=&#34;200&#34;&gt;&lt;/td&gt; 
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Stanford University&lt;/td&gt;
+    &lt;td&gt;deeplearning.ai&lt;/td&gt; 
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;a href=&#34;./pdfs/ML.pdf&#34;&gt;Statement of Accomplishment&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href=&#34;./pdfs/DL.pdf&#34;&gt;Statement of Accomplishment&lt;/a&gt;&lt;/td&gt; 
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;table style=&#34;width:100%&#34;&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Data Science&lt;/th&gt;
+    &lt;th&gt;Machine Learning Engineer&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;img src=&#34;./imgs/DS.png&#34; width=&#34;200&#34;&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;img src=&#34;./imgs/MLND.png&#34; width=&#34;200&#34;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Johns Hopkins University&lt;/td&gt;
+    &lt;td&gt;Udacity&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;a href=&#34;./pdfs/DS.pdf&#34;&gt;Statement of Accomplishment&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href=&#34;./pdfs/MLND.pdf&#34;&gt;Statement of Accomplishment&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;/body&gt;&lt;/p&gt;
 </description>
     </item>
     
