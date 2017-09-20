@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on Yanfei Wu</title>
-    <link>/project/index.xml</link>
+    <link>https://yanfei-wu.github.io/project/index.xml</link>
     <description>Recent content in Projects on Yanfei Wu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2016 Yanfei Wu</copyright>
     <lastBuildDate>Thu, 05 May 2016 21:48:51 -0700</lastBuildDate>
-    <atom:link href="/project/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://yanfei-wu.github.io/project/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Projects</title>
-      <link>/project/</link>
+      <link>https://yanfei-wu.github.io/project/</link>
       <pubDate>Thu, 05 May 2016 21:48:51 -0700</pubDate>
       
-      <guid>/project/</guid>
+      <guid>https://yanfei-wu.github.io/project/</guid>
       <description>&lt;p&gt;I believe in learning-by-doing. Transitioning from Materials Science to Data Science, I have done some interesting projects to help myself learn. These projects span from data science, machine learning, to artificial intelligence.&lt;/p&gt;
 </description>
     </item>

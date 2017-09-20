@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Courses on Yanfei Wu</title>
-    <link>/course/index.xml</link>
+    <link>https://yanfei-wu.github.io/course/index.xml</link>
     <description>Recent content in Courses on Yanfei Wu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2016 Yanfei Wu</copyright>
     <lastBuildDate>Thu, 05 May 2016 21:48:51 -0700</lastBuildDate>
-    <atom:link href="/course/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://yanfei-wu.github.io/course/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Courses</title>
-      <link>/course/</link>
+      <link>https://yanfei-wu.github.io/course/</link>
       <pubDate>Thu, 05 May 2016 21:48:51 -0700</pubDate>
       
-      <guid>/course/</guid>
+      <guid>https://yanfei-wu.github.io/course/</guid>
       <description>&lt;p&gt;I am a greedy learner on &lt;strong&gt;Massive Open Online Courses&lt;/strong&gt; (MOOCs). I enjoy learning something new every day and here is a list of courses I took.&lt;/p&gt;
 
 &lt;p&gt;&lt;html&gt;
